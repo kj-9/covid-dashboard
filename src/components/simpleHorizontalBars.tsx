@@ -1,34 +1,20 @@
 import React from 'react';
 import { BarGroupHorizontal, Bar} from '@vx/shape';
 import { Group } from '@vx/group';
-
-
-type dataType = {
-    x: string;
-    y: number;
-}
-
-const data: dataType[] = [
-    { x: "2019-01-01", y: 123 },
-    { x: "2019-02-02", y: 123 },
-    { x: "2019-03-03", y: 1223 },
-    { x: "2019-04-04", y: 1213 },
-
-]
-
-type keyTypeY = 'y';
-const keys = ['y'] as keyTypeY[];
+import {SimpleDataType, SimpleKeyType, SimpleKey} from './simpleData'
 
 export default function SimpleHorizontalBars({ data, y0, y0Scale, y1Scale, xScale, color, width }) {
 
-    return <BarGroupHorizontal<dataType, keyTypeY>
+
+
+    return <BarGroupHorizontal<SimpleDataType, SimpleKeyType>
         data={data}
         y0={y0}
         y0Scale={y0Scale}
         y1Scale={y1Scale}
         xScale={xScale}
         color={color}
-        keys={keys}
+        keys={SimpleKey}
         width={width}
     >
         {barGroups =>
