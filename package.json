@@ -19,6 +19,16 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@vx/axis": "0.0.198",
+    "@vx/gradient": "0.0.198",
+    "@vx/grid": "0.0.198",
+    "@vx/group": "0.0.198",
+    "@vx/legend": "0.0.198",
+    "@vx/mock-data": "0.0.198",
+    "@vx/responsive": "0.0.198",
+    "@vx/scale": "0.0.198",
+    "@vx/shape": "0.0.198",
+    "@vx/tooltip": "0.0.198",
     "prettier": "2.0.5"
   },
   "repository": {
