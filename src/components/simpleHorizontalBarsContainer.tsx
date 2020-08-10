@@ -11,8 +11,8 @@ const format = timeFormat('%b %d');
 const formatDate = (date: string) => format(parseDate(date) as Date);
 
 export default function SimpleHorizontalBarsContainer({
-  width, height, margin, data, getX, y0Scale, y1Scale, xScale, colorScale,
-  xMax
+  width, height, margin, 
+  data, getX, y0Scale, y1Scale, xScale, colorScale, xMax
 }: SimpleDataScaler) {
 
   //

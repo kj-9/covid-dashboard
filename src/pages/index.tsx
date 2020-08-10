@@ -11,7 +11,7 @@ const data: SimpleDataType[] = [
   { x: "2019-03-03", y: 1223 },
   { x: "2019-04-04", y: 1213 },
 ]
-const simpleDataScaler = new SimpleDataScaler(1000, 600, data);
+const simpleDataScaler = new SimpleDataScaler(1000, 600, data, 'green');
 
 
 
