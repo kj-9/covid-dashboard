@@ -3,14 +3,10 @@ import { getX, SimpleDataType, SimpleKey } from './simpleData'
 
 
 const defaultMargin = { top: 20, right: 20, bottom: 20, left: 50 };
-const blue = '#aeeef8';
-export const green = '#e5fd3d';
-const purple = '#9caff6';
 
 function max<D>(arr: D[], fn: (d: D) => number) {
     return Math.max(...arr.map(fn));
 }
-
 
 export default class SimpleDataScaler {
     width: number;
@@ -25,7 +21,7 @@ export default class SimpleDataScaler {
     xMax: number;
     yMax: number;
 
-    constructor(width:number, height:number, data:SimpleDataType[]) {
+    constructor(width:number, height:number, data:SimpleDataType[], color: string) {
         this.width = width;
         this.height = height;
         this.data = data;
@@ -45,7 +41,7 @@ export default class SimpleDataScaler {
 
         this.colorScale = scaleOrdinal<string, string>({
             domain: SimpleKey,
-            range: [blue, green, purple],
+            range: [color],
         });
 
         // calc values
