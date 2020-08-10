@@ -18,13 +18,17 @@ export default class SimpleDataScaler {
     y1Scale;
     xScale;
     colorScale;
+    axisColor: string;
+    tickFormat;
     xMax: number;
     yMax: number;
 
-    constructor(width:number, height:number, data:SimpleDataType[], color: string) {
+    constructor(width:number, height:number, data:SimpleDataType[], barColor: string, axisColor: string, tickFormat) {
         this.width = width;
         this.height = height;
         this.data = data;
+        this.axisColor = axisColor;
+        this.tickFormat = tickFormat
 
         // setup scales
         this.y0Scale = scaleBand<string>({
@@ -41,7 +45,7 @@ export default class SimpleDataScaler {
 
         this.colorScale = scaleOrdinal<string, string>({
             domain: SimpleKey,
-            range: [color],
+            range: [barColor],
         });
 
         // calc values
