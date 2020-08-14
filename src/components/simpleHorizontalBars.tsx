@@ -1,8 +1,7 @@
 import React from 'react';
 import { Group } from '@vx/group';
-import SimpleHorizontalBar from './simpleHorizontalBars';
 import SimpleDataScaler from './simpleDataScaler'
-import { AxisLeft } from '@vx/axis';
+import { AxisLeft, AxisTop } from '@vx/axis';
 import { SimpleDataType, SimpleKeyType, SimpleKey } from './simpleData'
 import { BarGroupHorizontal, Bar } from '@vx/shape';
 
@@ -46,12 +45,16 @@ export default function SimpleHorizontalBars({
           ))
         }
       </BarGroupHorizontal>
+      <AxisTop 
+        scale={xScale}
+      />
       <AxisLeft
         scale={y0Scale}
         stroke={axisColor}
         tickStroke={axisColor}
         tickFormat={tickFormat}
-        hideAxisLine
+        hideAxisLine={false}
+        numTicks= {data.length}
         tickLabelProps={() => ({
           fill: axisColor,
           fontSize: 11,
