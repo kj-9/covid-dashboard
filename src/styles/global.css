@@ -1,0 +1,7 @@
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper,
+#root {
+    height: 100%
+}
