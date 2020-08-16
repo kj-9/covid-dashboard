@@ -1,0 +1,8 @@
+steps:
+    - name: 'gcr.io/cloud-builders/gcloud'
+      entrypoint: bash
+      args:
+      - -c
+      - |- 
+        git remote add origin git@github.com:kj002/test-github-push.git
+        git push -u origin master
