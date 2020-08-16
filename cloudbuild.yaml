@@ -4,5 +4,5 @@ steps:
       args:
       - -c
       - |- 
-        git remote add origin git@github.com:kj002/test-github-push.git
-        git push -u origin master
+        git remote add github git@github.com:kj002/test-github-push.git
+        git push -u github master
