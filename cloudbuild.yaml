@@ -1,8 +1,60 @@
+# Access the id_github file from Secret Manager
 steps:
-    - name: 'gcr.io/cloud-builders/gcloud'
-      entrypoint: bash
+    - name: gcr.io/cloud-builders/gcloud
+      entrypoint: 'bash'
+      args: [ '-c', 'gcloud secrets versions access latest --secret=${_SECRET_KEY} > /root/.ssh/id_github' ]
+      volumes:
+      - name: 'ssh'
+        path: /root/.ssh  
+    - name: gcr.io/cloud-builders/git
+      entrypoint: 'bash'
       args:
-      - -c
-      - |- 
-        git remote add github git@github.com:kj002/test-github-push.git
-        git push -u github master
+      - '-c'
+      - |
+        chmod 600 /root/.ssh/id_github
+        cat <<EOF >/root/.ssh/config
+        Hostname github.com
+        IdentityFile /root/.ssh/id_github
+        EOF
+        ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
+        git config --global user.email ${_GIT_USER_EMAIL}
+        git config --global user.name ${_GIT_USER_NAME}
+        cd ..
+        git clone git@github.com:${_GITHUB_USER_NAME}/${_GITHUB_REPO}.git
+      volumes:
+      - name: 'ssh'
+        path: /root/.ssh
+      - name: '${_GITHUB_REPO}'
+        path: '/${_GITHUB_REPO}'
+    - name: gcr.io/cloud-builders/gsutil
+      entrypoint: 'bash'
+      args: 
+      - '-c'
+      - gsutil rsync -d -R -x ".git/*" . /${_GITHUB_REPO}
+      volumes:
+      - name: ssh
+        path: /root/.ssh
+      - name: '${_GITHUB_REPO}'
+        path: '/${_GITHUB_REPO}'
+    - name: gcr.io/cloud-builders/git
+      entrypoint: 'bash'
+      args:
+      - '-c'
+      - |
+        cd /${_GITHUB_REPO}
+        git add .
+        git commit -m ${_COMMIT_MESSAGE}
+        git push -u origin master
+      volumes:
+      - name: 'ssh'
+        path: /root/.ssh
+      - name: '${_GITHUB_REPO}'
+        path: '/${_GITHUB_REPO}'
+
+substitutions:
+  _SECRET_KEY: github-key
+  _GIT_USER_EMAIL: ${BUILD_ID}
+  _GIT_USER_NAME: Cloudbuild
+  _GITHUB_USER_NAME: kj002
+  _GITHUB_REPO: test-github-push
+  _COMMIT_MESSAGE: ${PROJECT_ID}-${BUILD_ID}-${COMMIT_SHA}-${REPO_NAME}-${BRANCH_NAME}
