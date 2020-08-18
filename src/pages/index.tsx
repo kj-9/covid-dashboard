@@ -41,17 +41,8 @@ export default function Home({ data }) {
 
     <div className="columns">
       <div className="column">
-        <h1 className="title is-1">Title</h1>
-        <h2 className="subtitle is-4">Subtitle</h2>
-        <ParentSize>
-          {parent => (
-            <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 700, showData, 'green', 'black', tickFormat)} />
-          )}
-        </ParentSize>
-      </div>
-      <div className="column">
-        <h1 className="title is-1">Title</h1>
-        <h2 className="subtitle is-4">Subtitle</h2>
+        <h1 className="title is-1">コロナ重症者数</h1>
+        <h2 className="subtitle is-4">都道府県別</h2>
         <ParentSize>
           {parent => (
             <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 700, showData, 'green', 'black', tickFormat)} />
