@@ -1,60 +1,64 @@
-# Access the id_github file from Secret Manager
 steps:
-    - name: gcr.io/cloud-builders/gcloud
-      entrypoint: 'bash'
-      args: [ '-c', 'gcloud secrets versions access latest --secret=${_SECRET_KEY} > /root/.ssh/id_github' ]
-      volumes:
-      - name: 'ssh'
-        path: /root/.ssh  
-    - name: gcr.io/cloud-builders/git
-      entrypoint: 'bash'
-      args:
-      - '-c'
-      - |
-        chmod 600 /root/.ssh/id_github
-        cat <<EOF >/root/.ssh/config
-        Hostname github.com
-        IdentityFile /root/.ssh/id_github
-        EOF
-        ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
-        git config --global user.email ${_GIT_USER_EMAIL}
-        git config --global user.name ${_GIT_USER_NAME}
-        cd ..
-        git clone git@github.com:${_GITHUB_USER_NAME}/${_GITHUB_REPO}.git
-      volumes:
-      - name: 'ssh'
-        path: /root/.ssh
-      - name: '${_GITHUB_REPO}'
-        path: '/${_GITHUB_REPO}'
-    - name: gcr.io/cloud-builders/gsutil
-      entrypoint: 'bash'
-      args: 
-      - '-c'
-      - gsutil rsync -d -R -x ".git/*" . /${_GITHUB_REPO}
-      volumes:
+  - name: gcr.io/cloud-builders/gcloud
+    entrypoint: bash
+    args:
+      - -c
+      - gcloud secrets versions access latest --secret=${_SECRET_KEY} > /root/.ssh/id_github
+    volumes:
       - name: ssh
         path: /root/.ssh
-      - name: '${_GITHUB_REPO}'
-        path: '/${_GITHUB_REPO}'
-    - name: gcr.io/cloud-builders/git
-      entrypoint: 'bash'
-      args:
-      - '-c'
-      - |
-        cd /${_GITHUB_REPO}
-        git add .
-        git commit -m ${_COMMIT_MESSAGE}
-        git push -u origin master
-      volumes:
-      - name: 'ssh'
+
+  - name: gcr.io/cloud-builders/git
+    entrypoint: bash
+    args:
+    - -c
+    - |
+      chmod 600 /root/.ssh/id_github
+      cat <<EOF >/root/.ssh/config
+      Hostname github.com
+      IdentityFile /root/.ssh/id_github
+      EOF
+      ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
+      cd ..
+      git clone git@github.com:${_GITHUB_USER_NAME}/${_GITHUB_REPO}.git github
+    volumes:
+      - name: ssh
         path: /root/.ssh
-      - name: '${_GITHUB_REPO}'
-        path: '/${_GITHUB_REPO}'
+      - name: github
+        path: /github
+
+  - name: gcr.io/cloud-builders/gsutil
+    entrypoint: bash
+    args: 
+    - -c
+    - gsutil rsync -d -R -x ".git/*" . /github
+    volumes:
+      - name: ssh
+        path: /root/.ssh
+      - name: github
+        path: /github
+
+  - name: gcr.io/cloud-builders/git
+    entrypoint: bash
+    args:
+    - -c
+    - |
+      cd /github
+      git add .
+      git config --global user.email "${_GIT_USER_EMAIL}"
+      git config --global user.name "${_GIT_USER_NAME}"
+      git commit -m ${_COMMIT_MESSAGE}
+      git push -u origin master
+    volumes:
+      - name: ssh
+        path: /root/.ssh
+      - name: github
+        path: /github
 
 substitutions:
-  _SECRET_KEY: github-key
-  _GIT_USER_EMAIL: ${BUILD_ID}
+  _SECRET_KEY: gcp-covid-dashboard
+  _GIT_USER_EMAIL: cloudbuild@gmail.com
   _GIT_USER_NAME: Cloudbuild
   _GITHUB_USER_NAME: kj002
-  _GITHUB_REPO: test-github-push
+  _GITHUB_REPO: gcp-covid-dashboard
   _COMMIT_MESSAGE: ${PROJECT_ID}-${BUILD_ID}-${COMMIT_SHA}-${REPO_NAME}-${BRANCH_NAME}
