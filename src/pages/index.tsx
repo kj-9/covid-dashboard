@@ -37,7 +37,6 @@ export default function Home({ data }) {
   const showData: SimpleDataType[] = data.allFile.edges[1].node.fields.data.map(
     function (element) { return { x: element.pref_name_jp, y: element.pref_nheavycurrentpatients } });
   showData.sort((a, b) => -a.y + b.y)
-  console.log(showData);
   return (
     <div>
 
