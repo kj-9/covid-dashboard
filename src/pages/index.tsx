@@ -2,6 +2,7 @@ import React from "react"
 import "../styles/bulma.scss";
 import SimpleHorizontalBars from '../components/simpleHorizontalBars';
 import SimpleDataScaler from '../components/simpleDataScaler'
+import SEO from '../components/seo';
 import { SimpleDataType } from '../components/simpleData';
 import { ParentSize } from '@vx/responsive';
 import { graphql } from 'gatsby';
@@ -38,18 +39,20 @@ export default function Home({ data }) {
   showData.sort((a, b) => -a.y + b.y)
   console.log(showData);
   return (
+    <div>
 
-    <div className="columns">
-      <div className="column">
-        <h1 className="title is-1">コロナ重症者数</h1>
-        <h2 className="subtitle is-4">都道府県別</h2>
-        <ParentSize>
-          {parent => (
-            <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 700, showData, 'green', 'black', tickFormat)} />
-          )}
-        </ParentSize>
+      <SEO />
+      <div className="columns">
+        <div className="column">
+          <h1 className="title is-1">コロナ重症者数</h1>
+          <h2 className="subtitle is-4">都道府県別</h2>
+          <ParentSize>
+            {parent => (
+              <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 700, showData, 'green', 'black', tickFormat)} />
+            )}
+          </ParentSize>
+        </div>
       </div>
-
     </div>
 
   )
