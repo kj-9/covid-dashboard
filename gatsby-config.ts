@@ -12,6 +12,7 @@ export default {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
                 trackingId: "UA-151928183-1",
+                head: true,
             },
         },
         `gatsby-plugin-sass`,
