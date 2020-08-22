@@ -6,8 +6,14 @@ export default {
         url: "https://covid-19-japan.netlify.app",
         image: "", // Path to your image you placed in the 'static' folder
         twitterUsername: "",
-      },  
+    },
     plugins: [
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: "UA-151928183-1",
+            },
+        },
         `gatsby-plugin-sass`,
         `gatsby-plugin-react-helmet`,
         {
