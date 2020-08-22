@@ -19,6 +19,7 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@types/d3-array": "^2.0.0",
     "@vx/axis": "0.0.198",
     "@vx/gradient": "0.0.198",
     "@vx/grid": "0.0.198",
@@ -31,6 +32,7 @@
     "@vx/tooltip": "0.0.198",
     "avsc": "^5.4.21",
     "bulma": "^0.9.0",
+    "d3-array": "^2.5.1",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-sass": "^2.3.12",
     "gatsby-source-filesystem": "^2.3.24",
