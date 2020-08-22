@@ -26,13 +26,16 @@ export const sourceNodes = async ({ actions, createNodeId, createContentDigest, 
     const groupedData = d3.rollup(rawData, data => d3.max(data, localData => new Date(localData.lastUpdate)), data => data.pref_name_jp)
     const latestDate = d3.min(groupedData.values())
     const latestData = rawData.filter(element => new Date(element.lastUpdate).toDateString() == latestDate.toDateString())
-
+ 
 
     // need to convert to plain object... see:https://github.com/sanity-io/gatsby-source-sanity/issues/25   
     let out = convertPlainObject(latestData);
 
     const data = {
-        patient: out
+        latestCovidPatient: {
+            data: out,
+            latestDate: latestDate
+        },
     }
 
     createNode({
