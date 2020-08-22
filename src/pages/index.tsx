@@ -7,39 +7,18 @@ import { SimpleDataType } from '../components/simpleData';
 import { ParentSize } from '@vx/responsive';
 import { graphql } from 'gatsby';
 
-
-export const pageQuery = graphql`
-  query HomePageQuery {
-    allFile {
-      edges {
-        node {
-          fields {
-              data {
-                pref_name_jp
-                pref_npatients
-                pref_ncurrentpatients
-                pref_nheavycurrentpatients
-                pref_nexits
-                pref_ndeaths
-                pref_nunknowns
-                pref_ninspections
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
 const tickFormat = (y: string) => y;
 
 export default function Home({ data }) {
-  const showData: SimpleDataType[] = data.allFile.edges[1].node.fields.data.map(
-    function (element) { return { x: element.pref_name_jp, y: element.pref_nheavycurrentpatients } });
-  showData.sort((a, b) => -a.y + b.y)
+
+  const rawData = data.transformedData.data.patient
+
+  const simpleData: SimpleDataType[] = rawData
+    .map(element => ({ x: element.pref_name_jp, y: element.pref_nheavycurrentpatients }));
+
+
   return (
     <div>
-
       <SEO />
       <div className="columns">
         <div className="column">
@@ -47,7 +26,7 @@ export default function Home({ data }) {
           <h2 className="subtitle is-4">都道府県別</h2>
           <ParentSize>
             {parent => (
-              <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 700, showData, 'green', 'black', tickFormat)} />
+              <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 700, simpleData, 'green', 'black', tickFormat)} />
             )}
           </ParentSize>
         </div>
@@ -56,3 +35,31 @@ export default function Home({ data }) {
 
   )
 }
+
+
+export const pageQuery = graphql`
+query HomePageQuery {
+  transformedData {
+    data {
+      patient {
+        srcurl_web
+        description
+        lastUpdate
+        npatients
+        nexits
+        ndeaths
+        ncurrentpatients
+        pref_name
+        pref_name_jp
+        pref_npatients
+        pref_ncurrentpatients
+        pref_nheavycurrentpatients
+        pref_nexits
+        pref_ndeaths
+        pref_nunknowns
+        pref_ninspections
+      }
+    }
+  }
+}
+`
