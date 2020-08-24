@@ -21,9 +21,15 @@ export default function Home({ data }) {
   const rawData = data.transformedData.data.latestCovidPatient.data;
   const latestDate = new Date(data.transformedData.data.latestCovidPatient.latestDate);
 
-  const simpleData: SimpleDataType[] = rawData
+  const heavyPatientsData: SimpleDataType[] = rawData
     .map(element => ({ x: element.pref_name_jp, y: element.pref_nheavycurrentpatients }))
     .sort((a, b) => descending(a.y, b.y));
+  
+    const patientsData: SimpleDataType[] = rawData
+    .map(element => ({ x: element.pref_name_jp, y: element.pref_ncurrentpatients }))
+    .sort((a, b) => descending(a.y, b.y));
+
+
 
 
 
@@ -39,16 +45,26 @@ export default function Home({ data }) {
         </div>
       </section>
       <div className="columns is-centered has-background-light">
-        <div className="column is-four-fifths">
+        <div className="column">
+          <h1 className="title is-3">入院治療等を要する者</h1>
+          <h2 className="subtitle is-6">{formatDate(latestDate) + "更新"}</h2>
+          <ParentSize>
+            {parent => (
+              <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 1000), 1400, patientsData, 'green', 'black', tickFormat)} />
+            )}
+          </ParentSize>
+        </div>
+        <div className="column">
           <h1 className="title is-3">重症者数</h1>
           <h2 className="subtitle is-6">{formatDate(latestDate) + "更新"}</h2>
           <ParentSize>
             {parent => (
-              <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 600), 1400, simpleData, 'green', 'black', tickFormat)} />
+              <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 1000), 1400, heavyPatientsData, 'green', 'black', tickFormat)} />
             )}
           </ParentSize>
         </div>
       </div>
+
       <Footer />
     </div>
   )
