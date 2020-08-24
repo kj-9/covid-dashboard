@@ -33,15 +33,10 @@ export default function Home({ data }) {
     .map(element => ({ x: element.pref_name_jp, y: element.pref_npatients }))
     .sort((a, b) => descending(a.y, b.y));
 
-
-
-
-
-
   return (
     <div>
       <SEO />
-      <section className="hero is-primary is-bold">
+      <section className="hero is-link is-bold">
         <div className="hero-body">
           <div className="container">
             <h1 className="title">コロナ感染状況ダッシュボード</h1>
@@ -52,11 +47,11 @@ export default function Home({ data }) {
       <div className="columns is-centered has-background-light px-4">
         <div className="column">
           <div className="card px-3 py-2">
-            <h1 className="title is-3">累計陽性者数</h1>
+            <h1 className="title is-4">累計陽性者数</h1>
             <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
             <ParentSize>
               {parent => (
-                <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 1000), 1400, positivesData, 'green', 'black', tickFormat)} />
+                <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 1200, positivesData, 'hsl(217, 71%, 53%)', 'hsl(0, 0%, 21%)', tickFormat)} />
               )}
             </ParentSize>
           </div>
@@ -64,11 +59,11 @@ export default function Home({ data }) {
 
         <div className="column">
           <div className="card px-3 py-2">
-            <h1 className="title is-3">入院治療等を要する者</h1>
+            <h1 className="title is-4">入院治療等を要する者</h1>
             <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
             <ParentSize>
               {parent => (
-                <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 1000), 1400, patientsData, 'green', 'black', tickFormat)} />
+                <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 1200, patientsData, 'hsl(217, 71%, 53%)', 'hsl(0, 0%, 21%)', tickFormat)} />
               )}
             </ParentSize>
           </div>
@@ -76,11 +71,11 @@ export default function Home({ data }) {
         <div className="column">
           <div className="card px-3 py-2">
 
-            <h1 className="title is-3">重症者数</h1>
+            <h1 className="title is-4">重症者数</h1>
             <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
             <ParentSize>
               {parent => (
-                <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 1000), 1400, heavyPatientsData, 'green', 'black', tickFormat)} />
+                <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 1200, heavyPatientsData, 'hsl(217, 71%, 53%)', 'hsl(0, 0%, 21%)', tickFormat)} />
               )}
             </ParentSize>
           </div>
