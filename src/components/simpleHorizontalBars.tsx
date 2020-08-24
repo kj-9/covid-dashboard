@@ -47,6 +47,12 @@ export default function SimpleHorizontalBars({
       </BarGroupHorizontal>
       <AxisTop 
         scale={xScale}
+        tickValues={xScale.ticks(5)}
+        tickLabelProps={() => ({
+          textAnchor: 'middle',
+          dy: '-.33em',
+          fontSize: 13,
+        })}
       />
       <AxisLeft
         scale={y0Scale}
@@ -57,9 +63,9 @@ export default function SimpleHorizontalBars({
         numTicks= {data.length}
         tickLabelProps={() => ({
           fill: axisColor,
-          fontSize: 11,
+          fontSize: 15,
           textAnchor: 'end',
-          dy: '0.33em',
+          dy: '.33em',
         })}
       />
     </Group>
