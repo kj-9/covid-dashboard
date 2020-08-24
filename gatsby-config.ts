@@ -3,7 +3,7 @@ export default {
         title: "コロナ感染状況ダッシュボード",
         titleTemplate: "%s",
         description: "日本国内の都道府県別コロナ感染状況をまとめたダッシュボードです",
-        url: "https://covid-19-japan.netlify.app",
+        siteUrl: "https://covid-19-japan.netlify.app",
         image: "", // Path to your image you placed in the 'static' folder
         twitterUsername: "",
     },
@@ -16,6 +16,7 @@ export default {
             },
         },
         `gatsby-plugin-sass`,
+        `gatsby-plugin-sitemap`,
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-filesystem`,
