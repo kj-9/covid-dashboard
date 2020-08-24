@@ -15,7 +15,7 @@ export const sourceNodes = async ({ actions, createNodeId, createContentDigest, 
     const patientNodes = nodes.filter(node => patientPath.test(node.relativePath) && node.extension === "avro")
     const rawData: RawData[] = await patientNodes
         .map(async (node) => await readAvroFile(node.absolutePath))
-        .reduce((array1, array2) => array1.concat(array2));
+        .reduce((array1:object[], array2:object[]) => array1.concat(array2));
 
     interface RawData {
         lastUpdate: string,
