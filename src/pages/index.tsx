@@ -51,7 +51,7 @@ export default function Home({ data }) {
       </section>
       <div className="columns is-centered has-background-light px-4">
         <div className="column">
-          <div class="card px-3 py-2">
+          <div className="card px-3 py-2">
             <h1 className="title is-3">累計陽性者数</h1>
             <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
             <ParentSize>
@@ -63,7 +63,7 @@ export default function Home({ data }) {
         </div>
 
         <div className="column">
-          <div class="card px-3 py-2">
+          <div className="card px-3 py-2">
             <h1 className="title is-3">入院治療等を要する者</h1>
             <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
             <ParentSize>
