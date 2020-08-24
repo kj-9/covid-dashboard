@@ -44,7 +44,7 @@ export default function Home({ data }) {
           <h2 className="subtitle is-6">{formatDate(latestDate) + "更新"}</h2>
           <ParentSize>
             {parent => (
-              <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 700, simpleData, 'green', 'black', tickFormat)} />
+              <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 600), 1400, simpleData, 'green', 'black', tickFormat)} />
             )}
           </ParentSize>
         </div>

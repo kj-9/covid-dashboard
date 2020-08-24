@@ -2,7 +2,7 @@ import { scaleBand, scaleLinear, scaleOrdinal } from '@vx/scale';
 import { getX, SimpleDataType, SimpleKey } from './simpleData'
 
 
-const defaultMargin = { top: 20, right: 20, bottom: 20, left: 50 };
+const defaultMargin = { top: 25, right: 20, bottom: 20, left: 70 };
 
 function max<D>(arr: D[], fn: (d: D) => number) {
     return Math.max(...arr.map(fn));
@@ -33,11 +33,11 @@ export default class SimpleDataScaler {
         // setup scales
         this.y0Scale = scaleBand<string>({
             domain: data.map(getX),
-            padding: 0.2,
+            padding: 0.05,
         });
         this.y1Scale = scaleBand<string>({
             domain: SimpleKey,
-            padding: 0.1,
+            padding: 0.3,
         });
         this.xScale = scaleLinear<number>({
             domain: [0, max(data, d => max(SimpleKey, key => Number(d[key])))],
