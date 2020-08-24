@@ -14,7 +14,6 @@ query SEO {
         defaultDescription: description
         siteUrl: url
         defaultImage: image
-        twitterUsername
       }
     }
   }
@@ -59,6 +58,7 @@ const SEO = ({ title, description, image, article }) => {
                 <meta name="twitter:description" content={seo.description} />
             )}
             {seo.image && <meta name="twitter:image" content={seo.image} />}
+            <html lang="jp" />
         </Helmet>
     )
 }
