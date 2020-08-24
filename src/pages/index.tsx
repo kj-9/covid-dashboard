@@ -24,10 +24,15 @@ export default function Home({ data }) {
   const heavyPatientsData: SimpleDataType[] = rawData
     .map(element => ({ x: element.pref_name_jp, y: element.pref_nheavycurrentpatients }))
     .sort((a, b) => descending(a.y, b.y));
-  
-    const patientsData: SimpleDataType[] = rawData
+
+  const patientsData: SimpleDataType[] = rawData
     .map(element => ({ x: element.pref_name_jp, y: element.pref_ncurrentpatients }))
     .sort((a, b) => descending(a.y, b.y));
+
+  const positivesData: SimpleDataType[] = rawData
+    .map(element => ({ x: element.pref_name_jp, y: element.pref_npatients }))
+    .sort((a, b) => descending(a.y, b.y));
+
 
 
 
@@ -44,24 +49,41 @@ export default function Home({ data }) {
           </div>
         </div>
       </section>
-      <div className="columns is-centered has-background-light">
+      <div className="columns is-centered has-background-light px-4">
         <div className="column">
-          <h1 className="title is-3">入院治療等を要する者</h1>
-          <h2 className="subtitle is-6">{formatDate(latestDate) + "更新"}</h2>
-          <ParentSize>
-            {parent => (
-              <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 1000), 1400, patientsData, 'green', 'black', tickFormat)} />
-            )}
-          </ParentSize>
+          <div class="card px-3 py-2">
+            <h1 className="title is-3">累計陽性者数</h1>
+            <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
+            <ParentSize>
+              {parent => (
+                <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 1000), 1400, positivesData, 'green', 'black', tickFormat)} />
+              )}
+            </ParentSize>
+          </div>
+        </div>
+
+        <div className="column">
+          <div class="card px-3 py-2">
+            <h1 className="title is-3">入院治療等を要する者</h1>
+            <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
+            <ParentSize>
+              {parent => (
+                <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 1000), 1400, patientsData, 'green', 'black', tickFormat)} />
+              )}
+            </ParentSize>
+          </div>
         </div>
         <div className="column">
-          <h1 className="title is-3">重症者数</h1>
-          <h2 className="subtitle is-6">{formatDate(latestDate) + "更新"}</h2>
-          <ParentSize>
-            {parent => (
-              <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 1000), 1400, heavyPatientsData, 'green', 'black', tickFormat)} />
-            )}
-          </ParentSize>
+          <div className="card px-3 py-2">
+
+            <h1 className="title is-3">重症者数</h1>
+            <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
+            <ParentSize>
+              {parent => (
+                <SimpleHorizontalBars {...new SimpleDataScaler(Math.min(parent.width, 1000), 1400, heavyPatientsData, 'green', 'black', tickFormat)} />
+              )}
+            </ParentSize>
+          </div>
         </div>
       </div>
 
