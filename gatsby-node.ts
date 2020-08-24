@@ -7,13 +7,12 @@ function convertPlainObject(objectArray: object[]): object[] {
 }
 
 export const sourceNodes = async ({ actions, createNodeId, createContentDigest, getNodes }) => {
-    const { createNode, createNodeField } = actions;
+    const { createNode } = actions;
     const nodes = getNodes();
 
-
     // process patient data
-    const patientPath = /hobby-project-datalake\/staging\/covid\/ingest-covid-patients\/stopcovid19-japan-all-patients/g;
-    const patientNodes = nodes.filter(node => patientPath.test(node.relativePath) && node.ext === '.avro')
+    const patientPath = /hobby-project-datalake\/staging\/covid\/ingest-covid-patients\/stopcovid19-japan-all-patients/;
+    const patientNodes = nodes.filter(node => patientPath.test(node.relativePath) && node.extension === "avro")
     const rawData: RawData[] = await patientNodes
         .map(async (node) => await readAvroFile(node.absolutePath))
         .reduce((array1, array2) => array1.concat(array2));

@@ -1,4 +1,5 @@
 steps:
+  # get ssh key from ssm
   - name: gcr.io/cloud-builders/gcloud
     entrypoint: bash
     args:
@@ -8,6 +9,7 @@ steps:
       - name: ssh
         path: /root/.ssh
 
+  # set up ssh and github repository
   - name: gcr.io/cloud-builders/git
     entrypoint: bash
     args:
@@ -27,17 +29,23 @@ steps:
       - name: github
         path: /github
 
+  # sync gcp repository and github repository
   - name: gcr.io/cloud-builders/gsutil
     entrypoint: bash
     args: 
     - -c
-    - gsutil rsync -d -R -x ".git/*" . /github
+    - |
+      gsutil rsync -d -R -x ".git/*" . /github
+      gsutil cp -r \
+        $(gsutil ls gs://hobby-project-datalake/staging/covid/ingest-covid-patients/stopcovid19-japan-all-patients/ | sort | tail -n 1) \
+        ./data/hobby-project-datalake/staging/covid/ingest-covid-patients/stopcovid19-japan-all-patients/
     volumes:
       - name: ssh
         path: /root/.ssh
       - name: github
         path: /github
 
+  # commit and push to github repository
   - name: gcr.io/cloud-builders/git
     entrypoint: bash
     args:
