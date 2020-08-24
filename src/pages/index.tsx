@@ -33,7 +33,7 @@ export default function Home({ data }) {
       <section className="hero is-primary is-bold">
         <div className="hero-body">
           <div className="container">
-            <h1 className="title">日本国内 コロナ感染状況ダッシュボード</h1>
+            <h1 className="title">コロナ感染状況ダッシュボード</h1>
             <h2 className="subtitle">Japan Covid-19 dashboard</h2>
           </div>
         </div>
@@ -41,7 +41,7 @@ export default function Home({ data }) {
       <div className="columns is-centered has-background-light">
         <div className="column is-four-fifths">
           <h1 className="title is-3">重症者数</h1>
-          <h2 className="subtitle is-5">{"更新日: " + formatDate(latestDate)}</h2>
+          <h2 className="subtitle is-6">{formatDate(latestDate) + "更新"}</h2>
           <ParentSize>
             {parent => (
               <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 700, simpleData, 'green', 'black', tickFormat)} />
@@ -51,7 +51,6 @@ export default function Home({ data }) {
       </div>
       <Footer />
     </div>
-
   )
 }
 

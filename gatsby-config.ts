@@ -1,8 +1,8 @@
 export default {
     siteMetadata: {
-        title: "covid-19-japan-dashboard",
-        titleTemplate: "%s 日本におけるcovid-19ダッシュボード",
-        description: "日本におけるcovid-19ダッシュボード",
+        title: "コロナ感染状況ダッシュボード",
+        titleTemplate: "%s",
+        description: "日本国内の都道府県別コロナ感染状況をまとめたダッシュボードです",
         url: "https://covid-19-japan.netlify.app",
         image: "", // Path to your image you placed in the 'static' folder
         twitterUsername: "",
