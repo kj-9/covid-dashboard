@@ -4,6 +4,9 @@ import SimpleDataScaler from './simpleDataScaler'
 import { AxisLeft, AxisTop } from '@vx/axis';
 import { SimpleDataType, SimpleKeyType, SimpleKey } from './simpleData'
 import { BarGroupHorizontal, Bar } from '@vx/shape';
+import { useTooltip, Tooltip } from '@vx/tooltip';
+import { localPoint } from '@vx/event';
+
 
 
 
@@ -11,8 +14,26 @@ export default function SimpleHorizontalBars({
   width, height, margin,
   data, getX, y0Scale, y1Scale, xScale, colorScale, xMax, axisColor, tickFormat
 }: SimpleDataScaler) {
+  
+  const {
+    tooltipData,
+    tooltipLeft,
+    tooltipTop,
+    tooltipOpen,
+    showTooltip,
+    hideTooltip,
+  } = useTooltip();
+  
+  const handleMouseOver = (event, datum) => {
+    const coords = localPoint(event.target.ownerSVGElement, event);
+    showTooltip({
+      tooltipLeft: coords.x,
+      tooltipTop: coords.y,
+      tooltipData: datum
+    });
+  };
 
-  return <svg width={width} height={height}>
+  return <div style={{position:'relative'}}><svg width={width} height={height}>
     <Group top={margin.top} left={margin.left}>
       <BarGroupHorizontal<SimpleDataType, SimpleKeyType>
         data={data}
@@ -39,13 +60,15 @@ export default function SimpleHorizontalBars({
                   height={bar.height}
                   fill={bar.color}
                   rx={4}
+                  onMouseOver={event => handleMouseOver(event, bar.value)}
+                  onMouseOut={hideTooltip}
                 />
               ))}
             </Group>
           ))
         }
       </BarGroupHorizontal>
-      <AxisTop 
+      <AxisTop
         scale={xScale}
         tickValues={xScale.ticks(5)}
         tickLabelProps={() => ({
@@ -60,7 +83,7 @@ export default function SimpleHorizontalBars({
         tickStroke={axisColor}
         tickFormat={tickFormat}
         hideAxisLine={false}
-        numTicks= {data.length}
+        numTicks={data.length}
         tickLabelProps={() => ({
           fill: axisColor,
           fontSize: 15,
@@ -70,4 +93,15 @@ export default function SimpleHorizontalBars({
       />
     </Group>
   </svg>
+  {tooltipOpen && (
+        <Tooltip
+          // set this to random so it correctly updates with parent bounds
+          key={Math.random()}
+          top={tooltipTop}
+          left={tooltipLeft}
+        >
+          <strong>{tooltipData}</strong>
+        </Tooltip>
+      )}
+  </div>
 }
