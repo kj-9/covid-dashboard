@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import "../styles/bulma.scss";
 
 import Layout from '../components/layout';
+import Table from '../components/table';
 
 import SimpleHorizontalBars from '../components/simpleHorizontalBars';
 import SimpleDataScaler from '../components/simpleDataScaler'
@@ -17,6 +18,7 @@ const formatDate = timeFormat("%Y/%m/%d");
 
 
 export default function Home({ data }) {
+
 
   const rawData = data.transformedData.data.latestCovidPatient.data;
   const latestDate = new Date(data.transformedData.data.latestCovidPatient.latestDate);
@@ -34,8 +36,34 @@ export default function Home({ data }) {
     .sort((a, b) => descending(a.y, b.y));
 
 
+
+  const tableData = React.useMemo(
+    () => heavyPatientsData,
+    []
+  )
+
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: '都道府県',
+        accessor: 'x', // accessor is the "key" in the data
+      },
+      {
+        Header: '重症者数',
+        accessor: 'y',
+      },
+    ],
+    []
+  )
+
+
   return (
     <Layout>
+      <div className="columns is-centered has-background-light px-4">
+        <div className="column">
+          <Table columns={columns} data={tableData} />
+        </div>
+      </div>
       <div className="columns is-centered has-background-light px-4">
         <div className="column">
           <div className="card px-3 py-2">
