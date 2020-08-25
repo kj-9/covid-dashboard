@@ -1,10 +1,7 @@
 
-import readAvroFile from './src/utils/readAvroFile';
+import { readAvroNode } from './src/utils/avro';
+import toPlainObject from './src/utils/toPlainObject'
 import * as d3 from 'd3-array';
-
-function convertPlainObject(objectArray: object[]): object[] {
-    return objectArray.map(element => Object.assign({}, element))
-}
 
 export const sourceNodes = async ({ actions, createNodeId, createContentDigest, getNodes }) => {
     const { createNode } = actions;
@@ -12,29 +9,26 @@ export const sourceNodes = async ({ actions, createNodeId, createContentDigest, 
 
     // process patient data
     const patientPath = /hobby-project-datalake\/staging\/covid\/ingest-covid-patients\/stopcovid19-japan-all-patients/;
-    const patientNodes = nodes.filter(node => patientPath.test(node.relativePath) && node.extension === "avro")
-    const rawData: RawData[] = await patientNodes
-        .map(async (node) => await readAvroFile(node.absolutePath))
-        .reduce((array1:object[], array2:object[]) => array1.concat(array2));
+    const patientData = await readAvroNode(patientPath, nodes);
 
-    interface RawData {
-        lastUpdate: string,
-        pref_name_jp: string
-    }
-
-    const groupedData = d3.rollup(rawData, data => d3.max(data, localData => new Date(localData.lastUpdate)), data => data.pref_name_jp)
+    const groupedData = d3.rollup(patientData, data => d3.max(data, localData => new Date(localData.lastUpdate)), data => data.pref_name_jp)
     const latestDate = d3.min(groupedData.values())
-    const latestData = rawData.filter(element => new Date(element.lastUpdate).toDateString() == latestDate.toDateString())
- 
+    const latestData = patientData.filter(element => new Date(element.lastUpdate).toDateString() == latestDate.toDateString())
+
+    // process bed data
+    const bedPath = /hobby-project-datalake\/staging\/covid\/ingest-covid-beds\/google-spread-sheets-covid-beds/;
+    const bedData = await readAvroNode(bedPath, nodes);
+    
 
     // need to convert to plain object... see:https://github.com/sanity-io/gatsby-source-sanity/issues/25   
-    let out = convertPlainObject(latestData);
-
     const data = {
         latestCovidPatient: {
-            data: out,
+            data: toPlainObject(latestData),
             latestDate: latestDate
         },
+        latestCovidBeds: {
+            data: toPlainObject(bedData),
+        }
     }
 
     createNode({
