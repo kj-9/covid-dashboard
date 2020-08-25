@@ -1,13 +1,13 @@
 import React from "react"
+import { graphql } from 'gatsby';
 import "../styles/bulma.scss";
+
+import Layout from '../components/layout';
+
 import SimpleHorizontalBars from '../components/simpleHorizontalBars';
 import SimpleDataScaler from '../components/simpleDataScaler'
-import SEO from '../components/seo';
-import Footer from '../components/footer';
-
 import { SimpleDataType } from '../components/simpleData';
 import { ParentSize } from '@vx/responsive';
-import { graphql } from 'gatsby';
 import { descending } from 'd3-array';
 import { timeFormat } from 'd3-time-format';
 
@@ -33,17 +33,9 @@ export default function Home({ data }) {
     .map(element => ({ x: element.pref_name_jp, y: element.pref_npatients }))
     .sort((a, b) => descending(a.y, b.y));
 
+
   return (
-    <div>
-      <SEO />
-      <section className="hero is-link is-bold">
-        <div className="hero-body">
-          <div className="container">
-            <h1 className="title">コロナ感染状況ダッシュボード</h1>
-            <h2 className="subtitle">Japan Covid-19 dashboard</h2>
-          </div>
-        </div>
-      </section>
+    <Layout>
       <div className="columns is-centered has-background-light px-4">
         <div className="column">
           <div className="card px-3 py-2">
@@ -56,7 +48,6 @@ export default function Home({ data }) {
             </ParentSize>
           </div>
         </div>
-
         <div className="column">
           <div className="card px-3 py-2">
             <h1 className="title is-4">入院治療等を要する者</h1>
@@ -70,7 +61,6 @@ export default function Home({ data }) {
         </div>
         <div className="column">
           <div className="card px-3 py-2">
-
             <h1 className="title is-4">重症者数</h1>
             <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
             <ParentSize>
@@ -81,9 +71,7 @@ export default function Home({ data }) {
           </div>
         </div>
       </div>
-
-      <Footer />
-    </div>
+    </Layout>
   )
 }
 
