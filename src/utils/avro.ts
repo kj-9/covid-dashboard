@@ -17,7 +17,6 @@ export async function readAvroFile(filePath: string) {
 
 export async function readAvroNode(matchPath: RegExp, nodes) {
     const avroNodes = nodes.filter(node => matchPath.test(node.relativePath) && node.extension === "avro")
-    console.log("lets process bed data")
     const data: any[] = await avroNodes
     .map(async (node) => await readAvroFile(node.absolutePath))
     .reduce((array1:object[], array2:object[]) => array1.concat(array2));
