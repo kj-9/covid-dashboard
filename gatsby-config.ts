@@ -8,6 +8,9 @@ export default {
         twitterUsername: "",
     },
     plugins: [
+        `gatsby-plugin-sass`,
+        `gatsby-plugin-sitemap`,
+        `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
@@ -15,15 +18,19 @@ export default {
                 head: true,
             },
         },
-        `gatsby-plugin-sass`,
-        `gatsby-plugin-sitemap`,
-        `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                name: `src`,
+                name: `data`,
                 path: `${__dirname}/data/`,
             },
         },
+        {
+            resolve: `gatsby-transformer-csv`,
+            options: {
+                typeCheck: false,
+                nullObject: true
+            },
+        }
     ]
 }
