@@ -1,6 +1,5 @@
 import React from 'react';
-import { useTable, useSortBy } from 'react-table';
-import Bar from './Bar';
+import { useTable } from 'react-table';
 
 export default function Table({ columns, data }) {
     
@@ -10,7 +9,7 @@ export default function Table({ columns, data }) {
     headerGroups,
     rows,
     prepareRow,
-  } = useTable({ columns, data }, useSortBy)
+  } = useTable({ columns, data })
 
   return (
     <table {...getTableProps()} className="table">
@@ -18,15 +17,8 @@ export default function Table({ columns, data }) {
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => 
-              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+              <th>
                 {column.render('Header')}
-                <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? ' 🔽'
-                        : ' 🔼'
-                      : ''}
-                  </span>
               </th>
             )}
           </tr>
