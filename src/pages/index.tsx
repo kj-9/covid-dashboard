@@ -3,12 +3,9 @@ import { graphql } from 'gatsby';
 import "../styles/bulma.scss";
 
 import Layout from '../components/layout';
-import Table from '../components/table';
+import Table from '../components/Table';
 
-import SimpleHorizontalBars from '../components/simpleHorizontalBars';
-import SimpleDataScaler from '../components/simpleDataScaler'
-import { SimpleDataType } from '../components/simpleData';
-import { ParentSize } from '@vx/responsive';
+import Bar from '../components/Bar';
 import { descending } from 'd3-array';
 import { timeFormat } from 'd3-time-format';
 
@@ -16,26 +13,20 @@ import { timeFormat } from 'd3-time-format';
 const tickFormat = (y: string) => y;
 const formatDate = timeFormat("%Y/%m/%d");
 
-
 export default function Home({ data }) {
 
+  const rawData =  data.allCovidPatientsCsv.nodes;
 
-  const rawData = data.transformedData.data.latestCovidPatient.data;
-  const latestDate = new Date(data.transformedData.data.latestCovidPatient.latestDate);
+  //check number of prefectures in data
+  const setPrefs = new Set(rawData.map(node => node.pref_name_jp));
+  if (setPrefs.size !== 47) throw Error("number of unique prefecture is not 47.")
 
-  const heavyPatientsData: SimpleDataType[] = rawData
-    .map(element => ({ x: element.pref_name_jp, y: element.pref_nheavycurrentpatients }))
+  // transform data
+  const latestDate = new Date(rawData.map(node => node.update_date)[0])
+
+  const heavyPatientsData = rawData
+    .map(element => ({ x: element.pref_name_jp, y: element.pref_n_current_heavy_patients }))
     .sort((a, b) => descending(a.y, b.y));
-
-  const patientsData: SimpleDataType[] = rawData
-    .map(element => ({ x: element.pref_name_jp, y: element.pref_ncurrentpatients }))
-    .sort((a, b) => descending(a.y, b.y));
-
-  const positivesData: SimpleDataType[] = rawData
-    .map(element => ({ x: element.pref_name_jp, y: element.pref_npatients }))
-    .sort((a, b) => descending(a.y, b.y));
-
-
 
   const tableData = React.useMemo(
     () => heavyPatientsData,
@@ -51,52 +42,17 @@ export default function Home({ data }) {
       {
         Header: '重症者数',
         accessor: 'y',
+        Cell: ({ value }) =>  Bar({ data: [{x: "test", y: value }], domain: { y: [0, 50]} })
       },
     ],
     []
   )
-
 
   return (
     <Layout>
       <div className="columns is-centered has-background-light px-4">
         <div className="column">
           <Table columns={columns} data={tableData} />
-        </div>
-      </div>
-      <div className="columns is-centered has-background-light px-4">
-        <div className="column">
-          <div className="card px-3 py-2">
-            <h1 className="title is-4">累計陽性者数</h1>
-            <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
-            <ParentSize>
-              {parent => (
-                <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 1200, positivesData, 'hsl(217, 71%, 53%)', 'hsl(0, 0%, 21%)', tickFormat)} />
-              )}
-            </ParentSize>
-          </div>
-        </div>
-        <div className="column">
-          <div className="card px-3 py-2">
-            <h1 className="title is-4">入院治療等を要する者</h1>
-            <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
-            <ParentSize>
-              {parent => (
-                <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 1200, patientsData, 'hsl(217, 71%, 53%)', 'hsl(0, 0%, 21%)', tickFormat)} />
-              )}
-            </ParentSize>
-          </div>
-        </div>
-        <div className="column">
-          <div className="card px-3 py-2">
-            <h1 className="title is-4">重症者数</h1>
-            <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
-            <ParentSize>
-              {parent => (
-                <SimpleHorizontalBars {...new SimpleDataScaler(parent.width, 1200, heavyPatientsData, 'hsl(217, 71%, 53%)', 'hsl(0, 0%, 21%)', tickFormat)} />
-              )}
-            </ParentSize>
-          </div>
         </div>
       </div>
     </Layout>
@@ -106,29 +62,13 @@ export default function Home({ data }) {
 
 export const pageQuery = graphql`
 query HomePageQuery {
-transformedData {
-    data {
-      latestCovidPatient {
-        latestDate
-        data {
-          srcurl_web
-          description
-          lastUpdate
-          npatients
-          nexits
-          ndeaths
-          ncurrentpatients
-          pref_name
-          pref_name_jp
-          pref_npatients
-          pref_ncurrentpatients
-          pref_nheavycurrentpatients
-          pref_nexits
-          pref_ndeaths
-          pref_nunknowns
-          pref_ninspections
-        }
-      }
+  allCovidPatientsCsv(sort: {order: DESC, fields: update_date}, limit: 47) {
+      nodes {
+        update_date
+        pref_name_jp
+        pref_n_patients
+        pref_n_current_patients
+        pref_n_current_heavy_patients
     }
   }
 }
