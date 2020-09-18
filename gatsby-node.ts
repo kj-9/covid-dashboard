@@ -5,6 +5,8 @@ export const createSchemaCustomization = ({ actions }) => {
         pref_n_patients: Int
         pref_n_current_patients: Int
         pref_n_current_heavy_patients: Int
+        pref_patients_beds_ratio: Float
+        pref_heavy_patients_beds_ratio: Float
       }
     `
     createTypes(typeDefs)
