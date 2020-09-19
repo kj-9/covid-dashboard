@@ -36,13 +36,6 @@ steps:
     - -c
     - |
       gsutil rsync -d -R -x ".git/*" . /github
-      gsutil cp -r \
-        $(gsutil ls gs://hobby-project-datalake/staging/covid/ingest-covid-patients/stopcovid19-japan-all-patients/ | sort | tail -n 1) \
-        /github/data/hobby-project-datalake/staging/covid/ingest-covid-patients/stopcovid19-japan-all-patients/
-      gsutil cp -r \
-        $(gsutil ls gs://hobby-project-datalake/staging/covid/ingest-covid-beds/google-spread-sheets-covid-beds/ | sort | tail -n 1) \
-        /github/data/hobby-project-datalake/staging/covid/ingest-covid-beds/google-spread-sheets-covid-beds/
-
     volumes:
       - name: ssh
         path: /root/.ssh
