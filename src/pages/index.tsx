@@ -4,10 +4,13 @@ import "../styles/bulma.scss";
 
 import Layout from '../components/layout';
 import Table from '../components/Table';
-import { VictoryAxis, VictoryBar, VictoryTheme } from 'victory';
+import { VictoryAxis, VictoryBar } from 'victory';
 
+import * as scale from 'd3-scale';
 import { descending } from 'd3-array';
 import { timeFormat } from 'd3-time-format';
+
+
 
 const formatDate = timeFormat("%Y/%m/%d");
 
@@ -43,12 +46,12 @@ export default function Home({ data }) {
             height={50}
             domain={{ y: [0, 1] }}
             label={"患者数/ベッド数"}
-            theme={VictoryTheme.material}
             tickFormat={ (t) => `${100 * t}%` }
             style={{
-              axis: { padding: 10 },
+              axis: { padding: 0 },
               axisLabel: { fontSize: 14, padding: 30 },
-              tickLabels: { fontSize: 10 },
+              ticks: { size: 5, stroke: 'gray'},
+              tickLabels: { fontSize: 10, padding: 5 },
               grid: {stroke: 'transparent'}
             }}
 
@@ -57,14 +60,19 @@ export default function Home({ data }) {
           <VictoryBar
             data={[{ x: "test", y: value }]}
             domain={{ y: [0, 1] }}
+            barRatio={2}
             horizontal
             alignment={"middle"}
             domainPadding={{ x: [10, 0] }}
             height={30}
-            style={{ data: { fill: "#c43a31" } }}
-
-          />
+            style={{ data: { fill: scale.scaleLinear().range(["#ffffff", "#ffa815", "#ff3939", "#a52323"]).domain([0, 1])(scale.scaleThreshold().domain([0, 0.25, 0.5, 0.75, 1]).range([0, 0.25, 0.5, 0.75, 1])(value)) } }}
+          /> 
       },
+      {
+        accessor: 'pref_patients_beds_ratio',
+        id: 'value_pref_patients_beds_ratio',
+        Cell: ({ value }) => `${Math.floor(100 * value)}%`
+      }
     ],
     []
   )
