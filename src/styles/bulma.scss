@@ -4,3 +4,23 @@
 /* $title-color: #ff0000;
  */
 @import "~bulma/bulma.sass";
+
+html, body{
+    height: 100%;
+}
+
+svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+// temporally hard coded here; apply to 2nd header th 
+thead tr:nth-child(2) th {
+    padding-bottom: 0;
+    vertical-align: bottom;
+}
+
+table {
+    font-size: 0.8rem;
+}
