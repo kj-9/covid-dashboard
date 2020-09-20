@@ -11,6 +11,7 @@ export default {
         `gatsby-plugin-sass`,
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-react-helmet`,
+        `gatsby-transformer-json`,
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
@@ -23,13 +24,6 @@ export default {
             options: {
                 name: `data`,
                 path: `${__dirname}/data/`,
-            },
-        },
-        {
-            resolve: `gatsby-transformer-csv`,
-            options: {
-                typeCheck: false,
-                nullObject: true
             },
         }
     ]
