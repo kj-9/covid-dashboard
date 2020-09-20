@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTable } from 'react-table';
 
-export default function Table({ columns, data }) {
-    
+export default function Table(props) {
+  const { columns, data, className } = props    
   const {
     getTableProps,
     getTableBodyProps,
@@ -12,12 +12,12 @@ export default function Table({ columns, data }) {
   } = useTable({ columns, data })
 
   return (
-    <table {...getTableProps()} className="table">
+    <table {...getTableProps()} className={className}>
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => 
-              <th>
+              <th {...column.getHeaderProps()}>
                 {column.render('Header')}
               </th>
             )}

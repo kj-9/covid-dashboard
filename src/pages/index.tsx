@@ -4,7 +4,7 @@ import "../styles/bulma.scss";
 
 import Layout from '../components/layout';
 import Table from '../components/Table';
-import { VictoryAxis, VictoryBar } from 'victory';
+import { VictoryAxis, VictoryBar, VictoryContainer } from 'victory';
 
 import * as scale from 'd3-scale';
 import { descending } from 'd3-array';
@@ -32,61 +32,86 @@ export default function Home({ data }) {
     []
   )
 
+  const cellWidth = 200;
+  const cellHeight = 20;
+  const cellPadding = { left: 10, right: 14 };
+
   const columns = React.useMemo(
     () => [
       {
-        accessor: 'pref_name_jp', // accessor is the "key" in the data
+        Header: '都道府県',
+        columns: [
+          {
+            accessor: 'pref_name_jp',
+          }
+        ]
       },
       {
-        accessor: 'pref_patients_beds_ratio',
-        Header: () =>
-          <VictoryAxis
-            orientation="top"
-            dependentAxis
-            height={50}
-            domain={{ y: [0, 1] }}
-            label={"患者数/ベッド数"}
-            tickFormat={ (t) => `${100 * t}%` }
-            style={{
-              axis: { padding: 0 },
-              axisLabel: { fontSize: 14, padding: 30 },
-              ticks: { size: 5, stroke: 'gray'},
-              tickLabels: { fontSize: 10, padding: 5 },
-              grid: {stroke: 'transparent'}
-            }}
-
-          />,
-        Cell: ({ value }) =>
-          <VictoryBar
-            data={[{ x: "test", y: value }]}
-            domain={{ y: [0, 1] }}
-            barRatio={2}
-            horizontal
-            alignment={"middle"}
-            domainPadding={{ x: [10, 0] }}
-            height={30}
-            style={{ data: { fill: scale.scaleLinear().range(["#ffffff", "#ffa815", "#ff3939", "#a52323"]).domain([0, 1])(scale.scaleThreshold().domain([0, 0.25, 0.5, 0.75, 1]).range([0, 0.25, 0.5, 0.75, 1])(value)) } }}
-          /> 
+        Header: 'ベッド占有率',
+        columns: [
+          {
+            accessor: 'pref_patients_beds_ratio',
+            Header: () =>
+                <VictoryAxis
+                  width={cellWidth}
+                  height={cellHeight}
+                  padding= {cellPadding}
+                  domain={{ y: [0, 1] }}
+                  orientation="top"
+                  offsetY={19}
+                  dependentAxis
+                  tickFormat={(t) => `${100 * t}%`}
+                  style={{
+                    axis: { stroke: 'transparent' },
+                    axisLabel: { color: 'grey' },
+                    ticks: { size: 5, stroke: 'gray' },
+                    tickLabels: { fontSize:11, padding:0, fill: 'grey' },
+                    grid: { stroke: 'transparent' }
+                  }}
+                  containerComponent={<VictoryContainer width={cellWidth} responsive={false}/>}
+                  />
+,
+            Cell: ({ value }) =>
+              <VictoryBar
+                width={cellWidth}
+                height={cellHeight}
+                padding= {cellPadding}
+                domain={{ y: [0, 1] }}
+                data={[{ x: "test", y: value }]}
+                barRatio={1}
+                horizontal
+                alignment={"middle"}
+                style={{
+                  data: { fill: scale.scaleLinear().range(["#ffffff", "#ffa815", "#ff3939", "#a52323"]).domain([0, 1])(scale.scaleThreshold().domain([0, 0.25, 0.5, 0.75, 1]).range([0, 0.25, 0.5, 0.75, 1])(value)) }
+                }}                
+                containerComponent={<VictoryContainer width={cellWidth} responsive={false}/>}
+                />
+          },
+          {
+            accessor: 'pref_patients_beds_ratio',
+            id: 'value_pref_patients_beds_ratio',
+            Cell: ({ value }) => `${Math.floor(100 * value)}%`
+          }
+        ]
       },
-      {
-        accessor: 'pref_patients_beds_ratio',
-        id: 'value_pref_patients_beds_ratio',
-        Cell: ({ value }) => `${Math.floor(100 * value)}%`
-      }
     ],
     []
   )
 
-
   return (
     <Layout>
-      <div className="columns is-centered has-background-light px-4">
-        <div className="column">
-          <h2 className="subtitle is-6">{formatDate(latestDate) + "時点"}</h2>
-          <Table columns={columns} data={tableData} />
+      <div className="columns ml-1">
+        <div className="column mt-2">
+          <h1 className="title">{"ベッド占有率"}</h1>
+          <h2 className="subtitle is-6">{'(患者数/対策ベッド数) :' + formatDate(latestDate) + "時点"}</h2>
+          <div className="columns">
+            <div className="column">
+              <Table className='table' columns={columns} data={tableData} />
+            </div>
+          </div>
         </div>
       </div>
-    </Layout>
+    </Layout >
   )
 }
 
