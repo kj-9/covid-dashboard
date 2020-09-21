@@ -10,11 +10,24 @@ jobs:
     steps:
     - name: Checkout source code
       uses: actions/checkout@v2
-    - name: Use Node.js
+
+    - name: R:Setup
+      uses: r-lib/actions/setup-r@v1
+      with:
+        r-version: '4.0.2'
+    - name: R:run
+      run: Rscript extract_covid_patients.R
+      working-directory: ./srcData
+    
+    - name: shell:Copy data to base folder
+      run:  cp -R --remove-destination ./srcData/data/*  ./data
+
+    - name: Node.js:Setup
       uses: actions/setup-node@v1
       with:
         node-version: '14.8.0'
-    - name: Cache Node.js modules
+
+    - name: Node.js:Cache modules
       uses: actions/cache@v2
       with:
         # npm cache files are stored in `~/.npm` on Linux/macOS
@@ -23,10 +36,14 @@ jobs:
         restore-keys: |
           ${{ runner.OS }}-node-
           ${{ runner.OS }}-
-    - name: Install dependencies
+
+    - name: Node.js:Install dependencies
       run: npm ci
-    - run: npm run build
-    - name: Deploy to netlify
+
+    - name: Node.js:Run build
+      run: npm run build
+
+    - name: Netlify:Deploy
       uses: netlify/actions/cli@master
       with:
         args: deploy --dir=./public --prod
