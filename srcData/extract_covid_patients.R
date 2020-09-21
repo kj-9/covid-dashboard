@@ -113,5 +113,5 @@ out <- df_last_1w %>%
   inner_join(df_latest, by = 'pref_name_jp')
 
 ## write output
-jsonlite::write_json(out, 'data/covid_patients.json')
+jsonlite::write_json(out, './data/covid_patients.json')
 

@@ -11,16 +11,8 @@ jobs:
     - name: Checkout source code
       uses: actions/checkout@v2
 
-    - name: R:Setup
-      uses: r-lib/actions/setup-r@v1
-      with:
-        r-version: '4.0.2'
     - name: R:run
-      run: Rscript extract_covid_patients.R
-      working-directory: ./srcData
-    
-    - name: shell:Copy data to base folder
-      run:  cp -R --remove-destination ./srcData/data/*  ./data
+      run: docker run -it --entrypoint 'Rscript' --workdir /home/rstudio -v $(pwd):/home/rstudio rocker/tidyverse:4.0.2 extract_covid_patients.R
 
     - name: Node.js:Setup
       uses: actions/setup-node@v1
