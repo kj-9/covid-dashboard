@@ -12,7 +12,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: R:run
-      run: docker run -it --entrypoint 'Rscript' --workdir /home/rstudio -v $(pwd):/home/rstudio rocker/tidyverse:4.0.2 extract_covid_patients.R
+      run: docker run -it --entrypoint 'Rscript' --workdir /home/rstudio -v $(pwd):/home/rstudio rocker/tidyverse:4.0.2 srcData/extract_covid_patients.R
 
     - name: Node.js:Setup
       uses: actions/setup-node@v1
