@@ -1,8 +1,8 @@
-name: Scheduled build
+name: daily-build
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 20 * * *'
+    - cron: '0 0 * * *' # UTC
 
 jobs:
   build:
