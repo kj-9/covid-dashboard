@@ -1,4 +1,3 @@
-install.packages('tidyverse')
 library(tidyverse)
 
 ## extract patients data
