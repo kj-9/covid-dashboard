@@ -1,58 +1,59 @@
 import React from "react"
-import { graphql } from 'gatsby';
-import "../styles/bulma.scss";
+import { graphql } from "gatsby"
+import "../styles/bulma.scss"
 
-import Layout from '../components/layout';
-import Table from '../components/Table';
-import { VictoryAxis, VictoryBar, VictoryLine, VictoryContainer } from 'victory';
+import Layout from "../components/layout"
+import Table from "../components/Table"
+import { VictoryAxis, VictoryBar, VictoryLine, VictoryContainer } from "victory"
 
-import * as scale from 'd3-scale';
-import { descending } from 'd3-array';
-import { timeFormat } from 'd3-time-format';
+import * as scale from "d3-scale"
+import { descending } from "d3-array"
+import { timeFormat } from "d3-time-format"
 
-
-
-const formatDate = timeFormat("%Y/%m/%d");
+const formatDate = timeFormat("%Y/%m/%d")
 
 export default function Home({ data }) {
-
   // get data from page query
-  const rawData = data.allCovidPatientsJson.nodes;
+  const rawData = data.allCovidPatientsJson.nodes
 
   //check number of prefectures in data
-  const setPrefs = new Set(rawData.map(node => node.pref_name_jp));
-  if (setPrefs.size !== 47) throw Error("number of unique prefecture is not 47.")
+  const setPrefs = new Set(rawData.map(node => node.pref_name_jp))
+  if (setPrefs.size !== 47)
+    throw Error("number of unique prefecture is not 47.")
 
   // get latest data in data
   const latestDate = new Date(rawData.map(node => node.update_date)[0])
 
   // set react-table data
   const tableData = React.useMemo(
-    () => rawData.sort((a, b) => descending(a.pref_patients_beds_ratio, b.pref_patients_beds_ratio)),
+    () =>
+      rawData.sort((a, b) =>
+        descending(a.pref_patients_beds_ratio, b.pref_patients_beds_ratio)
+      ),
     []
   )
 
   const sizeFactor = 0.6
-  const cellWidth = 200 * sizeFactor;
-  const cellHeight = 20;
-  const cellPadding = { left: 10, right: 14 };
+  const cellWidth = 200 * sizeFactor
+  const cellHeight = 20
+  const cellPadding = { left: 10, right: 14 }
 
   const columns = React.useMemo(
     () => [
       {
-        Header: '都道府県',
+        Header: "都道府県",
         columns: [
           {
-            accessor: 'pref_name_jp',
-          }
-        ]
+            accessor: "pref_name_jp",
+          },
+        ],
       },
       {
-        Header: 'ベッド占有率',
+        Header: "ベッド占有率",
         columns: [
           {
-            accessor: 'pref_patients_beds_ratio',
-            Header: () =>
+            accessor: "pref_patients_beds_ratio",
+            Header: () => (
               <VictoryAxis
                 width={cellWidth}
                 height={cellHeight}
@@ -62,18 +63,20 @@ export default function Home({ data }) {
                 offsetY={19}
                 dependentAxis
                 tickValues={[0, 0.5, 1]}
-                tickFormat={(t) => `${100 * t}%`}
+                tickFormat={t => `${100 * t}%`}
                 style={{
-                  axis: { stroke: 'transparent' },
-                  axisLabel: { color: 'grey' },
-                  ticks: { size: 5, stroke: 'gray' },
-                  tickLabels: { fontSize: 11, padding: 0, fill: 'grey' },
-                  grid: { stroke: 'transparent' }
+                  axis: { stroke: "transparent" },
+                  axisLabel: { color: "grey" },
+                  ticks: { size: 5, stroke: "gray" },
+                  tickLabels: { fontSize: 11, padding: 0, fill: "grey" },
+                  grid: { stroke: "transparent" },
                 }}
-                containerComponent={<VictoryContainer width={cellWidth} responsive={false} />}
+                containerComponent={
+                  <VictoryContainer width={cellWidth} responsive={false} />
+                }
               />
-            ,
-            Cell: ({ value }) =>
+            ),
+            Cell: ({ value }) => (
               <VictoryBar
                 width={cellWidth}
                 height={cellHeight}
@@ -84,21 +87,34 @@ export default function Home({ data }) {
                 horizontal
                 alignment={"middle"}
                 style={{
-                  data: { fill: scale.scaleLinear().range(["#ffffff", "#ffa815", "#ff3939", "#a52323"]).domain([0, 1])(scale.scaleThreshold().domain([0, 0.25, 0.5, 0.75, 1]).range([0, 0.25, 0.5, 0.75, 1])(value)) }
+                  data: {
+                    fill: scale
+                      .scaleLinear()
+                      .range(["#ffffff", "#ffa815", "#ff3939", "#a52323"])
+                      .domain([0, 1])(
+                      scale
+                        .scaleThreshold()
+                        .domain([0, 0.25, 0.5, 0.75, 1])
+                        .range([0, 0.25, 0.5, 0.75, 1])(value)
+                    ),
+                  },
                 }}
-                containerComponent={<VictoryContainer width={cellWidth} responsive={false} />}
+                containerComponent={
+                  <VictoryContainer width={cellWidth} responsive={false} />
+                }
               />
+            ),
           },
           {
-            accessor: 'pref_patients_beds_ratio',
-            id: 'value_pref_patients_beds_ratio',
-            Cell: ({ value }) => `${Math.floor(100 * value)}%`
+            accessor: "pref_patients_beds_ratio",
+            id: "value_pref_patients_beds_ratio",
+            Cell: ({ value }) => `${Math.floor(100 * value)}%`,
           },
           {
-            Header: '過去１週間',
-            accessor: 'last_1w',
-            id: 'trend_pref_patients_beds_ratio',
-            Cell: ({ value }) =>
+            Header: "過去１週間",
+            accessor: "last_1w",
+            id: "trend_pref_patients_beds_ratio",
+            Cell: ({ value }) => (
               <VictoryLine
                 width={cellWidth}
                 height={cellHeight}
@@ -108,14 +124,20 @@ export default function Home({ data }) {
                 style={{
                   data: {
                     stroke: "grey",
-                    strokeWidth: 1
-                  }
+                    strokeWidth: 1,
+                  },
                 }}
-                data={value.map(element => ({ x: element.update_date, y: element.pref_patients_beds_ratio }))}
-                containerComponent={<VictoryContainer width={cellWidth} responsive={false} />}
+                data={value.map(element => ({
+                  x: element.update_date,
+                  y: element.pref_patients_beds_ratio,
+                }))}
+                containerComponent={
+                  <VictoryContainer width={cellWidth} responsive={false} />
+                }
               />
-          }
-        ]
+            ),
+          },
+        ],
       },
     ],
     []
@@ -126,35 +148,36 @@ export default function Home({ data }) {
       <div className="columns ml-1">
         <div className="column mt-2">
           <h1 className="title is-4">{"ベッド占有率"}</h1>
-          <h2 className="subtitle is-6">{'(患者数/対策ベッド数) :' + formatDate(latestDate) + "時点"}</h2>
+          <h2 className="subtitle is-6">
+            {"(患者数/対策ベッド数) :" + formatDate(latestDate) + "時点"}
+          </h2>
           <div className="columns">
             <div className="column">
-              <Table className='table' columns={columns} data={tableData} />
+              <Table className="table" columns={columns} data={tableData} />
             </div>
           </div>
         </div>
       </div>
-    </Layout >
+    </Layout>
   )
 }
 
-
 export const pageQuery = graphql`
-query HomePageQuery {
-  allCovidPatientsJson {
-    nodes {
-      update_date
-      pref_name_jp
-      pref_n_patients
-      pref_n_current_patients
-      pref_n_current_heavy_patients
-      pref_heavy_patients_beds_ratio
-      pref_patients_beds_ratio
-      last_1w {
-        pref_patients_beds_ratio
+  query HomePageQuery {
+    allCovidPatientsJson {
+      nodes {
         update_date
+        pref_name_jp
+        pref_n_patients
+        pref_n_current_patients
+        pref_n_current_heavy_patients
+        pref_heavy_patients_beds_ratio
+        pref_patients_beds_ratio
+        last_1w {
+          pref_patients_beds_ratio
+          update_date
+        }
       }
     }
   }
-}
 `
