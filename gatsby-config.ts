@@ -8,6 +8,7 @@ export default {
         twitterUsername: "",
     },
     plugins: [
+        `gatsby-plugin-emotion`,
         `gatsby-plugin-sass`,
         `gatsby-plugin-sitemap`,
         `gatsby-plugin-react-helmet`,
