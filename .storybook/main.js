@@ -1,3 +1,5 @@
+const { resolve } = require("path")
+
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
@@ -36,6 +38,18 @@ module.exports = {
         ],
       },
     })
+
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        "style-loader",
+        "css-loader",
+        {
+          loader: "sass-loader",
+        },
+      ],
+    })
+
     config.resolve.extensions.push(".ts", ".tsx")
 
     return config
