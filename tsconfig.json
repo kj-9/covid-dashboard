@@ -1,0 +1,9 @@
+// this tsconfig is only for vscode type-check
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "jsx": "react"
+  }
+}
