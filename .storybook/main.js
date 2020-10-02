@@ -14,6 +14,7 @@ module.exports = {
     config.module.rules[0].use[0].options.presets = [
       require.resolve("@babel/preset-react"),
       require.resolve("@babel/preset-env"),
+      require.resolve("@emotion/babel-preset-css-prop"),
     ]
 
     config.module.rules[0].use[0].options.plugins = [
@@ -30,7 +31,10 @@ module.exports = {
       test: /\.(ts|tsx)$/,
       loader: require.resolve("babel-loader"),
       options: {
-        presets: [["react-app", { flow: false, typescript: true }]],
+        presets: [
+          ["react-app", { flow: false, typescript: true }],
+          require.resolve("@emotion/babel-preset-css-prop"),
+        ],
         plugins: [
           require.resolve("@babel/plugin-proposal-class-properties"),
           // use babel-plugin-remove-graphql-queries to remove static queries from components when rendering in storybook
