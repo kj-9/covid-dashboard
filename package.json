@@ -47,6 +47,7 @@
     "@storybook/addon-essentials": "^6.0.22",
     "@storybook/addon-links": "^6.0.22",
     "@storybook/react": "^6.0.22",
+    "@types/d3-scale": "^3.0.0",
     "@types/react-table": "^7.0.23",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
