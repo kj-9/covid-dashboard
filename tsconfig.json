@@ -1,6 +1,7 @@
 // this tsconfig is only for vscode type-check
 {
   "compilerOptions": {
+    "downlevelIteration": true,
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
