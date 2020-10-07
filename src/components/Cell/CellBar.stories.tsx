@@ -20,8 +20,8 @@ const Template: Story<CellBarProps> = args => {
         </tr>
       </thead>
       <tbody>
-        {range.map(element => (
-          <tr>
+        {range.map((element, index) => (
+          <tr key={index}>
             <td>{element}</td>
             <CellBar {...args} value={0.1 * element} />
           </tr>

@@ -3,7 +3,7 @@ import { VictoryBar, VictoryContainer, VictoryBarProps } from "victory"
 import { CellDefaultArg, CellDefaultColorScale } from "./"
 
 export interface CellBarProps
-  extends Pick<VictoryBarProps, "width" | "height" | "padding" | "style"> {
+  extends Pick<VictoryBarProps, "width" | "height" | "padding"> {
   domainY: [number, number]
   value: number
 }
@@ -14,11 +14,6 @@ export const CellBar: React.FC<CellBarProps> = ({
   padding,
   domainY = [0, 1],
   value,
-  style = {
-    data: {
-      fill: CellDefaultColorScale(domainY)(value),
-    },
-  },
 }) => {
   return (
     <td>
@@ -26,7 +21,11 @@ export const CellBar: React.FC<CellBarProps> = ({
         width={width}
         height={height}
         padding={padding}
-        style={style}
+        style={{
+          data: {
+            fill: CellDefaultColorScale(domainY)(value),
+          },
+        }}
         domain={{ y: domainY }}
         data={[{ x: "value", y: value }]}
         barRatio={1}
