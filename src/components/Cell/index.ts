@@ -1,7 +1,19 @@
-export const CellDefaultArg = {
+const defaultProps = {
   width: 120,
   height: 20,
   padding: { left: 10, right: 14 },
+}
+
+enum ComponentKind {
+  Cell = "CELL",
+}
+
+export const CellFCDefault = {
+  kind: ComponentKind.Cell,
+  defaultProps: defaultProps,
+}
+export interface CellFC<P> extends React.FC<P> {
+  readonly kind: ComponentKind.Cell
 }
 
 import * as scale from "d3-scale"

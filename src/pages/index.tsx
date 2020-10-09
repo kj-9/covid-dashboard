@@ -3,16 +3,23 @@ import { graphql } from "gatsby"
 import "../styles/bulma.scss"
 
 import Layout from "../components/layout"
-import Table from "../components/Table"
-import { VictoryAxis, VictoryBar, VictoryLine, VictoryContainer } from "victory"
+import { Table } from "../components/Table"
+import { CellAxis } from "../components/Cell/CellAxis"
+import { CellBar } from "../components/Cell/CellBar"
+import { CellSparkline } from "../components/Cell/CellSparkline"
 
-import * as scale from "d3-scale"
 import { descending } from "d3-array"
 import { timeFormat } from "d3-time-format"
 
+import { HomePageQuery } from "../../types/graphql-types"
+
 const formatDate = timeFormat("%Y/%m/%d")
 
-export default function Home({ data }) {
+type Props = {
+  data: HomePageQuery
+}
+
+const Home: React.FC<Props> = ({ data }) => {
   // get data from page query
   const rawData = data.allCovidPatientsJson.nodes
 
@@ -33,11 +40,6 @@ export default function Home({ data }) {
     []
   )
 
-  const sizeFactor = 0.6
-  const cellWidth = 200 * sizeFactor
-  const cellHeight = 20
-  const cellPadding = { left: 10, right: 14 }
-
   const columns = React.useMemo(
     () => [
       {
@@ -53,88 +55,31 @@ export default function Home({ data }) {
         columns: [
           {
             accessor: "pref_patients_beds_ratio",
-            Header: () => (
-              <VictoryAxis
-                width={cellWidth}
-                height={cellHeight}
-                padding={cellPadding}
-                domain={{ y: [0, 1] }}
-                orientation="top"
-                offsetY={19}
-                dependentAxis
-                tickValues={[0, 0.5, 1]}
-                tickFormat={t => `${100 * t}%`}
-                style={{
-                  axis: { stroke: "transparent" },
-                  axisLabel: { color: "grey" },
-                  ticks: { size: 5, stroke: "gray" },
-                  tickLabels: { fontSize: 11, padding: 0, fill: "grey" },
-                  grid: { stroke: "transparent" },
-                }}
-                containerComponent={
-                  <VictoryContainer width={cellWidth} responsive={false} />
-                }
-              />
-            ),
-            Cell: ({ value }) => (
-              <VictoryBar
-                width={cellWidth}
-                height={cellHeight}
-                padding={cellPadding}
-                domain={{ y: [0, 1] }}
-                data={[{ x: "test", y: value }]}
-                barRatio={1}
-                horizontal
-                alignment={"middle"}
-                style={{
-                  data: {
-                    fill: scale
-                      .scaleLinear()
-                      .range(["#ffffff", "#ffa815", "#ff3939", "#a52323"])
-                      .domain([0, 1])(
-                      scale
-                        .scaleThreshold()
-                        .domain([0, 0.25, 0.5, 0.75, 1])
-                        .range([0, 0.25, 0.5, 0.75, 1])(value)
-                    ),
-                  },
-                }}
-                containerComponent={
-                  <VictoryContainer width={cellWidth} responsive={false} />
-                }
-              />
-            ),
+            Header: CellAxis,
+            Cell: CellBar,
           },
           {
-            accessor: "pref_patients_beds_ratio",
             id: "value_pref_patients_beds_ratio",
+            accessor: "pref_patients_beds_ratio",
             Cell: ({ value }) => `${Math.floor(100 * value)}%`,
           },
           {
-            Header: "過去１週間",
-            accessor: "last_1w",
             id: "trend_pref_patients_beds_ratio",
-            Cell: ({ value }) => (
-              <VictoryLine
-                width={cellWidth}
-                height={cellHeight}
-                padding={cellPadding}
-                domain={{ y: [0, 1] }}
-                scale={"time"}
-                style={{
-                  data: {
-                    stroke: "grey",
-                    strokeWidth: 1,
-                  },
-                }}
-                data={value.map(element => ({
-                  x: element.update_date,
-                  y: element.pref_patients_beds_ratio,
-                }))}
-                containerComponent={
-                  <VictoryContainer width={cellWidth} responsive={false} />
-                }
-              />
+            accessor: "last_1w",
+            Header: "過去１週間",
+            // 課題:value以外のargが必要な場合、FCをラップしないといけないので、kindの再付与が必要
+            Cell: Object.assign(
+              ({ value }) => (
+                <CellSparkline
+                  scale={"time"}
+                  domain={{ y: [0, 1] }}
+                  data={value.map(element => ({
+                    x: element.update_date,
+                    y: element.pref_patients_beds_ratio,
+                  }))}
+                />
+              ),
+              { kind: "CELL" }
             ),
           },
         ],
@@ -153,7 +98,11 @@ export default function Home({ data }) {
           </h2>
           <div className="columns">
             <div className="column">
-              <Table className="table" columns={columns} data={tableData} />
+              <Table<HomePageQuery["allCovidPatientsJson"]["nodes"][0]>
+                className="table"
+                columns={columns}
+                data={tableData}
+              />
             </div>
           </div>
         </div>
@@ -162,8 +111,10 @@ export default function Home({ data }) {
   )
 }
 
+export default Home
+
 export const pageQuery = graphql`
-  query HomePageQuery {
+  query HomePage {
     allCovidPatientsJson {
       nodes {
         update_date

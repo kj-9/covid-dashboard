@@ -1,8 +1,16 @@
 import React from "react"
-import { useTable } from "react-table"
+import { useTable, TableOptions, Column } from "react-table"
+import { CellFC } from "./Cell"
 
-export default function Table(props) {
-  const { columns, data, className } = props
+interface TableProps<T extends object = {}> extends TableOptions<T> {
+  className: string
+}
+
+export const Table = <T extends object>({
+  columns,
+  data,
+  className,
+}: TableProps<T>): React.ReactElement => {
   const {
     getTableProps,
     getTableBodyProps,
@@ -16,9 +24,17 @@ export default function Table(props) {
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
-            ))}
+            {headerGroup.headers.map(column => {
+              if ((column.Header as CellFC<any>)?.kind == "CELL") {
+                return column.render("Header")
+              } else {
+                return (
+                  <th {...column.getHeaderProps()}>
+                    {column.render("Header")}
+                  </th>
+                )
+              }
+            })}
           </tr>
         ))}
       </thead>
@@ -27,9 +43,15 @@ export default function Table(props) {
           prepareRow(row)
           return (
             <tr {...row.getRowProps()}>
-              {row.cells.map(cell => (
-                <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-              ))}
+              {row.cells.map(cell => {
+                if ((cell.column.Cell as CellFC<any>)?.kind == "CELL") {
+                  console.log(cell)
+                  return cell.render("Cell")
+                } else {
+                  console.log(cell)
+                  return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                }
+              })}
             </tr>
           )
         })}
