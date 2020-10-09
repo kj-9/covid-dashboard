@@ -3,7 +3,7 @@ import { Story, Meta } from "@storybook/react/types-6-0"
 import { CellAxis, CellAxisProps } from "./CellAxis"
 
 export default {
-  title: "Example/CellAxis",
+  title: "Example/Cell/CellAxis",
   component: CellAxis,
   argTypes: {},
 } as Meta
