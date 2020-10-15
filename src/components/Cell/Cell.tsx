@@ -8,7 +8,7 @@ type textAlignType = "center" | "justified" | "left" | "right"
 export type CellProps = {
   tagType?: tagType
   textAlign?: textAlignType
-  className: string
+  className?: string
   cssObject?: CSSObject
   props?: { className: never }
 }
@@ -21,7 +21,7 @@ export const Cell: React.FC<CellProps> = ({
   props,
   children,
 }) => {
-  let arrClassName = []
+  let arrClassName: Array<string | undefined> = [className]
   if (textAlign) {
     switch (textAlign) {
       case "center":
@@ -43,7 +43,7 @@ export const Cell: React.FC<CellProps> = ({
     }
   }
 
-  const joinedClassName =
+  const joinedClassName: string | undefined =
     arrClassName.filter(Boolean).length === 0
       ? undefined
       : arrClassName.filter(Boolean).join(" ")
