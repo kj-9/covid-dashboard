@@ -1,15 +1,21 @@
 import React from "react"
-import Header from "./header"
-import Footer from "./footer"
-import SEO from "./seo"
+import { Header, HeaderProps } from "./Header"
+import { Footer } from "./Footer"
+import { SEO } from "./SEO"
 
-export default function Layout({ children }) {
+type LayoutProps = {
+  headerProps: HeaderProps
+}
+
+const Layout: React.FC<LayoutProps> = ({ headerProps, children }) => {
   return (
     <>
       <SEO />
-      <Header />
+      <Header {...headerProps} />
       {children}
       <Footer />
     </>
   )
 }
+
+export default Layout

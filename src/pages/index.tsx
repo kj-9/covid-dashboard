@@ -88,7 +88,12 @@ const Home: React.FC<Props> = ({ data }) => {
   )
 
   return (
-    <Layout>
+    <Layout
+      headerProps={{
+        title: "コロナ感染状況ダッシュボード",
+        subtitle: "Japan Covid-19 dashboard",
+      }}
+    >
       <div className="columns ml-1">
         <div className="column mt-2">
           <h1 className="title is-4">{"ベッド占有率"}</h1>

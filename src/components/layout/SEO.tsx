@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useLocation } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
@@ -17,7 +16,20 @@ const query = graphql`
     }
   }
 `
-const SEO = ({ title, description, image, article }) => {
+
+export type SEOProps = {
+  title?: string | null
+  description?: string | null
+  image?: string | null
+  article?: boolean
+}
+
+export const SEO: React.FC<SEOProps> = ({
+  title,
+  description,
+  image,
+  article,
+}) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
@@ -60,15 +72,6 @@ const SEO = ({ title, description, image, article }) => {
       <html lang="jp" />
     </Helmet>
   )
-}
-
-export default SEO
-
-SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  article: PropTypes.bool,
 }
 
 SEO.defaultProps = {

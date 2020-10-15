@@ -1,11 +1,11 @@
 import React from "react"
 
-export default function Footer() {
+export const Footer: React.FC<{}> = () => {
   return (
     <footer className="footer">
       <div className="content">
         <h2 className="subtitle is-4">データソース</h2>
-        <ul type="1">
+        <ul>
           <li>
             <a
               href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000164708_00001.html"
