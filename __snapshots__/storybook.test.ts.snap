@@ -1,0 +1,1598 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Example/Cell/Cell Basic 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        samplesample
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        test
+      </td>
+    </tr>
+    <tr>
+      <td>
+        samplesample
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/Cell Left 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        samplesample
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="has-text-left"
+      >
+        test
+      </td>
+    </tr>
+    <tr>
+      <td>
+        samplesample
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/Cell Right 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        samplesample
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="has-text-right"
+      >
+        test
+      </td>
+    </tr>
+    <tr>
+      <td>
+        samplesample
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/Cell Styled 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        samplesample
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="css-f5yfbg"
+      >
+        test
+      </td>
+    </tr>
+    <tr>
+      <td>
+        samplesample
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/Cell Styled Right 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        samplesample
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="css-f5yfbg has-text-right"
+      >
+        test
+      </td>
+    </tr>
+    <tr>
+      <td>
+        samplesample
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/Cell Styled Right With Class Name 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        samplesample
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="css-f5yfbg has-text-right"
+      >
+        test
+      </td>
+    </tr>
+    <tr>
+      <td>
+        samplesample
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/CellAxis Basic 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th
+        className="css-1u8kijh"
+      >
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <line
+              role="presentation"
+              shapeRendering="auto"
+              style={
+                Object {
+                  "fill": "transparent",
+                  "stroke": "transparent",
+                  "strokeLinecap": "round",
+                  "strokeLinejoin": "round",
+                  "strokeWidth": 1,
+                }
+              }
+              vectorEffect="non-scaling-stroke"
+              x1={10}
+              x2={106}
+              y1={19}
+              y2={19}
+            />
+            <g
+              role="presentation"
+            >
+              <line
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "transparent",
+                    "size": 5,
+                    "stroke": "gray",
+                  }
+                }
+                vectorEffect="non-scaling-stroke"
+                x1={10}
+                x2={10}
+                y1={19}
+                y2={14}
+              />
+              <text
+                direction="inherit"
+                dx={0}
+                id="axis-tickLabels-0"
+                x={10}
+                y={12.405}
+              >
+                <tspan
+                  dx={0}
+                  dy={0}
+                  style={
+                    Object {
+                      "fill": "grey",
+                      "fontFamily": "'Gill Sans', 'Seravek', 'Trebuchet MS', sans-serif",
+                      "fontSize": 11,
+                      "letterSpacing": "normal",
+                      "padding": 0,
+                      "stroke": "transparent",
+                    }
+                  }
+                  textAnchor="middle"
+                  x={10}
+                >
+                  0%
+                </tspan>
+              </text>
+            </g>
+            <g
+              role="presentation"
+            >
+              <line
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "transparent",
+                    "size": 5,
+                    "stroke": "gray",
+                  }
+                }
+                vectorEffect="non-scaling-stroke"
+                x1={58}
+                x2={58}
+                y1={19}
+                y2={14}
+              />
+              <text
+                direction="inherit"
+                dx={0}
+                id="axis-tickLabels-1"
+                x={58}
+                y={12.405}
+              >
+                <tspan
+                  dx={0}
+                  dy={0}
+                  style={
+                    Object {
+                      "fill": "grey",
+                      "fontFamily": "'Gill Sans', 'Seravek', 'Trebuchet MS', sans-serif",
+                      "fontSize": 11,
+                      "letterSpacing": "normal",
+                      "padding": 0,
+                      "stroke": "transparent",
+                    }
+                  }
+                  textAnchor="middle"
+                  x={58}
+                >
+                  50%
+                </tspan>
+              </text>
+            </g>
+            <g
+              role="presentation"
+            >
+              <line
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "transparent",
+                    "size": 5,
+                    "stroke": "gray",
+                  }
+                }
+                vectorEffect="non-scaling-stroke"
+                x1={106}
+                x2={106}
+                y1={19}
+                y2={14}
+              />
+              <text
+                direction="inherit"
+                dx={0}
+                id="axis-tickLabels-2"
+                x={106}
+                y={12.405}
+              >
+                <tspan
+                  dx={0}
+                  dy={0}
+                  style={
+                    Object {
+                      "fill": "grey",
+                      "fontFamily": "'Gill Sans', 'Seravek', 'Trebuchet MS', sans-serif",
+                      "fontSize": 11,
+                      "letterSpacing": "normal",
+                      "padding": 0,
+                      "stroke": "transparent",
+                    }
+                  }
+                  textAnchor="middle"
+                  x={106}
+                >
+                  100%
+                </tspan>
+              </text>
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </th>
+      <th>
+        test
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        test
+      </td>
+      <td>
+        test
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/CellBar Basic 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        value
+      </th>
+      <th>
+        bar
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        0
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 10, 14 
+A 0 0 0 0 1, 10, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#e5e7d4",
+                    "padding": 8,
+                    "stroke": "#e5e7d4",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        1
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 19.6, 6 
+A 0 0 0 0 1, 19.6, 6 
+L 19.6, 14 
+A 0 0 0 0 1, 19.6, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#e5e7d4",
+                    "padding": 8,
+                    "stroke": "#e5e7d4",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        2
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 29.200000000000003, 6 
+A 0 0 0 0 1, 29.200000000000003, 6 
+L 29.200000000000003, 14 
+A 0 0 0 0 1, 29.200000000000003, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#ffe570",
+                    "padding": 8,
+                    "stroke": "#ffe570",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        3
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 38.800000000000004, 6 
+A 0 0 0 0 1, 38.800000000000004, 6 
+L 38.800000000000004, 14 
+A 0 0 0 0 1, 38.800000000000004, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#ffe570",
+                    "padding": 8,
+                    "stroke": "#ffe570",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        4
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 48.400000000000006, 6 
+A 0 0 0 0 1, 48.400000000000006, 6 
+L 48.400000000000006, 14 
+A 0 0 0 0 1, 48.400000000000006, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#ffa94c",
+                    "padding": 8,
+                    "stroke": "#ffa94c",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        5
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 58, 6 
+A 0 0 0 0 1, 58, 6 
+L 58, 14 
+A 0 0 0 0 1, 58, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#ffa94c",
+                    "padding": 8,
+                    "stroke": "#ffa94c",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        6
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 67.60000000000001, 6 
+A 0 0 0 0 1, 67.60000000000001, 6 
+L 67.60000000000001, 14 
+A 0 0 0 0 1, 67.60000000000001, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#ff845f",
+                    "padding": 8,
+                    "stroke": "#ff845f",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        7
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 77.2, 6 
+A 0 0 0 0 1, 77.2, 6 
+L 77.2, 14 
+A 0 0 0 0 1, 77.2, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#ff845f",
+                    "padding": 8,
+                    "stroke": "#ff845f",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        8
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 86.80000000000001, 6 
+A 0 0 0 0 1, 86.80000000000001, 6 
+L 86.80000000000001, 14 
+A 0 0 0 0 1, 86.80000000000001, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#ff0000",
+                    "padding": 8,
+                    "stroke": "#ff0000",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        9
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 96.4, 6 
+A 0 0 0 0 1, 96.4, 6 
+L 96.4, 14 
+A 0 0 0 0 1, 96.4, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#ff0000",
+                    "padding": 8,
+                    "stroke": "#ff0000",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        10
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 106, 6 
+A 0 0 0 0 1, 106, 6 
+L 106, 14 
+A 0 0 0 0 1, 106, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#ff0000",
+                    "padding": 8,
+                    "stroke": "#ff0000",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        11
+      </td>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 10, 14 
+A 0 0 0 0 1, 10, 14 
+L 10, 6 
+A 0 0 0 0 1, 10, 6 
+L 115.60000000000001, 6 
+A 0 0 0 0 1, 115.60000000000001, 6 
+L 115.60000000000001, 14 
+A 0 0 0 0 1, 115.60000000000001, 14 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "#ff0000",
+                    "padding": 8,
+                    "stroke": "#ff0000",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/CellSparkline Basic 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        value
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              clipPath="url(#victory-clip-15)"
+              style={
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            >
+              <defs>
+                <clipPath
+                  id="victory-clip-15"
+                >
+                  <rect
+                    height={20}
+                    vectorEffect="non-scaling-stroke"
+                    width={96}
+                    x={10}
+                    y={0}
+                  />
+                </clipPath>
+              </defs>
+              <path
+                d="M10,20L20.666666666666664,18L31.333333333333332,16L42,14L52.666666666666664,12L63.333333333333336,10L73.99999999999999,7.999999999999998L84.66666666666667,5.999999999999998L95.33333333333333,3.999999999999999L106,1.9999999999999996"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "transparent",
+                    "stroke": "grey",
+                    "strokeWidth": 1,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              clipPath="url(#victory-clip-17)"
+              style={
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            >
+              <defs>
+                <clipPath
+                  id="victory-clip-17"
+                >
+                  <rect
+                    height={20}
+                    vectorEffect="non-scaling-stroke"
+                    width={96}
+                    x={10}
+                    y={0}
+                  />
+                </clipPath>
+              </defs>
+              <path
+                d="M10,20L20.666666666666664,18L31.333333333333332,16L42,14L52.666666666666664,12L63.333333333333336,10L73.99999999999999,7.999999999999998L84.66666666666667,5.999999999999998L95.33333333333333,3.999999999999999L106,1.9999999999999996"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "transparent",
+                    "stroke": "grey",
+                    "strokeWidth": 1,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
