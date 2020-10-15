@@ -4,6 +4,7 @@ import "../styles/bulma.scss"
 
 import Layout from "../components/layout"
 import { Table } from "../components/Table"
+import { Cell } from "../components/Cell/Cell"
 import { CellAxis } from "../components/Cell/CellAxis"
 import { CellBar } from "../components/Cell/CellBar"
 import { CellSparkline } from "../components/Cell/CellSparkline"
@@ -61,25 +62,23 @@ const Home: React.FC<Props> = ({ data }) => {
           {
             id: "value_pref_patients_beds_ratio",
             accessor: "pref_patients_beds_ratio",
-            Cell: ({ value }) => `${Math.floor(100 * value)}%`,
+            Cell: ({ value }) => (
+              <Cell textAlign="right">{`${Math.floor(100 * value)}%`}</Cell>
+            ),
           },
           {
             id: "trend_pref_patients_beds_ratio",
             accessor: "last_1w",
             Header: "過去１週間",
-            // 課題:value以外のargが必要な場合、FCをラップしないといけないので、kindの再付与が必要
-            Cell: Object.assign(
-              ({ value }) => (
-                <CellSparkline
-                  scale={"time"}
-                  domain={{ y: [0, 1] }}
-                  data={value.map(element => ({
-                    x: element.update_date,
-                    y: element.pref_patients_beds_ratio,
-                  }))}
-                />
-              ),
-              { kind: "CELL" }
+            Cell: ({ value }) => (
+              <CellSparkline
+                scale={"time"}
+                domain={{ y: [0, 1] }}
+                data={value.map(element => ({
+                  x: element.update_date,
+                  y: element.pref_patients_beds_ratio,
+                }))}
+              />
             ),
           },
         ],
