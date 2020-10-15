@@ -32,3 +32,16 @@ Left.args = { textAlign: "left" }
 
 export const Right = Template.bind({})
 Right.args = { textAlign: "right" }
+
+export const Styled = Template.bind({})
+Styled.args = { cssObject: { backgroundColor: "red" } }
+
+export const StyledRight = Template.bind({})
+StyledRight.args = { textAlign: "right", cssObject: { backgroundColor: "red" } }
+
+export const StyledRightWithClassName = Template.bind({})
+StyledRightWithClassName.args = {
+  textAlign: "right",
+  className: "test",
+  cssObject: { backgroundColor: "red" },
+}
