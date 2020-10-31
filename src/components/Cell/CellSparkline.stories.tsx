@@ -36,3 +36,19 @@ Basic.args = {
   scale: "linear",
   data: range.map(element => ({ x: element, y: element * 0.1 })),
 }
+
+const variousData = range.map(element => ({
+  x: element,
+  y: Math.random() ** 2,
+}))
+
+export const FixedDomain = Template.bind({})
+FixedDomain.args = {
+  domain: { y: [0, 1] },
+  data: variousData,
+}
+
+export const VariableDomain = Template.bind({})
+VariableDomain.args = {
+  data: variousData,
+}
