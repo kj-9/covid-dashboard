@@ -11,7 +11,7 @@ export const CellDefaultColorScale = (
 ) => {
   const colorRange = ["#e5e7d4", "#ffe570", "#ffa94c", "#ff845f", "#ff0000"]
 
-  return (value: number): number | undefined => {
-    return scale.scaleQuantize().domain(domain).range(colorRange)(value)
+  return (value: number) => {
+    return scale.scaleQuantize<string>().domain(domain).range(colorRange)(value)
   }
 }
