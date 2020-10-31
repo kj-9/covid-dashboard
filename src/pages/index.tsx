@@ -9,7 +9,7 @@ import { CellAxis } from "../components/Cell/CellAxis"
 import { CellBar } from "../components/Cell/CellBar"
 import { CellSparkline } from "../components/Cell/CellSparkline"
 
-import { max, descending } from "d3-array"
+import * as d3Array from "d3-array"
 import { timeFormat } from "d3-time-format"
 
 import { HomePageQuery } from "../../types/graphql-types"
@@ -30,13 +30,16 @@ const Home: React.FC<Props> = ({ data }) => {
     throw Error("number of unique prefecture is not 47.")
 
   // get latest data in data
-  const latestDate = new Date(max(rawData, node => node.update_date))
+  const latestDate = new Date(d3Array.max(rawData, node => node.update_date))
 
   // set react-table data
   const tableData = React.useMemo(
     () =>
       rawData.sort((a, b) =>
-        descending(a.pref_patients_beds_ratio, b.pref_patients_beds_ratio)
+        d3Array.descending(
+          a.pref_patients_beds_ratio,
+          b.pref_patients_beds_ratio
+        )
       ),
     []
   )
@@ -73,8 +76,6 @@ const Home: React.FC<Props> = ({ data }) => {
             Header: "過去１週間",
             Cell: ({ value }) => (
               <CellSparkline
-                scale={"time"}
-                domain={{ y: [0, 1] }}
                 data={value.map(element => ({
                   x: element.update_date,
                   y: element.pref_patients_beds_ratio,
