@@ -152,7 +152,7 @@ exports[`Storyshots Example/Cell/Cell Styled Right With Class Name 1`] = `
   <tbody>
     <tr>
       <td
-        className="css-f5yfbg has-text-right"
+        className="css-f5yfbg test has-text-right"
       >
         test
       </td>
@@ -173,7 +173,7 @@ exports[`Storyshots Example/Cell/CellAxis Basic 1`] = `
   <thead>
     <tr>
       <th
-        className="css-1u8kijh"
+        className="css-1u8kijh pb-0"
       >
         <div
           className="VictoryContainer"
@@ -1561,6 +1561,2311 @@ exports[`Storyshots Example/Cell/CellSparkline Basic 1`] = `
                     "fill": "transparent",
                     "stroke": "grey",
                     "strokeWidth": 1,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/CellSparkline Fixed Domain 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        value
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              clipPath="url(#victory-clip-19)"
+              style={
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            >
+              <defs>
+                <clipPath
+                  id="victory-clip-19"
+                >
+                  <rect
+                    height={20}
+                    vectorEffect="non-scaling-stroke"
+                    width={96}
+                    x={10}
+                    y={0}
+                  />
+                </clipPath>
+              </defs>
+              <path
+                d="M10,19.907767024362L20.666666666666664,14.21332890377422L31.333333333333332,18.686547944900095L42,18.185365417376715L52.666666666666664,4.278106670925448L63.333333333333336,5.922354673144121L73.99999999999999,19.878507481822844L84.66666666666667,14.181736855699004L95.33333333333333,8.486580043731806L106,15.631814820070966"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "transparent",
+                    "stroke": "grey",
+                    "strokeWidth": 1,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              clipPath="url(#victory-clip-21)"
+              style={
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            >
+              <defs>
+                <clipPath
+                  id="victory-clip-21"
+                >
+                  <rect
+                    height={20}
+                    vectorEffect="non-scaling-stroke"
+                    width={96}
+                    x={10}
+                    y={0}
+                  />
+                </clipPath>
+              </defs>
+              <path
+                d="M10,19.907767024362L20.666666666666664,14.21332890377422L31.333333333333332,18.686547944900095L42,18.185365417376715L52.666666666666664,4.278106670925448L63.333333333333336,5.922354673144121L73.99999999999999,19.878507481822844L84.66666666666667,14.181736855699004L95.33333333333333,8.486580043731806L106,15.631814820070966"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "transparent",
+                    "stroke": "grey",
+                    "strokeWidth": 1,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/CellSparkline Variable Domain 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        value
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              clipPath="url(#victory-clip-23)"
+              style={
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            >
+              <defs>
+                <clipPath
+                  id="victory-clip-23"
+                >
+                  <rect
+                    height={20}
+                    vectorEffect="non-scaling-stroke"
+                    width={96}
+                    x={10}
+                    y={0}
+                  />
+                </clipPath>
+              </defs>
+              <path
+                d="M10,20L20.666666666666664,12.713292558099996L31.333333333333332,18.437305671593318L42,17.79598331884855L52.666666666666664,0L63.333333333333336,2.104009895336141L73.99999999999999,19.96255895281471L84.66666666666667,12.672866794058013L95.33333333333333,5.385239701489772L106,14.528413148337084"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "transparent",
+                    "stroke": "grey",
+                    "strokeWidth": 1,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              clipPath="url(#victory-clip-25)"
+              style={
+                Object {
+                  "height": "100%",
+                  "width": "100%",
+                }
+              }
+            >
+              <defs>
+                <clipPath
+                  id="victory-clip-25"
+                >
+                  <rect
+                    height={20}
+                    vectorEffect="non-scaling-stroke"
+                    width={96}
+                    x={10}
+                    y={0}
+                  />
+                </clipPath>
+              </defs>
+              <path
+                d="M10,20L20.666666666666664,12.713292558099996L31.333333333333332,18.437305671593318L42,17.79598331884855L52.666666666666664,0L63.333333333333336,2.104009895336141L73.99999999999999,19.96255895281471L84.66666666666667,12.672866794058013L95.33333333333333,5.385239701489772L106,14.528413148337084"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "transparent",
+                    "stroke": "grey",
+                    "strokeWidth": 1,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/CellVerticalBar Basic 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        value
+      </th>
+      <th>
+        bar
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 6.571428571428571, 20 
+A 0 0 0 0 0, 6.571428571428571, 20 
+L 6.571428571428571, 20 
+A 0 0 0 0 0, 6.571428571428571, 20 
+L 13.428571428571429, 20 
+A 0 0 0 0 0, 13.428571428571429, 20 
+L 13.428571428571429, 20 
+A 0 0 0 0 0, 13.428571428571429, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 15.298701298701298, 20 
+A 0 0 0 0 1, 15.298701298701298, 20 
+L 15.298701298701298, 18.18181818181818 
+A 0 0 0 0 1, 15.298701298701298, 18.18181818181818 
+L 22.155844155844154, 18.18181818181818 
+A 0 0 0 0 1, 22.155844155844154, 18.18181818181818 
+L 22.155844155844154, 20 
+A 0 0 0 0 1, 22.155844155844154, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 24.025974025974026, 20 
+A 0 0 0 0 1, 24.025974025974026, 20 
+L 24.025974025974026, 16.363636363636363 
+A 0 0 0 0 1, 24.025974025974026, 16.363636363636363 
+L 30.88311688311688, 16.363636363636363 
+A 0 0 0 0 1, 30.88311688311688, 16.363636363636363 
+L 30.88311688311688, 20 
+A 0 0 0 0 1, 30.88311688311688, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 32.75324675324675, 20 
+A 0 0 0 0 1, 32.75324675324675, 20 
+L 32.75324675324675, 14.545454545454547 
+A 0 0 0 0 1, 32.75324675324675, 14.545454545454547 
+L 39.61038961038961, 14.545454545454547 
+A 0 0 0 0 1, 39.61038961038961, 14.545454545454547 
+L 39.61038961038961, 20 
+A 0 0 0 0 1, 39.61038961038961, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 41.480519480519476, 20 
+A 0 0 0 0 1, 41.480519480519476, 20 
+L 41.480519480519476, 12.727272727272727 
+A 0 0 0 0 1, 41.480519480519476, 12.727272727272727 
+L 48.33766233766234, 12.727272727272727 
+A 0 0 0 0 1, 48.33766233766234, 12.727272727272727 
+L 48.33766233766234, 20 
+A 0 0 0 0 1, 48.33766233766234, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 50.2077922077922, 20 
+A 0 0 0 0 1, 50.2077922077922, 20 
+L 50.2077922077922, 10.909090909090908 
+A 0 0 0 0 1, 50.2077922077922, 10.909090909090908 
+L 57.064935064935064, 10.909090909090908 
+A 0 0 0 0 1, 57.064935064935064, 10.909090909090908 
+L 57.064935064935064, 20 
+A 0 0 0 0 1, 57.064935064935064, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 58.93506493506493, 20 
+A 0 0 0 0 1, 58.93506493506493, 20 
+L 58.93506493506493, 9.090909090909092 
+A 0 0 0 0 1, 58.93506493506493, 9.090909090909092 
+L 65.79220779220779, 9.090909090909092 
+A 0 0 0 0 1, 65.79220779220779, 9.090909090909092 
+L 65.79220779220779, 20 
+A 0 0 0 0 1, 65.79220779220779, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 67.66233766233766, 20 
+A 0 0 0 0 1, 67.66233766233766, 20 
+L 67.66233766233766, 7.272727272727273 
+A 0 0 0 0 1, 67.66233766233766, 7.272727272727273 
+L 74.51948051948052, 7.272727272727273 
+A 0 0 0 0 1, 74.51948051948052, 7.272727272727273 
+L 74.51948051948052, 20 
+A 0 0 0 0 1, 74.51948051948052, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 76.3896103896104, 20 
+A 0 0 0 0 1, 76.3896103896104, 20 
+L 76.3896103896104, 5.454545454545454 
+A 0 0 0 0 1, 76.3896103896104, 5.454545454545454 
+L 83.24675324675326, 5.454545454545454 
+A 0 0 0 0 1, 83.24675324675326, 5.454545454545454 
+L 83.24675324675326, 20 
+A 0 0 0 0 1, 83.24675324675326, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 85.11688311688312, 20 
+A 0 0 0 0 1, 85.11688311688312, 20 
+L 85.11688311688312, 3.6363636363636354 
+A 0 0 0 0 1, 85.11688311688312, 3.6363636363636354 
+L 91.97402597402598, 3.6363636363636354 
+A 0 0 0 0 1, 91.97402597402598, 3.6363636363636354 
+L 91.97402597402598, 20 
+A 0 0 0 0 1, 91.97402597402598, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 93.84415584415584, 20 
+A 0 0 0 0 1, 93.84415584415584, 20 
+L 93.84415584415584, 1.8181818181818188 
+A 0 0 0 0 1, 93.84415584415584, 1.8181818181818188 
+L 100.7012987012987, 1.8181818181818188 
+A 0 0 0 0 1, 100.7012987012987, 1.8181818181818188 
+L 100.7012987012987, 20 
+A 0 0 0 0 1, 100.7012987012987, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 102.57142857142857, 20 
+A 0 0 0 0 1, 102.57142857142857, 20 
+L 102.57142857142857, 0 
+A 0 0 0 0 1, 102.57142857142857, 0 
+L 109.42857142857143, 0 
+A 0 0 0 0 1, 109.42857142857143, 0 
+L 109.42857142857143, 20 
+A 0 0 0 0 1, 109.42857142857143, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 6.571428571428571, 20 
+A 0 0 0 0 0, 6.571428571428571, 20 
+L 6.571428571428571, 20 
+A 0 0 0 0 0, 6.571428571428571, 20 
+L 13.428571428571429, 20 
+A 0 0 0 0 0, 13.428571428571429, 20 
+L 13.428571428571429, 20 
+A 0 0 0 0 0, 13.428571428571429, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 15.298701298701298, 20 
+A 0 0 0 0 1, 15.298701298701298, 20 
+L 15.298701298701298, 18.18181818181818 
+A 0 0 0 0 1, 15.298701298701298, 18.18181818181818 
+L 22.155844155844154, 18.18181818181818 
+A 0 0 0 0 1, 22.155844155844154, 18.18181818181818 
+L 22.155844155844154, 20 
+A 0 0 0 0 1, 22.155844155844154, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 24.025974025974026, 20 
+A 0 0 0 0 1, 24.025974025974026, 20 
+L 24.025974025974026, 16.363636363636363 
+A 0 0 0 0 1, 24.025974025974026, 16.363636363636363 
+L 30.88311688311688, 16.363636363636363 
+A 0 0 0 0 1, 30.88311688311688, 16.363636363636363 
+L 30.88311688311688, 20 
+A 0 0 0 0 1, 30.88311688311688, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 32.75324675324675, 20 
+A 0 0 0 0 1, 32.75324675324675, 20 
+L 32.75324675324675, 14.545454545454547 
+A 0 0 0 0 1, 32.75324675324675, 14.545454545454547 
+L 39.61038961038961, 14.545454545454547 
+A 0 0 0 0 1, 39.61038961038961, 14.545454545454547 
+L 39.61038961038961, 20 
+A 0 0 0 0 1, 39.61038961038961, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 41.480519480519476, 20 
+A 0 0 0 0 1, 41.480519480519476, 20 
+L 41.480519480519476, 12.727272727272727 
+A 0 0 0 0 1, 41.480519480519476, 12.727272727272727 
+L 48.33766233766234, 12.727272727272727 
+A 0 0 0 0 1, 48.33766233766234, 12.727272727272727 
+L 48.33766233766234, 20 
+A 0 0 0 0 1, 48.33766233766234, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 50.2077922077922, 20 
+A 0 0 0 0 1, 50.2077922077922, 20 
+L 50.2077922077922, 10.909090909090908 
+A 0 0 0 0 1, 50.2077922077922, 10.909090909090908 
+L 57.064935064935064, 10.909090909090908 
+A 0 0 0 0 1, 57.064935064935064, 10.909090909090908 
+L 57.064935064935064, 20 
+A 0 0 0 0 1, 57.064935064935064, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 58.93506493506493, 20 
+A 0 0 0 0 1, 58.93506493506493, 20 
+L 58.93506493506493, 9.090909090909092 
+A 0 0 0 0 1, 58.93506493506493, 9.090909090909092 
+L 65.79220779220779, 9.090909090909092 
+A 0 0 0 0 1, 65.79220779220779, 9.090909090909092 
+L 65.79220779220779, 20 
+A 0 0 0 0 1, 65.79220779220779, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 67.66233766233766, 20 
+A 0 0 0 0 1, 67.66233766233766, 20 
+L 67.66233766233766, 7.272727272727273 
+A 0 0 0 0 1, 67.66233766233766, 7.272727272727273 
+L 74.51948051948052, 7.272727272727273 
+A 0 0 0 0 1, 74.51948051948052, 7.272727272727273 
+L 74.51948051948052, 20 
+A 0 0 0 0 1, 74.51948051948052, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 76.3896103896104, 20 
+A 0 0 0 0 1, 76.3896103896104, 20 
+L 76.3896103896104, 5.454545454545454 
+A 0 0 0 0 1, 76.3896103896104, 5.454545454545454 
+L 83.24675324675326, 5.454545454545454 
+A 0 0 0 0 1, 83.24675324675326, 5.454545454545454 
+L 83.24675324675326, 20 
+A 0 0 0 0 1, 83.24675324675326, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 85.11688311688312, 20 
+A 0 0 0 0 1, 85.11688311688312, 20 
+L 85.11688311688312, 3.6363636363636354 
+A 0 0 0 0 1, 85.11688311688312, 3.6363636363636354 
+L 91.97402597402598, 3.6363636363636354 
+A 0 0 0 0 1, 91.97402597402598, 3.6363636363636354 
+L 91.97402597402598, 20 
+A 0 0 0 0 1, 91.97402597402598, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 93.84415584415584, 20 
+A 0 0 0 0 1, 93.84415584415584, 20 
+L 93.84415584415584, 1.8181818181818188 
+A 0 0 0 0 1, 93.84415584415584, 1.8181818181818188 
+L 100.7012987012987, 1.8181818181818188 
+A 0 0 0 0 1, 100.7012987012987, 1.8181818181818188 
+L 100.7012987012987, 20 
+A 0 0 0 0 1, 100.7012987012987, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 102.57142857142857, 20 
+A 0 0 0 0 1, 102.57142857142857, 20 
+L 102.57142857142857, 0 
+A 0 0 0 0 1, 102.57142857142857, 0 
+L 109.42857142857143, 0 
+A 0 0 0 0 1, 109.42857142857143, 0 
+L 109.42857142857143, 20 
+A 0 0 0 0 1, 109.42857142857143, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/CellVerticalBar Fixed Domain 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        value
+      </th>
+      <th>
+        bar
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 6.571428571428571, 20 
+A 0 0 0 0 1, 6.571428571428571, 20 
+L 6.571428571428571, 2.9083831342701782 
+A 0 0 0 0 1, 6.571428571428571, 2.9083831342701782 
+L 13.428571428571429, 2.9083831342701782 
+A 0 0 0 0 1, 13.428571428571429, 2.9083831342701782 
+L 13.428571428571429, 20 
+A 0 0 0 0 1, 13.428571428571429, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 15.298701298701298, 20 
+A 0 0 0 0 1, 15.298701298701298, 20 
+L 15.298701298701298, 19.96335051541071 
+A 0 0 0 0 1, 15.298701298701298, 19.96335051541071 
+L 22.155844155844154, 19.96335051541071 
+A 0 0 0 0 1, 22.155844155844154, 19.96335051541071 
+L 22.155844155844154, 20 
+A 0 0 0 0 1, 22.155844155844154, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 24.025974025974026, 20 
+A 0 0 0 0 1, 24.025974025974026, 20 
+L 24.025974025974026, 17.293886696088496 
+A 0 0 0 0 1, 24.025974025974026, 17.293886696088496 
+L 30.88311688311688, 17.293886696088496 
+A 0 0 0 0 1, 30.88311688311688, 17.293886696088496 
+L 30.88311688311688, 20 
+A 0 0 0 0 1, 30.88311688311688, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 32.75324675324675, 20 
+A 0 0 0 0 1, 32.75324675324675, 20 
+L 32.75324675324675, 10.016311680377664 
+A 0 0 0 0 1, 32.75324675324675, 10.016311680377664 
+L 39.61038961038961, 10.016311680377664 
+A 0 0 0 0 1, 39.61038961038961, 10.016311680377664 
+L 39.61038961038961, 20 
+A 0 0 0 0 1, 39.61038961038961, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 41.480519480519476, 20 
+A 0 0 0 0 1, 41.480519480519476, 20 
+L 41.480519480519476, 6.356976938675187 
+A 0 0 0 0 1, 41.480519480519476, 6.356976938675187 
+L 48.33766233766234, 6.356976938675187 
+A 0 0 0 0 1, 48.33766233766234, 6.356976938675187 
+L 48.33766233766234, 20 
+A 0 0 0 0 1, 48.33766233766234, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 50.2077922077922, 20 
+A 0 0 0 0 1, 50.2077922077922, 20 
+L 50.2077922077922, 19.999845245401552 
+A 0 0 0 0 1, 50.2077922077922, 19.999845245401552 
+L 57.064935064935064, 19.999845245401552 
+A 0 0 0 0 1, 57.064935064935064, 19.999845245401552 
+L 57.064935064935064, 20 
+A 0 0 0 0 1, 57.064935064935064, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 58.93506493506493, 20 
+A 0 0 0 0 1, 58.93506493506493, 20 
+L 58.93506493506493, 19.973743494370794 
+A 0 0 0 0 1, 58.93506493506493, 19.973743494370794 
+L 65.79220779220779, 19.973743494370794 
+A 0 0 0 0 1, 65.79220779220779, 19.973743494370794 
+L 65.79220779220779, 20 
+A 0 0 0 0 1, 65.79220779220779, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 67.66233766233766, 20 
+A 0 0 0 0 1, 67.66233766233766, 20 
+L 67.66233766233766, 19.493649270142438 
+A 0 0 0 0 1, 67.66233766233766, 19.493649270142438 
+L 74.51948051948052, 19.493649270142438 
+A 0 0 0 0 1, 74.51948051948052, 19.493649270142438 
+L 74.51948051948052, 20 
+A 0 0 0 0 1, 74.51948051948052, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 76.3896103896104, 20 
+A 0 0 0 0 1, 76.3896103896104, 20 
+L 76.3896103896104, 17.90673477417527 
+A 0 0 0 0 1, 76.3896103896104, 17.90673477417527 
+L 83.24675324675326, 17.90673477417527 
+A 0 0 0 0 1, 83.24675324675326, 17.90673477417527 
+L 83.24675324675326, 20 
+A 0 0 0 0 1, 83.24675324675326, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 85.11688311688312, 20 
+A 0 0 0 0 1, 85.11688311688312, 20 
+L 85.11688311688312, 19.862028390181404 
+A 0 0 0 0 1, 85.11688311688312, 19.862028390181404 
+L 91.97402597402598, 19.862028390181404 
+A 0 0 0 0 1, 91.97402597402598, 19.862028390181404 
+L 91.97402597402598, 20 
+A 0 0 0 0 1, 91.97402597402598, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 93.84415584415584, 20 
+A 0 0 0 0 1, 93.84415584415584, 20 
+L 93.84415584415584, 19.89639704107542 
+A 0 0 0 0 1, 93.84415584415584, 19.89639704107542 
+L 100.7012987012987, 19.89639704107542 
+A 0 0 0 0 1, 100.7012987012987, 19.89639704107542 
+L 100.7012987012987, 20 
+A 0 0 0 0 1, 100.7012987012987, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 102.57142857142857, 20 
+A 0 0 0 0 1, 102.57142857142857, 20 
+L 102.57142857142857, 18.621389716686913 
+A 0 0 0 0 1, 102.57142857142857, 18.621389716686913 
+L 109.42857142857143, 18.621389716686913 
+A 0 0 0 0 1, 109.42857142857143, 18.621389716686913 
+L 109.42857142857143, 20 
+A 0 0 0 0 1, 109.42857142857143, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 6.571428571428571, 20 
+A 0 0 0 0 1, 6.571428571428571, 20 
+L 6.571428571428571, 2.9083831342701782 
+A 0 0 0 0 1, 6.571428571428571, 2.9083831342701782 
+L 13.428571428571429, 2.9083831342701782 
+A 0 0 0 0 1, 13.428571428571429, 2.9083831342701782 
+L 13.428571428571429, 20 
+A 0 0 0 0 1, 13.428571428571429, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 15.298701298701298, 20 
+A 0 0 0 0 1, 15.298701298701298, 20 
+L 15.298701298701298, 19.96335051541071 
+A 0 0 0 0 1, 15.298701298701298, 19.96335051541071 
+L 22.155844155844154, 19.96335051541071 
+A 0 0 0 0 1, 22.155844155844154, 19.96335051541071 
+L 22.155844155844154, 20 
+A 0 0 0 0 1, 22.155844155844154, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 24.025974025974026, 20 
+A 0 0 0 0 1, 24.025974025974026, 20 
+L 24.025974025974026, 17.293886696088496 
+A 0 0 0 0 1, 24.025974025974026, 17.293886696088496 
+L 30.88311688311688, 17.293886696088496 
+A 0 0 0 0 1, 30.88311688311688, 17.293886696088496 
+L 30.88311688311688, 20 
+A 0 0 0 0 1, 30.88311688311688, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 32.75324675324675, 20 
+A 0 0 0 0 1, 32.75324675324675, 20 
+L 32.75324675324675, 10.016311680377664 
+A 0 0 0 0 1, 32.75324675324675, 10.016311680377664 
+L 39.61038961038961, 10.016311680377664 
+A 0 0 0 0 1, 39.61038961038961, 10.016311680377664 
+L 39.61038961038961, 20 
+A 0 0 0 0 1, 39.61038961038961, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 41.480519480519476, 20 
+A 0 0 0 0 1, 41.480519480519476, 20 
+L 41.480519480519476, 6.356976938675187 
+A 0 0 0 0 1, 41.480519480519476, 6.356976938675187 
+L 48.33766233766234, 6.356976938675187 
+A 0 0 0 0 1, 48.33766233766234, 6.356976938675187 
+L 48.33766233766234, 20 
+A 0 0 0 0 1, 48.33766233766234, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 50.2077922077922, 20 
+A 0 0 0 0 1, 50.2077922077922, 20 
+L 50.2077922077922, 19.999845245401552 
+A 0 0 0 0 1, 50.2077922077922, 19.999845245401552 
+L 57.064935064935064, 19.999845245401552 
+A 0 0 0 0 1, 57.064935064935064, 19.999845245401552 
+L 57.064935064935064, 20 
+A 0 0 0 0 1, 57.064935064935064, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 58.93506493506493, 20 
+A 0 0 0 0 1, 58.93506493506493, 20 
+L 58.93506493506493, 19.973743494370794 
+A 0 0 0 0 1, 58.93506493506493, 19.973743494370794 
+L 65.79220779220779, 19.973743494370794 
+A 0 0 0 0 1, 65.79220779220779, 19.973743494370794 
+L 65.79220779220779, 20 
+A 0 0 0 0 1, 65.79220779220779, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 67.66233766233766, 20 
+A 0 0 0 0 1, 67.66233766233766, 20 
+L 67.66233766233766, 19.493649270142438 
+A 0 0 0 0 1, 67.66233766233766, 19.493649270142438 
+L 74.51948051948052, 19.493649270142438 
+A 0 0 0 0 1, 74.51948051948052, 19.493649270142438 
+L 74.51948051948052, 20 
+A 0 0 0 0 1, 74.51948051948052, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 76.3896103896104, 20 
+A 0 0 0 0 1, 76.3896103896104, 20 
+L 76.3896103896104, 17.90673477417527 
+A 0 0 0 0 1, 76.3896103896104, 17.90673477417527 
+L 83.24675324675326, 17.90673477417527 
+A 0 0 0 0 1, 83.24675324675326, 17.90673477417527 
+L 83.24675324675326, 20 
+A 0 0 0 0 1, 83.24675324675326, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 85.11688311688312, 20 
+A 0 0 0 0 1, 85.11688311688312, 20 
+L 85.11688311688312, 19.862028390181404 
+A 0 0 0 0 1, 85.11688311688312, 19.862028390181404 
+L 91.97402597402598, 19.862028390181404 
+A 0 0 0 0 1, 91.97402597402598, 19.862028390181404 
+L 91.97402597402598, 20 
+A 0 0 0 0 1, 91.97402597402598, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 93.84415584415584, 20 
+A 0 0 0 0 1, 93.84415584415584, 20 
+L 93.84415584415584, 19.89639704107542 
+A 0 0 0 0 1, 93.84415584415584, 19.89639704107542 
+L 100.7012987012987, 19.89639704107542 
+A 0 0 0 0 1, 100.7012987012987, 19.89639704107542 
+L 100.7012987012987, 20 
+A 0 0 0 0 1, 100.7012987012987, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 102.57142857142857, 20 
+A 0 0 0 0 1, 102.57142857142857, 20 
+L 102.57142857142857, 18.621389716686913 
+A 0 0 0 0 1, 102.57142857142857, 18.621389716686913 
+L 109.42857142857143, 18.621389716686913 
+A 0 0 0 0 1, 109.42857142857143, 18.621389716686913 
+L 109.42857142857143, 20 
+A 0 0 0 0 1, 109.42857142857143, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Example/Cell/CellVerticalBar Variable Domain 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        value
+      </th>
+      <th>
+        bar
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 6.571428571428571, 20 
+A 0 0 0 0 1, 6.571428571428571, 20 
+L 6.571428571428571, 0 
+A 0 0 0 0 1, 6.571428571428571, 0 
+L 13.428571428571429, 0 
+A 0 0 0 0 1, 13.428571428571429, 0 
+L 13.428571428571429, 20 
+A 0 0 0 0 1, 13.428571428571429, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 15.298701298701298, 20 
+A 0 0 0 0 1, 15.298701298701298, 20 
+L 15.298701298701298, 19.95711408127481 
+A 0 0 0 0 1, 15.298701298701298, 19.95711408127481 
+L 22.155844155844154, 19.95711408127481 
+A 0 0 0 0 1, 22.155844155844154, 19.95711408127481 
+L 22.155844155844154, 20 
+A 0 0 0 0 1, 22.155844155844154, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 24.025974025974026, 20 
+A 0 0 0 0 1, 24.025974025974026, 20 
+L 24.025974025974026, 16.833402801887637 
+A 0 0 0 0 1, 24.025974025974026, 16.833402801887637 
+L 30.88311688311688, 16.833402801887637 
+A 0 0 0 0 1, 30.88311688311688, 16.833402801887637 
+L 30.88311688311688, 20 
+A 0 0 0 0 1, 30.88311688311688, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 32.75324675324675, 20 
+A 0 0 0 0 1, 32.75324675324675, 20 
+L 32.75324675324675, 8.317444279200409 
+A 0 0 0 0 1, 32.75324675324675, 8.317444279200409 
+L 39.61038961038961, 8.317444279200409 
+A 0 0 0 0 1, 39.61038961038961, 8.317444279200409 
+L 39.61038961038961, 20 
+A 0 0 0 0 1, 39.61038961038961, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 41.480519480519476, 20 
+A 0 0 0 0 1, 41.480519480519476, 20 
+L 41.480519480519476, 4.035421378207628 
+A 0 0 0 0 1, 41.480519480519476, 4.035421378207628 
+L 48.33766233766234, 4.035421378207628 
+A 0 0 0 0 1, 48.33766233766234, 4.035421378207628 
+L 48.33766233766234, 20 
+A 0 0 0 0 1, 48.33766233766234, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 50.2077922077922, 20 
+A 0 0 0 0 1, 50.2077922077922, 20 
+L 50.2077922077922, 19.9998189116926 
+A 0 0 0 0 1, 50.2077922077922, 19.9998189116926 
+L 57.064935064935064, 19.9998189116926 
+A 0 0 0 0 1, 57.064935064935064, 19.9998189116926 
+L 57.064935064935064, 20 
+A 0 0 0 0 1, 57.064935064935064, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 58.93506493506493, 20 
+A 0 0 0 0 1, 58.93506493506493, 20 
+L 58.93506493506493, 19.969275574294137 
+A 0 0 0 0 1, 58.93506493506493, 19.969275574294137 
+L 65.79220779220779, 19.969275574294137 
+A 0 0 0 0 1, 65.79220779220779, 19.969275574294137 
+L 65.79220779220779, 20 
+A 0 0 0 0 1, 65.79220779220779, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 67.66233766233766, 20 
+A 0 0 0 0 1, 67.66233766233766, 20 
+L 67.66233766233766, 19.407486449251227 
+A 0 0 0 0 1, 67.66233766233766, 19.407486449251227 
+L 74.51948051948052, 19.407486449251227 
+A 0 0 0 0 1, 74.51948051948052, 19.407486449251227 
+L 74.51948051948052, 20 
+A 0 0 0 0 1, 74.51948051948052, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 76.3896103896104, 20 
+A 0 0 0 0 1, 76.3896103896104, 20 
+L 76.3896103896104, 17.550535748292006 
+A 0 0 0 0 1, 76.3896103896104, 17.550535748292006 
+L 83.24675324675326, 17.550535748292006 
+A 0 0 0 0 1, 83.24675324675326, 17.550535748292006 
+L 83.24675324675326, 20 
+A 0 0 0 0 1, 83.24675324675326, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 85.11688311688312, 20 
+A 0 0 0 0 1, 85.11688311688312, 20 
+L 85.11688311688312, 19.838550546852893 
+A 0 0 0 0 1, 85.11688311688312, 19.838550546852893 
+L 91.97402597402598, 19.838550546852893 
+A 0 0 0 0 1, 91.97402597402598, 19.838550546852893 
+L 91.97402597402598, 20 
+A 0 0 0 0 1, 91.97402597402598, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 93.84415584415584, 20 
+A 0 0 0 0 1, 93.84415584415584, 20 
+L 93.84415584415584, 19.87876751539837 
+A 0 0 0 0 1, 93.84415584415584, 19.87876751539837 
+L 100.7012987012987, 19.87876751539837 
+A 0 0 0 0 1, 100.7012987012987, 19.87876751539837 
+L 100.7012987012987, 20 
+A 0 0 0 0 1, 100.7012987012987, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 102.57142857142857, 20 
+A 0 0 0 0 1, 102.57142857142857, 20 
+L 102.57142857142857, 18.386799453623 
+A 0 0 0 0 1, 102.57142857142857, 18.386799453623 
+L 109.42857142857143, 18.386799453623 
+A 0 0 0 0 1, 109.42857142857143, 18.386799453623 
+L 109.42857142857143, 20 
+A 0 0 0 0 1, 109.42857142857143, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+            </g>
+          </svg>
+          <div
+            style={
+              Object {
+                "height": 20,
+                "left": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": 120,
+                "zIndex": 99,
+              }
+            }
+          >
+            <svg
+              height={20}
+              style={
+                Object {
+                  "height": 20,
+                  "overflow": "visible",
+                  "width": 120,
+                }
+              }
+              width={120}
+            />
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div
+          className="VictoryContainer"
+          style={
+            Object {
+              "height": 20,
+              "pointerEvents": "none",
+              "position": "relative",
+              "touchAction": "none",
+              "width": 120,
+            }
+          }
+        >
+          <svg
+            height={20}
+            role="img"
+            style={
+              Object {
+                "height": 20,
+                "pointerEvents": "all",
+                "width": 120,
+              }
+            }
+            width={120}
+          >
+            <g
+              role="presentation"
+            >
+              <path
+                d="M 6.571428571428571, 20 
+A 0 0 0 0 1, 6.571428571428571, 20 
+L 6.571428571428571, 0 
+A 0 0 0 0 1, 6.571428571428571, 0 
+L 13.428571428571429, 0 
+A 0 0 0 0 1, 13.428571428571429, 0 
+L 13.428571428571429, 20 
+A 0 0 0 0 1, 13.428571428571429, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 15.298701298701298, 20 
+A 0 0 0 0 1, 15.298701298701298, 20 
+L 15.298701298701298, 19.95711408127481 
+A 0 0 0 0 1, 15.298701298701298, 19.95711408127481 
+L 22.155844155844154, 19.95711408127481 
+A 0 0 0 0 1, 22.155844155844154, 19.95711408127481 
+L 22.155844155844154, 20 
+A 0 0 0 0 1, 22.155844155844154, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 24.025974025974026, 20 
+A 0 0 0 0 1, 24.025974025974026, 20 
+L 24.025974025974026, 16.833402801887637 
+A 0 0 0 0 1, 24.025974025974026, 16.833402801887637 
+L 30.88311688311688, 16.833402801887637 
+A 0 0 0 0 1, 30.88311688311688, 16.833402801887637 
+L 30.88311688311688, 20 
+A 0 0 0 0 1, 30.88311688311688, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 32.75324675324675, 20 
+A 0 0 0 0 1, 32.75324675324675, 20 
+L 32.75324675324675, 8.317444279200409 
+A 0 0 0 0 1, 32.75324675324675, 8.317444279200409 
+L 39.61038961038961, 8.317444279200409 
+A 0 0 0 0 1, 39.61038961038961, 8.317444279200409 
+L 39.61038961038961, 20 
+A 0 0 0 0 1, 39.61038961038961, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 41.480519480519476, 20 
+A 0 0 0 0 1, 41.480519480519476, 20 
+L 41.480519480519476, 4.035421378207628 
+A 0 0 0 0 1, 41.480519480519476, 4.035421378207628 
+L 48.33766233766234, 4.035421378207628 
+A 0 0 0 0 1, 48.33766233766234, 4.035421378207628 
+L 48.33766233766234, 20 
+A 0 0 0 0 1, 48.33766233766234, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 50.2077922077922, 20 
+A 0 0 0 0 1, 50.2077922077922, 20 
+L 50.2077922077922, 19.9998189116926 
+A 0 0 0 0 1, 50.2077922077922, 19.9998189116926 
+L 57.064935064935064, 19.9998189116926 
+A 0 0 0 0 1, 57.064935064935064, 19.9998189116926 
+L 57.064935064935064, 20 
+A 0 0 0 0 1, 57.064935064935064, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 58.93506493506493, 20 
+A 0 0 0 0 1, 58.93506493506493, 20 
+L 58.93506493506493, 19.969275574294137 
+A 0 0 0 0 1, 58.93506493506493, 19.969275574294137 
+L 65.79220779220779, 19.969275574294137 
+A 0 0 0 0 1, 65.79220779220779, 19.969275574294137 
+L 65.79220779220779, 20 
+A 0 0 0 0 1, 65.79220779220779, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 67.66233766233766, 20 
+A 0 0 0 0 1, 67.66233766233766, 20 
+L 67.66233766233766, 19.407486449251227 
+A 0 0 0 0 1, 67.66233766233766, 19.407486449251227 
+L 74.51948051948052, 19.407486449251227 
+A 0 0 0 0 1, 74.51948051948052, 19.407486449251227 
+L 74.51948051948052, 20 
+A 0 0 0 0 1, 74.51948051948052, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 76.3896103896104, 20 
+A 0 0 0 0 1, 76.3896103896104, 20 
+L 76.3896103896104, 17.550535748292006 
+A 0 0 0 0 1, 76.3896103896104, 17.550535748292006 
+L 83.24675324675326, 17.550535748292006 
+A 0 0 0 0 1, 83.24675324675326, 17.550535748292006 
+L 83.24675324675326, 20 
+A 0 0 0 0 1, 83.24675324675326, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 85.11688311688312, 20 
+A 0 0 0 0 1, 85.11688311688312, 20 
+L 85.11688311688312, 19.838550546852893 
+A 0 0 0 0 1, 85.11688311688312, 19.838550546852893 
+L 91.97402597402598, 19.838550546852893 
+A 0 0 0 0 1, 91.97402597402598, 19.838550546852893 
+L 91.97402597402598, 20 
+A 0 0 0 0 1, 91.97402597402598, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 93.84415584415584, 20 
+A 0 0 0 0 1, 93.84415584415584, 20 
+L 93.84415584415584, 19.87876751539837 
+A 0 0 0 0 1, 93.84415584415584, 19.87876751539837 
+L 100.7012987012987, 19.87876751539837 
+A 0 0 0 0 1, 100.7012987012987, 19.87876751539837 
+L 100.7012987012987, 20 
+A 0 0 0 0 1, 100.7012987012987, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
+                  }
+                }
+              />
+              <path
+                d="M 102.57142857142857, 20 
+A 0 0 0 0 1, 102.57142857142857, 20 
+L 102.57142857142857, 18.386799453623 
+A 0 0 0 0 1, 102.57142857142857, 18.386799453623 
+L 109.42857142857143, 18.386799453623 
+A 0 0 0 0 1, 109.42857142857143, 18.386799453623 
+L 109.42857142857143, 20 
+A 0 0 0 0 1, 109.42857142857143, 20 
+ z"
+                role="presentation"
+                shapeRendering="auto"
+                style={
+                  Object {
+                    "fill": "grey",
+                    "padding": 8,
+                    "stroke": "grey",
+                    "strokeWidth": 0,
                   }
                 }
               />
