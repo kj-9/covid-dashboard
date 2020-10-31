@@ -2,14 +2,14 @@ import React from "react"
 import { graphql } from "gatsby"
 import "../styles/bulma.scss"
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import { Table } from "../components/Table"
 import { Cell } from "../components/Cell/Cell"
 import { CellAxis } from "../components/Cell/CellAxis"
 import { CellBar } from "../components/Cell/CellBar"
 import { CellSparkline } from "../components/Cell/CellSparkline"
 
-import { descending } from "d3-array"
+import { max, descending } from "d3-array"
 import { timeFormat } from "d3-time-format"
 
 import { HomePageQuery } from "../../types/graphql-types"
@@ -30,7 +30,7 @@ const Home: React.FC<Props> = ({ data }) => {
     throw Error("number of unique prefecture is not 47.")
 
   // get latest data in data
-  const latestDate = new Date(rawData.map(node => node.update_date)[0])
+  const latestDate = new Date(max(rawData, node => node.update_date))
 
   // set react-table data
   const tableData = React.useMemo(
@@ -48,6 +48,7 @@ const Home: React.FC<Props> = ({ data }) => {
         columns: [
           {
             accessor: "pref_name_jp",
+            Cell: ({ value }) => <Cell textAlign="right">{value}</Cell>,
           },
         ],
       },
