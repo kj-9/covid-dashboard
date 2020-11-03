@@ -38,7 +38,7 @@ Basic.args = {
 
 const variousData = range.map(element => ({
   x: element,
-  y: Math.random() ** 2,
+  y: element ** 2,
 }))
 
 export const FixedDomain = Template.bind({})
