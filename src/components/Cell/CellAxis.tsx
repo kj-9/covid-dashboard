@@ -1,23 +1,22 @@
 import React from "react"
-import { VictoryAxis, VictoryContainer, VictoryAxisProps } from "victory"
-import { CelldefaultProps } from "./"
+import { VictoryAxis, VictoryContainer } from "victory"
+import { CellVictoryCommonProps, CellVictorydefaultProps } from "./"
 import { Cell } from "./Cell"
 
-export type CellAxisProps = Pick<
-  VictoryAxisProps,
-  "width" | "height" | "padding"
->
+export type CellAxisProps = CellVictoryCommonProps
 
 export const CellAxis: React.FC<CellAxisProps> = ({
   width,
   height,
   padding,
+  tagProps,
 }: CellAxisProps) => {
   return (
     <Cell
       tagType="th"
       className="pb-0"
       cssObject={{ verticalAlign: "bottom !important" }}
+      tagProps={tagProps}
     >
       <VictoryAxis
         width={width}
@@ -44,4 +43,4 @@ export const CellAxis: React.FC<CellAxisProps> = ({
   )
 }
 
-CellAxis.defaultProps = CelldefaultProps
+CellAxis.defaultProps = CellVictorydefaultProps

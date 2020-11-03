@@ -1,13 +1,11 @@
 import React from "react"
 import { VictoryLine, VictoryContainer, VictoryLineProps } from "victory"
-import { CelldefaultProps } from "./"
+import { CellVictoryCommonProps, CellVictorydefaultProps } from "./"
 import { Cell } from "./Cell"
 
 export interface CellSparklineProps
-  extends Pick<
-    VictoryLineProps,
-    "width" | "height" | "padding" | "scale" | "domain"
-  > {
+  extends CellVictoryCommonProps,
+    Pick<VictoryLineProps, "scale" | "domain"> {
   data: { x: any; y: number }[]
 }
 
@@ -18,9 +16,10 @@ export const CellSparkline: React.FC<CellSparklineProps> = ({
   domain,
   scale,
   data,
+  tagProps,
 }: CellSparklineProps) => {
   return (
-    <Cell>
+    <Cell tagProps={tagProps}>
       <VictoryLine
         width={width}
         height={height}
@@ -42,4 +41,4 @@ export const CellSparkline: React.FC<CellSparklineProps> = ({
   )
 }
 
-CellSparkline.defaultProps = CelldefaultProps
+CellSparkline.defaultProps = CellVictorydefaultProps

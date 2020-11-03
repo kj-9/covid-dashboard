@@ -25,9 +25,8 @@ export const Table = <T extends object>({
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => {
               if (column.withoutHeaderTag) {
-                return column.render("Header", {
-                  cellProps: column.getHeaderProps(),
-                })
+                const { key, ...tagProps } = column.getHeaderProps()
+                return column.render("Header", { key, tagProps })
               } else {
                 return (
                   <th {...column.getHeaderProps()}>
@@ -46,7 +45,8 @@ export const Table = <T extends object>({
             <tr {...row.getRowProps()}>
               {row.cells.map(cell => {
                 if (cell.column.withoutCellTag) {
-                  return cell.render("Cell")
+                  const { key, ...tagProps } = cell.getCellProps()
+                  return cell.render("Cell", { key, tagProps })
                 } else {
                   return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                 }

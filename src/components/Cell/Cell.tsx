@@ -10,7 +10,7 @@ export type CellProps = {
   textAlign?: textAlignType
   className?: string
   cssObject?: CSSObject
-  props?: { className: never }
+  tagProps?: { className: never }
 }
 
 export const Cell: React.FC<CellProps> = ({
@@ -18,8 +18,8 @@ export const Cell: React.FC<CellProps> = ({
   textAlign,
   className,
   cssObject,
-  props,
   children,
+  tagProps,
 }) => {
   let arrClassName: Array<string | undefined> = [className]
 
@@ -47,7 +47,7 @@ export const Cell: React.FC<CellProps> = ({
       ? undefined
       : arrClassName.filter(Boolean).join(" ")
 
-  let outProps: object = { ...props, children: children }
+  let outProps: object = { children: children, ...tagProps }
 
   if (joinedClassName && cssObject) {
     outProps = Object.assign(outProps, {

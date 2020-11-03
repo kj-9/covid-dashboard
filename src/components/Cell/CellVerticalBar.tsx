@@ -1,13 +1,11 @@
 import React from "react"
 import { VictoryBar, VictoryContainer, VictoryBarProps } from "victory"
-import { CelldefaultProps } from "./"
+import { CellVictoryCommonProps, CellVictorydefaultProps } from "./"
 import { Cell } from "./Cell"
 
 export interface CellVerticalBarProps
-  extends Pick<
-    VictoryBarProps,
-    "width" | "height" | "padding" | "domain" | "scale"
-  > {
+  extends CellVictoryCommonProps,
+    Pick<VictoryBarProps, "domain" | "scale"> {
   data: { x: number; y: number }[]
 }
 
@@ -18,9 +16,10 @@ export const CellVerticalBar: React.FC<CellVerticalBarProps> = ({
   domain,
   scale,
   data,
+  tagProps,
 }: CellVerticalBarProps) => {
   return (
-    <Cell>
+    <Cell tagProps={tagProps}>
       <VictoryBar
         width={width}
         height={height}
@@ -42,4 +41,4 @@ export const CellVerticalBar: React.FC<CellVerticalBarProps> = ({
     </Cell>
   )
 }
-CellVerticalBar.defaultProps = CelldefaultProps
+CellVerticalBar.defaultProps = CellVictorydefaultProps
