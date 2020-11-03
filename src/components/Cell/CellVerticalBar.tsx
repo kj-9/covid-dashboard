@@ -1,6 +1,6 @@
 import React from "react"
 import { VictoryBar, VictoryContainer, VictoryBarProps } from "victory"
-import { CelldefaultProps, CellDefaultColorScale } from "./"
+import { CelldefaultProps } from "./"
 import { Cell } from "./Cell"
 
 export interface CellVerticalBarProps
