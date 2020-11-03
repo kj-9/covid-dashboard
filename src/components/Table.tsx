@@ -5,15 +5,6 @@ interface TableProps<T extends object = {}> extends TableOptions<T> {
   className: string
 }
 
-const doWrapTag = (HeaderOrCell: any) => {
-  return (
-    typeof HeaderOrCell === "string" ||
-    (typeof HeaderOrCell === "function" &&
-      (HeaderOrCell.name === "emptyRenderer" ||
-        HeaderOrCell.name === "defaultRenderer"))
-  )
-}
-
 export const Table = <T extends object>({
   columns,
   data,
@@ -33,14 +24,16 @@ export const Table = <T extends object>({
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => {
-              if (doWrapTag(column.Header)) {
+              if (column.withoutHeaderTag) {
+                return column.render("Header", {
+                  cellProps: column.getHeaderProps(),
+                })
+              } else {
                 return (
                   <th {...column.getHeaderProps()}>
                     {column.render("Header")}
                   </th>
                 )
-              } else {
-                return column.render("Header")
               }
             })}
           </tr>
@@ -52,10 +45,10 @@ export const Table = <T extends object>({
           return (
             <tr {...row.getRowProps()}>
               {row.cells.map(cell => {
-                if (doWrapTag(cell.column.Cell)) {
-                  return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                } else {
+                if (cell.column.withoutCellTag) {
                   return cell.render("Cell")
+                } else {
+                  return <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                 }
               })}
             </tr>

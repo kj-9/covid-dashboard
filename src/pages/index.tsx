@@ -52,6 +52,7 @@ const Home: React.FC<Props> = ({ data }) => {
           {
             accessor: "pref_name_jp",
             Cell: ({ value }) => <Cell textAlign="right">{value}</Cell>,
+            withoutCellTag: true,
           },
         ],
       },
@@ -61,7 +62,9 @@ const Home: React.FC<Props> = ({ data }) => {
           {
             accessor: "pref_patients_beds_ratio",
             Header: CellAxis,
+            withoutHeaderTag: true,
             Cell: CellBar,
+            withoutCellTag: true,
           },
           {
             id: "value_pref_patients_beds_ratio",
@@ -69,6 +72,7 @@ const Home: React.FC<Props> = ({ data }) => {
             Cell: ({ value }) => (
               <Cell textAlign="right">{`${Math.floor(100 * value)}%`}</Cell>
             ),
+            withoutCellTag: true,
           },
           {
             id: "trend_pref_patients_beds_ratio",
@@ -82,6 +86,7 @@ const Home: React.FC<Props> = ({ data }) => {
                 }))}
               />
             ),
+            withoutCellTag: true,
           },
         ],
       },
