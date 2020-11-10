@@ -41,18 +41,7 @@ export type CovidPatientsJson = Node & {
   pref_name_x?: Maybe<Scalars['String']>;
   pref_name_jp?: Maybe<Scalars['String']>;
   last_1w?: Maybe<Array<Maybe<CovidPatientsJsonLast_1w>>>;
-  srcurl_pdf?: Maybe<Scalars['String']>;
-  srcurl_web?: Maybe<Scalars['String']>;
-  srcurl_pdf_archived?: Maybe<Scalars['String']>;
   update_date?: Maybe<Scalars['Date']>;
-  description?: Maybe<Scalars['String']>;
-  n_inspections?: Maybe<Scalars['Int']>;
-  n_patients?: Maybe<Scalars['Int']>;
-  n_current_patients?: Maybe<Scalars['Int']>;
-  n_current_heavy_patients?: Maybe<Scalars['Int']>;
-  n_deaths?: Maybe<Scalars['Int']>;
-  n_exits?: Maybe<Scalars['Int']>;
-  n_unknowns?: Maybe<Scalars['Int']>;
   pref_name_y?: Maybe<Scalars['String']>;
   pref_n_inspections?: Maybe<Scalars['Int']>;
   pref_n_patients?: Maybe<Scalars['Int']>;
@@ -60,7 +49,6 @@ export type CovidPatientsJson = Node & {
   pref_n_current_heavy_patients?: Maybe<Scalars['Int']>;
   pref_n_deaths?: Maybe<Scalars['Int']>;
   pref_n_exits?: Maybe<Scalars['Int']>;
-  pref_n_unknowns?: Maybe<Scalars['Int']>;
   pref_n_beds?: Maybe<Scalars['Int']>;
   source?: Maybe<Scalars['String']>;
   note?: Maybe<Scalars['String']>;
@@ -210,24 +198,12 @@ export type CovidPatientsJsonFieldsEnum =
   | 'last_1w___pref_n_current_heavy_patients'
   | 'last_1w___pref_n_deaths'
   | 'last_1w___pref_n_exits'
-  | 'last_1w___pref_n_unknowns'
   | 'last_1w___pref_n_beds'
   | 'last_1w___pref_positive_rate'
   | 'last_1w___pref_patients_beds_ratio'
   | 'last_1w___pref_heavy_patients_beds_ratio'
   | 'last_1w___update_date'
-  | 'srcurl_pdf'
-  | 'srcurl_web'
-  | 'srcurl_pdf_archived'
   | 'update_date'
-  | 'description'
-  | 'n_inspections'
-  | 'n_patients'
-  | 'n_current_patients'
-  | 'n_current_heavy_patients'
-  | 'n_deaths'
-  | 'n_exits'
-  | 'n_unknowns'
   | 'pref_name_y'
   | 'pref_n_inspections'
   | 'pref_n_patients'
@@ -235,7 +211,6 @@ export type CovidPatientsJsonFieldsEnum =
   | 'pref_n_current_heavy_patients'
   | 'pref_n_deaths'
   | 'pref_n_exits'
-  | 'pref_n_unknowns'
   | 'pref_n_beds'
   | 'source'
   | 'note'
@@ -253,18 +228,7 @@ export type CovidPatientsJsonFilterInput = {
   pref_name_x?: Maybe<StringQueryOperatorInput>;
   pref_name_jp?: Maybe<StringQueryOperatorInput>;
   last_1w?: Maybe<CovidPatientsJsonLast_1wFilterListInput>;
-  srcurl_pdf?: Maybe<StringQueryOperatorInput>;
-  srcurl_web?: Maybe<StringQueryOperatorInput>;
-  srcurl_pdf_archived?: Maybe<StringQueryOperatorInput>;
   update_date?: Maybe<DateQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  n_inspections?: Maybe<IntQueryOperatorInput>;
-  n_patients?: Maybe<IntQueryOperatorInput>;
-  n_current_patients?: Maybe<IntQueryOperatorInput>;
-  n_current_heavy_patients?: Maybe<IntQueryOperatorInput>;
-  n_deaths?: Maybe<IntQueryOperatorInput>;
-  n_exits?: Maybe<IntQueryOperatorInput>;
-  n_unknowns?: Maybe<IntQueryOperatorInput>;
   pref_name_y?: Maybe<StringQueryOperatorInput>;
   pref_n_inspections?: Maybe<IntQueryOperatorInput>;
   pref_n_patients?: Maybe<IntQueryOperatorInput>;
@@ -272,7 +236,6 @@ export type CovidPatientsJsonFilterInput = {
   pref_n_current_heavy_patients?: Maybe<IntQueryOperatorInput>;
   pref_n_deaths?: Maybe<IntQueryOperatorInput>;
   pref_n_exits?: Maybe<IntQueryOperatorInput>;
-  pref_n_unknowns?: Maybe<IntQueryOperatorInput>;
   pref_n_beds?: Maybe<IntQueryOperatorInput>;
   source?: Maybe<StringQueryOperatorInput>;
   note?: Maybe<StringQueryOperatorInput>;
@@ -303,7 +266,6 @@ export type CovidPatientsJsonLast_1w = {
   pref_n_current_heavy_patients?: Maybe<Scalars['Int']>;
   pref_n_deaths?: Maybe<Scalars['Int']>;
   pref_n_exits?: Maybe<Scalars['Int']>;
-  pref_n_unknowns?: Maybe<Scalars['Int']>;
   pref_n_beds?: Maybe<Scalars['Int']>;
   pref_positive_rate?: Maybe<Scalars['Float']>;
   pref_patients_beds_ratio?: Maybe<Scalars['Float']>;
@@ -326,7 +288,6 @@ export type CovidPatientsJsonLast_1wFilterInput = {
   pref_n_current_heavy_patients?: Maybe<IntQueryOperatorInput>;
   pref_n_deaths?: Maybe<IntQueryOperatorInput>;
   pref_n_exits?: Maybe<IntQueryOperatorInput>;
-  pref_n_unknowns?: Maybe<IntQueryOperatorInput>;
   pref_n_beds?: Maybe<IntQueryOperatorInput>;
   pref_positive_rate?: Maybe<FloatQueryOperatorInput>;
   pref_patients_beds_ratio?: Maybe<FloatQueryOperatorInput>;
@@ -952,24 +913,12 @@ export type FileFieldsEnum =
   | 'childrenCovidPatientsJson___last_1w___pref_n_current_heavy_patients'
   | 'childrenCovidPatientsJson___last_1w___pref_n_deaths'
   | 'childrenCovidPatientsJson___last_1w___pref_n_exits'
-  | 'childrenCovidPatientsJson___last_1w___pref_n_unknowns'
   | 'childrenCovidPatientsJson___last_1w___pref_n_beds'
   | 'childrenCovidPatientsJson___last_1w___pref_positive_rate'
   | 'childrenCovidPatientsJson___last_1w___pref_patients_beds_ratio'
   | 'childrenCovidPatientsJson___last_1w___pref_heavy_patients_beds_ratio'
   | 'childrenCovidPatientsJson___last_1w___update_date'
-  | 'childrenCovidPatientsJson___srcurl_pdf'
-  | 'childrenCovidPatientsJson___srcurl_web'
-  | 'childrenCovidPatientsJson___srcurl_pdf_archived'
   | 'childrenCovidPatientsJson___update_date'
-  | 'childrenCovidPatientsJson___description'
-  | 'childrenCovidPatientsJson___n_inspections'
-  | 'childrenCovidPatientsJson___n_patients'
-  | 'childrenCovidPatientsJson___n_current_patients'
-  | 'childrenCovidPatientsJson___n_current_heavy_patients'
-  | 'childrenCovidPatientsJson___n_deaths'
-  | 'childrenCovidPatientsJson___n_exits'
-  | 'childrenCovidPatientsJson___n_unknowns'
   | 'childrenCovidPatientsJson___pref_name_y'
   | 'childrenCovidPatientsJson___pref_n_inspections'
   | 'childrenCovidPatientsJson___pref_n_patients'
@@ -977,7 +926,6 @@ export type FileFieldsEnum =
   | 'childrenCovidPatientsJson___pref_n_current_heavy_patients'
   | 'childrenCovidPatientsJson___pref_n_deaths'
   | 'childrenCovidPatientsJson___pref_n_exits'
-  | 'childrenCovidPatientsJson___pref_n_unknowns'
   | 'childrenCovidPatientsJson___pref_n_beds'
   | 'childrenCovidPatientsJson___source'
   | 'childrenCovidPatientsJson___note'
@@ -1290,18 +1238,7 @@ export type QueryCovidPatientsJsonArgs = {
   pref_name_x?: Maybe<StringQueryOperatorInput>;
   pref_name_jp?: Maybe<StringQueryOperatorInput>;
   last_1w?: Maybe<CovidPatientsJsonLast_1wFilterListInput>;
-  srcurl_pdf?: Maybe<StringQueryOperatorInput>;
-  srcurl_web?: Maybe<StringQueryOperatorInput>;
-  srcurl_pdf_archived?: Maybe<StringQueryOperatorInput>;
   update_date?: Maybe<DateQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  n_inspections?: Maybe<IntQueryOperatorInput>;
-  n_patients?: Maybe<IntQueryOperatorInput>;
-  n_current_patients?: Maybe<IntQueryOperatorInput>;
-  n_current_heavy_patients?: Maybe<IntQueryOperatorInput>;
-  n_deaths?: Maybe<IntQueryOperatorInput>;
-  n_exits?: Maybe<IntQueryOperatorInput>;
-  n_unknowns?: Maybe<IntQueryOperatorInput>;
   pref_name_y?: Maybe<StringQueryOperatorInput>;
   pref_n_inspections?: Maybe<IntQueryOperatorInput>;
   pref_n_patients?: Maybe<IntQueryOperatorInput>;
@@ -1309,7 +1246,6 @@ export type QueryCovidPatientsJsonArgs = {
   pref_n_current_heavy_patients?: Maybe<IntQueryOperatorInput>;
   pref_n_deaths?: Maybe<IntQueryOperatorInput>;
   pref_n_exits?: Maybe<IntQueryOperatorInput>;
-  pref_n_unknowns?: Maybe<IntQueryOperatorInput>;
   pref_n_beds?: Maybe<IntQueryOperatorInput>;
   source?: Maybe<StringQueryOperatorInput>;
   note?: Maybe<StringQueryOperatorInput>;

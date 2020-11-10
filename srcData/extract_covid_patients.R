@@ -1,41 +1,32 @@
 library(tidyverse)
 
 ## extract patients data
-patients_url <- "https://www.stopcovid19.jp/data/covid19japan-all.json"
-
-patients <- jsonlite::fromJSON(patients_url) %>% 
-  # cast all area columns as character because unnesting requires column types are same.
-  # fromJSON automatically set column types, but some types are wrong in some records in area column.
-  mutate(area = map(.$area, mutate, across(everything(), as.character))) %>% 
-  # rename area columns with prefix because unnesting requires unique column names after unnesting.
-  mutate(area = map(.$area, rename_with, ~ paste0("pref_", .x), everything())) %>% 
-  unnest(area) %>%
-  select(
-     srcurl_pdf
-    ,srcurl_web
-    ,srcurl_pdf_archived
-    ,update_date = lastUpdate
-    ,description 
-    ,n_inspections = ninspections
-    ,n_patients = npatients
-    ,n_current_patients = ncurrentpatients
-    ,n_current_heavy_patients = nheavycurrentpatients
-    ,n_deaths = ndeaths
-    ,n_exits = nexits
-    ,n_unknowns = nunknowns
-    ,pref_name
-    ,pref_name_jp
-    ,pref_n_inspections = pref_ninspections
-    ,pref_n_patients = pref_npatients
-    ,pref_n_current_patients = pref_ncurrentpatients
-    ,pref_n_current_heavy_patients = pref_nheavycurrentpatients
-    ,pref_n_deaths = pref_ndeaths
-    ,pref_n_exits = pref_nexits
-    ,pref_n_unknowns = pref_nunknowns) %>%   
-  # re-cast area columns
-  mutate(across(contains("n_"), as.integer)) %>% 
-  mutate(update_date = lubridate::ymd(update_date))
-
+patients_url <- "https://raw.githubusercontent.com/kaz-ogiwara/covid19/master/data/prefectures.csv"
+patients <- read_csv(stg_patients_url,col_types = 
+                        cols(
+                           year = col_double(),
+                           month = col_double(),
+                           date = col_double(),
+                           prefectureNameJ = col_character(),
+                           prefectureNameE = col_character(),
+                           testedPositive = col_double(),
+                           peopleTested = col_double(),
+                           hospitalized = col_double(),
+                           serious = col_double(),
+                           discharged = col_double(),
+                           deaths = col_double(),
+                           effectiveReproductionNumber = col_double()
+                         )) %>% 
+  mutate(update_date = lubridate::ymd(paste0(year,'-', month,'-', date))) %>% 
+  select(update_date,
+         pref_name = prefectureNameE,
+         pref_name_jp = prefectureNameJ,
+         pref_n_inspections = peopleTested,
+         pref_n_patients = testedPositive,
+         pref_n_current_patients = hospitalized,
+         pref_n_current_heavy_patients = serious,
+         pref_n_deaths = deaths,
+         pref_n_exits = discharged) 
 
 ## extract bedss data
 beds_url <- "https://docs.google.com/spreadsheets/d/1u0Ul8TgJDqoZMnqFrILyXzTHvuHMht1El7wDZeVrpp8/export?format=csv"

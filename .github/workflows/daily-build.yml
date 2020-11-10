@@ -2,43 +2,43 @@ name: daily-build
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *' # UTC
+    - cron: "00 04 * * *" # UTC
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout source code
-      uses: actions/checkout@v2
+      - name: Checkout source code
+        uses: actions/checkout@v2
 
-    - name: R:Run srcData
-      run: docker run --entrypoint 'Rscript' --workdir /home/rstudio -v $(pwd):/home/rstudio rocker/tidyverse:4.0.2 srcData/extract_covid_patients.R
+      - name: R:Run srcData
+        run: docker run --entrypoint 'Rscript' --workdir /home/rstudio -v $(pwd):/home/rstudio rocker/tidyverse:4.0.2 srcData/extract_covid_patients.R
 
-    - name: Node.js:Setup
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14.8.0'
+      - name: Node.js:Setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.8.0"
 
-    - name: Node.js:Cache modules
-      uses: actions/cache@v2
-      with:
-        # npm cache files are stored in `~/.npm` on Linux/macOS
-        path: ~/.npm 
-        key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.OS }}-node-
-          ${{ runner.OS }}-
+      - name: Node.js:Cache modules
+        uses: actions/cache@v2
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
 
-    - name: Node.js:Install dependencies
-      run: npm ci
+      - name: Node.js:Install dependencies
+        run: npm ci
 
-    - name: Node.js:Run build
-      run: npm run build
+      - name: Node.js:Run build
+        run: npm run build
 
-    - name: Netlify:Deploy
-      uses: netlify/actions/cli@master
-      with:
-        args: deploy --dir=./public --prod
-      env:
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - name: Netlify:Deploy
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --dir=./public --prod
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
