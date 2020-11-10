@@ -84,6 +84,7 @@ const Home: React.FC<Props> = ({ data }) => {
                   x: element.update_date,
                   y: element.pref_patients_beds_ratio,
                 }))}
+                labels={({ datum }) => `${Math.floor(100 * datum.y)}%`}
               />
             ),
             withoutCellTag: true,

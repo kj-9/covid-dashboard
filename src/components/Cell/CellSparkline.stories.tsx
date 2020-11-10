@@ -30,11 +30,13 @@ const Template: Story<CellSparklineProps> = args => {
 
 const range: number[] = [...Array(10).keys()]
 export const Basic = Template.bind({})
+const labelsFunc = ({ datum }) => `${Math.floor(100 * datum.y)}%`
 
 Basic.args = {
   domain: { y: [0, 1] },
   scale: "linear",
   data: range.map(element => ({ x: element, y: element * 0.1 })),
+  labels: labelsFunc,
 }
 
 const variousData = range.map(element => ({
