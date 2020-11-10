@@ -15,17 +15,14 @@ export const Footer: React.FC<{}> = () => {
             </a>
           </li>
           <li>
-            <a href="https://www.stopcovid19.jp/" className="href">
-              stopcovid19.jp
+            <a href="https://github.com/kaz-ogiwara/covid19" className="href">
+              こちらのGithubレポジトリ
             </a>
-            提供の
             <a
               href="https://www.stopcovid19.jp/data/covid19japan-all.json"
               className="href"
-            >
-              API
-            </a>
-            を利用させていただいております
+            ></a>
+            のデータを利用させていただいております
           </li>
         </ul>
       </div>
