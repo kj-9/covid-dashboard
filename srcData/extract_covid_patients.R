@@ -2,7 +2,7 @@ library(tidyverse)
 
 ## extract patients data
 patients_url <- "https://raw.githubusercontent.com/kaz-ogiwara/covid19/master/data/prefectures.csv"
-patients <- read_csv(stg_patients_url,col_types = 
+patients <- read_csv(patients_url, col_types = 
                         cols(
                            year = col_double(),
                            month = col_double(),
