@@ -4,3 +4,7 @@
 /* $title-color: #ff0000;
  */
 @import "~bulma/bulma.sass";
+
+td {
+  white-space: nowrap;
+}
