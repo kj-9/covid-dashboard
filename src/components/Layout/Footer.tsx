@@ -21,7 +21,7 @@ export const Footer: React.FC<{}> = () => {
             のGithubレポジトリを利用させて頂いています。
           </li>
           <li>
-            本Webサイトはオープンソースです。ソースコードを{" "}
+            本Webサイトはオープンソースです。ソースコードを
             <a href="https://github.com/kj002/covid-dashboard" className="href">
               Github
             </a>
