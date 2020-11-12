@@ -7,22 +7,25 @@ export const Footer: React.FC<{}> = () => {
         <h2 className="subtitle is-4">データソース</h2>
         <ul>
           <li>
+            患者数は
             <a
               href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000164708_00001.html"
               className="href"
             >
               厚生労働省報道資料
             </a>
+            より。データ取得に
+            <a href="https://github.com/kaz-ogiwara/covid19" className="href">
+              こちら
+            </a>
+            のGithubレポジトリを利用させて頂いています。
           </li>
           <li>
-            <a href="https://github.com/kaz-ogiwara/covid19" className="href">
-              こちらのGithubレポジトリ
+            本Webサイトはオープンソースです。ソースコードを{" "}
+            <a href="https://github.com/kj002/covid-dashboard" className="href">
+              Github
             </a>
-            <a
-              href="https://www.stopcovid19.jp/data/covid19japan-all.json"
-              className="href"
-            ></a>
-            のデータを利用させていただいております
+            で公開しています。
           </li>
         </ul>
       </div>
