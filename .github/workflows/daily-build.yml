@@ -2,7 +2,7 @@ name: daily-build
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 4 * * *" # UTC
+    - cron: "0 10 * * *" # UTC
 
 jobs:
   build:
