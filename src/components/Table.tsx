@@ -16,7 +16,7 @@ export const Table = <T extends object>({
     headerGroups,
     rows,
     prepareRow,
-  } = useTable({ columns, data })
+  } = useTable<T>({ columns, data })
 
   return (
     <table {...getTableProps()} className={className}>
