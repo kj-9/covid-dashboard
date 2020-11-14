@@ -3,11 +3,7 @@ import { graphql } from "gatsby"
 import "../styles/bulma.scss"
 
 import Layout from "../components/Layout"
-import { Table } from "../components/Table"
-import { Cell } from "../components/Cell/Cell"
-import { CellAxis } from "../components/Cell/CellAxis"
-import { CellBar } from "../components/Cell/CellBar"
-import { CellSparkline } from "../components/Cell/CellSparkline"
+import { Dashboard, DashboardData } from "../components/Dashboard"
 
 import * as d3Array from "d3-array"
 import { timeFormat } from "d3-time-format"
@@ -33,67 +29,18 @@ const Home: React.FC<Props> = ({ data }) => {
   const latestDate = new Date(d3Array.max(rawData, node => node.update_date))
 
   // set react-table data
-  const tableData = React.useMemo(
-    () =>
-      rawData.sort((a, b) =>
-        d3Array.descending(
-          a.pref_patients_beds_ratio,
-          b.pref_patients_beds_ratio
-        )
-      ),
-    []
-  )
-
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: "都道府県",
-        columns: [
-          {
-            accessor: "pref_name_jp",
-            Cell: ({ value }) => <Cell textAlign="right">{value}</Cell>,
-            withoutCellTag: true,
-          },
-        ],
-      },
-      {
-        Header: "ベッド占有率",
-        columns: [
-          {
-            accessor: "pref_patients_beds_ratio",
-            Header: CellAxis,
-            withoutHeaderTag: true,
-            Cell: CellBar,
-            withoutCellTag: true,
-          },
-          {
-            id: "value_pref_patients_beds_ratio",
-            accessor: "pref_patients_beds_ratio",
-            Cell: ({ value }) => (
-              <Cell textAlign="right">{`${Math.floor(100 * value)}%`}</Cell>
-            ),
-            withoutCellTag: true,
-          },
-          {
-            id: "trend_pref_patients_beds_ratio",
-            accessor: "last_1w",
-            Header: "過去１週間",
-            Cell: ({ value }) => (
-              <CellSparkline
-                data={value.map(element => ({
-                  x: element.update_date,
-                  y: element.pref_patients_beds_ratio,
-                }))}
-                labels={({ datum }) => `${Math.floor(100 * datum.y)}%`}
-              />
-            ),
-            withoutCellTag: true,
-          },
-        ],
-      },
-    ],
-    []
-  )
+  const dashboardData: DashboardData[] = rawData
+    .sort((a, b) =>
+      d3Array.descending(a.pref_patients_beds_ratio, b.pref_patients_beds_ratio)
+    )
+    .map(element => ({
+      entity: element.pref_name_jp,
+      indicator: element.pref_patients_beds_ratio,
+      trend: element.last_1w?.map(e => ({
+        date: e?.update_date,
+        indicator: e?.pref_patients_beds_ratio,
+      })),
+    }))
 
   return (
     <Layout
@@ -110,10 +57,18 @@ const Home: React.FC<Props> = ({ data }) => {
           </h2>
           <div className="columns">
             <div className="column">
-              <Table<HomePageQuery["allCovidPatientsJson"]["nodes"][0]>
+              <Dashboard
                 className="table"
-                columns={columns}
-                data={tableData}
+                entityLabel="都道府県"
+                indicatorLabel="ベッド占有率"
+                indicatorFormatter={({ value }) =>
+                  `${Math.floor(100 * value)}%`
+                }
+                trendLabel="過去１週間"
+                trendTooltipFormatter={({ datum }) =>
+                  `${Math.floor(100 * datum.y)}%`
+                }
+                data={dashboardData}
               />
             </div>
           </div>

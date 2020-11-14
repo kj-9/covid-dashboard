@@ -19,7 +19,9 @@ export interface DashboardProps {
   className: string
   entityLabel: string
   indicatorLabel: string
+  indicatorFormatter: ({ value }: { value: any }) => string
   trendLabel: string
+  trendTooltipFormatter: ({ datum }: { datum: any }) => string
   data: DashboardData[]
 }
 
@@ -27,7 +29,9 @@ export const Dashboard = ({
   className,
   entityLabel,
   indicatorLabel,
+  indicatorFormatter,
   trendLabel,
+  trendTooltipFormatter,
   data,
 }: DashboardProps): React.ReactElement => {
   //const [count, setCount] = useState(0)
@@ -56,7 +60,9 @@ export const Dashboard = ({
         {
           id: "indicator_" + indicatorLabel,
           accessor: "indicator",
-          Cell: ({ value }) => <Cell textAlign="right">{value}</Cell>,
+          Cell: ({ value }) => (
+            <Cell textAlign="right">{indicatorFormatter({ value })}</Cell>
+          ),
           withoutCellTag: true,
         },
         {
@@ -69,7 +75,7 @@ export const Dashboard = ({
                 x: element.date,
                 y: element.indicator,
               }))}
-              labels={({ datum }) => `${Math.floor(100 * datum.y)}%`}
+              labels={trendTooltipFormatter}
             />
           ),
           withoutCellTag: true,
@@ -79,12 +85,13 @@ export const Dashboard = ({
   ]
 
   const memoColumns = React.useMemo(() => columns, [])
+  const memoData = React.useMemo(() => data, [])
 
   return (
     <Table<DashboardData>
       className={className}
       columns={memoColumns}
-      data={data}
+      data={memoData}
     />
   )
 }
