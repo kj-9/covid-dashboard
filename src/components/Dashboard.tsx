@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Cell } from "../components/Cell/Cell"
 import { CellAxis } from "../components/Cell/CellAxis"
 import { CellBar } from "../components/Cell/CellBar"
@@ -34,8 +34,6 @@ export const Dashboard = ({
   trendTooltipFormatter,
   data,
 }: DashboardProps): React.ReactElement => {
-  //const [count, setCount] = useState(0)
-
   const columns: Column<DashboardData>[] = [
     {
       Header: entityLabel,
@@ -84,8 +82,8 @@ export const Dashboard = ({
     },
   ]
 
-  const memoColumns = React.useMemo(() => columns, [])
-  const memoData = React.useMemo(() => data, [])
+  const memoColumns = React.useMemo(() => columns, [columns])
+  const memoData = React.useMemo(() => data, [data])
 
   return (
     <Table<DashboardData>
