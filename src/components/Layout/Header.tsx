@@ -1,4 +1,5 @@
 import React from "react"
+import logo from "../../../static/logo_transparent.png"
 
 export type HeaderProps = {
   title: string
@@ -7,13 +8,21 @@ export type HeaderProps = {
 
 export const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
   return (
-    <section className="hero is-link is-bold">
-      <div className="hero-body">
-        <div className="container">
-          <h1 className="title">{title}</h1>
-          <h2 className="subtitle">{subtitle}</h2>
-        </div>
+    <nav
+      className="navbar has-background-grey-dark"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div className="navbar-brand">
+        <p className="mt-2">
+          <span className="title has-text-white-ter has-text-weight-normal is-3 ml-2">
+            {title}
+          </span>
+          <span className="subtitle has-text-white-ter is-5 ml-2">
+            {subtitle}
+          </span>
+        </p>
       </div>
-    </section>
+    </nav>
   )
 }

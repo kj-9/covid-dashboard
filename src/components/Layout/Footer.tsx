@@ -4,7 +4,7 @@ export const Footer: React.FC<{}> = () => {
   return (
     <footer className="footer">
       <div className="content">
-        <h2 className="subtitle is-4">データソース</h2>
+        <h2 className="subtitle is-4">備考</h2>
         <ul>
           <li>
             患者数は
