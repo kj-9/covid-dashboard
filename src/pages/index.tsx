@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import "../styles/bulma.scss"
 
@@ -9,6 +9,8 @@ import * as d3Array from "d3-array"
 import { timeFormat } from "d3-time-format"
 
 import { HomePageQuery } from "../../types/graphql-types"
+
+import { COLUMN_SELECTION, COLUMN_PROPERTIES } from "../constants"
 
 const formatDate = timeFormat("%Y/%m/%d")
 
@@ -28,43 +30,84 @@ const Home: React.FC<Props> = ({ data }) => {
   // get latest data in data
   const latestDate = new Date(d3Array.max(rawData, node => node.update_date))
 
+  const [selectedColumn, setSelectedColumn] = useState(
+    COLUMN_SELECTION.pref_patients_beds_ratio
+  )
+
+  const selectedColumnProperty = COLUMN_PROPERTIES.find(
+    element => element.column === selectedColumn
+  )
+
   // set react-table data
   const dashboardData: DashboardData[] = rawData
-    .sort((a, b) =>
-      d3Array.descending(a.pref_patients_beds_ratio, b.pref_patients_beds_ratio)
-    )
+    .sort((a, b) => d3Array.descending(a[selectedColumn], b[selectedColumn]))
     .map(element => ({
       entity: element.pref_name_jp,
-      indicator: element.pref_patients_beds_ratio,
+      indicator: element[selectedColumn],
       trend: element.last_1w?.map(e => ({
         date: e?.update_date,
-        indicator: e?.pref_patients_beds_ratio,
+        indicator: e[selectedColumn],
       })),
     }))
 
   return (
     <Layout
       headerProps={{
-        title: "コロナ感染状況ダッシュボード",
-        subtitle: "Japan Covid-19 dashboard",
+        title: "新型コロナ感染症ダッシュボード",
+        subtitle: "Japan Covid-19 Dashboard",
       }}
     >
-      <div className="columns ml-1">
-        <div className="column mt-2">
-          <h1 className="title is-4">{"ベッド占有率"}</h1>
-          <h2 className="subtitle is-6">
-            {"(患者数/対策ベッド数) :" + formatDate(latestDate) + "時点"}
-          </h2>
-          <div className="columns">
-            <div className="column">
+      <div className="container ml-4 mt-4">
+        <div className="columns">
+          <div className="column is-narrow">
+            <div className="box has-background-grey-lighter">
+              <div className="heading">
+                <span className="tag is-info is-light is-medium">
+                  表示中の指標
+                </span>
+              </div>
+              <div className="field">
+                <div className="control">
+                  <div className="select">
+                    <select
+                      value={selectedColumn}
+                      onChange={event => setSelectedColumn(event.target.value)}
+                    >
+                      {COLUMN_PROPERTIES.map((element, index) => (
+                        <option key={index} value={element.column}>
+                          {element.column_jp}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="column is-narrow">
+            <div
+              className="box has-background-grey-lighter"
+              css={{ height: "100%" }}
+            >
+              {selectedColumnProperty?.column_description}
+            </div>
+          </div>
+        </div>
+        <div className="columns">
+          <div className="column is-narrow">
+            <div className="box">
+              <span className="tag is-info is-light is-medium">
+                {`${formatDate(latestDate)} 時点`}
+              </span>
+
               <Dashboard
                 className="table"
                 entityLabel="都道府県"
-                indicatorLabel="ベッド占有率"
+                indicatorLabel={selectedColumnProperty?.column_jp}
                 indicatorFormatter={({ value }) =>
                   `${Math.floor(100 * value)}%`
                 }
-                trendLabel="過去１週間"
+                trendLabel="過去1週間"
                 trendTooltipFormatter={({ datum }) =>
                   `${Math.floor(100 * datum.y)}%`
                 }
@@ -86,12 +129,10 @@ export const pageQuery = graphql`
       nodes {
         update_date
         pref_name_jp
-        pref_n_patients
-        pref_n_current_patients
-        pref_n_current_heavy_patients
         pref_heavy_patients_beds_ratio
         pref_patients_beds_ratio
         last_1w {
+          pref_heavy_patients_beds_ratio
           pref_patients_beds_ratio
           update_date
         }
