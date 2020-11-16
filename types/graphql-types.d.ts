@@ -1829,6 +1829,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___documentPaths'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
   | 'pluginCreator___pluginOptions___isTSX'
@@ -2041,6 +2042,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___name'
   | 'pluginOptions___path'
   | 'pluginOptions___fileName'
+  | 'pluginOptions___documentPaths'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
   | 'pluginOptions___isTSX'
@@ -2180,6 +2182,7 @@ export type SitePluginPluginOptions = {
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
   fileName?: Maybe<Scalars['String']>;
+  documentPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
@@ -2210,6 +2213,7 @@ export type SitePluginPluginOptionsFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
+  documentPaths?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
   isTSX?: Maybe<BooleanQueryOperatorInput>;
@@ -2269,6 +2273,6 @@ export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type HomePageQuery = { allCovidPatientsJson: { nodes: Array<(
-      Pick<CovidPatientsJson, 'update_date' | 'pref_name_jp' | 'pref_n_patients' | 'pref_n_current_patients' | 'pref_n_current_heavy_patients' | 'pref_heavy_patients_beds_ratio' | 'pref_patients_beds_ratio'>
-      & { last_1w?: Maybe<Array<Maybe<Pick<CovidPatientsJsonLast_1w, 'pref_patients_beds_ratio' | 'update_date'>>>> }
+      Pick<CovidPatientsJson, 'update_date' | 'pref_name_jp' | 'pref_heavy_patients_beds_ratio' | 'pref_patients_beds_ratio'>
+      & { last_1w?: Maybe<Array<Maybe<Pick<CovidPatientsJsonLast_1w, 'pref_heavy_patients_beds_ratio' | 'pref_patients_beds_ratio' | 'update_date'>>>> }
     )> } };
