@@ -60,7 +60,7 @@ export const CellSparkline: React.FC<CellSparklineProps> = ({
               <VictoryTooltip
                 style={{ fill: "white" }}
                 flyoutStyle={{ fill: "black" }}
-                flyoutPadding={5}
+                flyoutPadding={{ left: 15, right: 15 }}
               />
             }
           />
