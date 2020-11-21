@@ -67,8 +67,6 @@ const Home: React.FC<Props> = ({ data }) => {
       trend: element.trend.sort((a, b) => d3Array.ascending(a.date, b.date)),
     }))
 
-  console.log(dashboardData)
-
   return (
     <Layout
       headerProps={{
@@ -162,21 +160,23 @@ const Home: React.FC<Props> = ({ data }) => {
                 {`${formatYMD(latestDate)} 時点`}
               </span>
 
-              <Dashboard
-                className="table"
-                entityLabel="都道府県"
-                indicatorLabel={selectedColumnProperty.column_jp}
-                indicatorFormatter={({ value }) =>
-                  `${Math.floor(100 * value)}%`
-                }
-                trendLabel="過去4週間"
-                trendTooltipFormatter={({ datum }) =>
-                  `${formatMD(new Date(datum.x))}時点\n${Math.floor(
-                    100 * datum.y
-                  )}%`
-                }
-                data={dashboardData}
-              />
+              <div className="table-container">
+                <Dashboard
+                  className="table is-narrow is-hoverable"
+                  entityLabel="都道府県"
+                  indicatorLabel={selectedColumnProperty.column_jp}
+                  indicatorFormatter={({ value }) =>
+                    `${Math.floor(100 * value)}%`
+                  }
+                  trendLabel="過去4週間"
+                  trendTooltipFormatter={({ datum }) =>
+                    `${formatMD(new Date(datum.x))}時点\n${Math.floor(
+                      100 * datum.y
+                    )}%`
+                  }
+                  data={dashboardData}
+                />
+              </div>
             </div>
           </div>
         </div>
