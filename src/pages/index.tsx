@@ -40,25 +40,32 @@ const Home: React.FC<Props> = ({ data }) => {
   )
 
   // set react-table data
-  const dashboardData: DashboardData[] = Array.from(setPrefs).map(pref => {
-    const prefArray = rawData
-      .filter(element => element.prefectureNameJP === pref)
-      .sort((a, b) => d3Array.descending(a.updateDate, b.updateDate))
+  const dashboardData: DashboardData[] = Array.from(setPrefs)
+    .map(pref => {
+      const prefArray = rawData
+        .filter(element => element.prefectureNameJP === pref)
+        .sort((a, b) => d3Array.descending(a.updateDate, b.updateDate))
 
-    return {
-      ...prefArray.map(element => ({
-        entity: element.prefectureNameJP,
-        indicator: element[selectedColumn],
-      }))[0],
-      trend: prefArray
-        .slice(0, 4)
-        .map(element => ({
+      return {
+        ...prefArray.map(element => ({
+          entity: element.prefectureNameJP,
+          indicator: element[selectedColumn],
+        }))[0],
+        trend: prefArray.slice(0, 4).map(element => ({
           date: element.updateDate,
           indicator: element[selectedColumn],
-        }))
-        .sort((a, b) => d3Array.ascending(a.date, b.date)),
-    }
-  })
+        })),
+      }
+    })
+    // need to sort whole array, and then nested array.
+    // otherwise, nested array's order will be reset.
+    // need to fix in the future.
+    .sort((a, b) => d3Array.descending(a.indicator, b.indicator))
+    .map(element => ({
+      entity: element.entity,
+      indicator: element.indicator,
+      trend: element.trend.sort((a, b) => d3Array.ascending(a.date, b.date)),
+    }))
 
   console.log(dashboardData)
 
@@ -66,12 +73,39 @@ const Home: React.FC<Props> = ({ data }) => {
     <Layout
       headerProps={{
         title: "新型コロナ感染症ダッシュボード",
-        subtitle: "Japan Covid-19 Dashboard",
       }}
     >
       <div className="container ml-4 mt-4">
         <div className="columns">
-          <div className="column is-narrow">
+          <div className="column is-9">
+            <div className="box has-background-grey-lighter">
+              <div className="heading">
+                <span className="tag is-info is-light is-medium">
+                  このダッシュボードについて
+                </span>
+              </div>
+
+              <p>
+                日本国内の新型コロナ感染症・療養状況についてのダッシュボードです。
+                都道府県ごとに可視化しています。
+              </p>
+              <p>
+                データソースは厚生労働所発表の
+                <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/newpage_00023.html">
+                  療養状況等及び入院患者受入病床数等に関する調査
+                </a>
+                。
+                <a href="https://github.com/kj002/covid19-open-data/tree/master/data/covid19">
+                  こちら
+                </a>
+                からcsv/json形式で利用可能です。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="columns">
+          <div className="column is-3">
             <div className="box has-background-grey-lighter">
               <div className="heading">
                 <span className="tag is-info is-light is-medium">
@@ -96,12 +130,25 @@ const Home: React.FC<Props> = ({ data }) => {
               </div>
             </div>
           </div>
-          <div className="column is-narrow">
+          <div className="column is-6">
             <div
               className="box has-background-grey-lighter"
               css={{ height: "100%" }}
             >
-              {selectedColumnProperty?.column_description}
+              <div className="heading">
+                <span className="tag is-info is-light is-medium">
+                  指標について
+                </span>
+              </div>
+
+              {selectedColumnProperty?.column_description
+                .split("\n")
+                .map((line, key) => (
+                  <span key={key}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
             </div>
           </div>
         </div>
