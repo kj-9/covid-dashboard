@@ -6,9 +6,9 @@ export interface CellVictoryCommonProps
     Pick<CellProps, "tagProps"> {}
 
 export const CellVictorydefaultProps = {
-  width: 120,
-  height: 20,
-  padding: { left: 10, right: 14 },
+  width: 100,
+  height: 30,
+  padding: { top: 5, bottom: 5, left: 10, right: 14 },
 }
 
 import * as scale from "d3-scale"

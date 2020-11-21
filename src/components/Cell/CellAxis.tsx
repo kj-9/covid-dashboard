@@ -24,7 +24,7 @@ export const CellAxis: React.FC<CellAxisProps> = ({
         padding={padding}
         domain={{ y: [0, 1] }}
         orientation="top"
-        offsetY={19}
+        offsetY={30}
         dependentAxis
         tickValues={[0, 0.5, 1]}
         tickFormat={t => `${100 * t}%`}
