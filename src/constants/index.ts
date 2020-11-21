@@ -1,6 +1,7 @@
 export const COLUMN_SELECTION = {
-  pref_patients_beds_ratio: "pref_patients_beds_ratio",
-  pref_heavy_patients_beds_ratio: "pref_heavy_patients_beds_ratio",
+  bedUtilizationRate: "bedUtilizationRate",
+  severeCaseBedUtilizationRate: "severeCaseBedUtilizationRate",
+  accomondationRoomUtilizationRate: "accomondationRoomUtilizationRate",
 } as const
 
 export type ColumnProperty = {
@@ -11,13 +12,18 @@ export type ColumnProperty = {
 
 export const COLUMN_PROPERTIES: ColumnProperty[] = [
   {
-    column: "pref_heavy_patients_beds_ratio",
-    column_jp: "重症患者のベッド占有率",
-    column_description: "重症者数/ベッド数",
+    column: "bedUtilizationRate",
+    column_jp: "入院者病床使用率",
+    column_description: "患者数数/ベッド数",
   },
   {
-    column: "pref_patients_beds_ratio",
-    column_jp: "ベッド占有率",
-    column_description: "患者数/ベッド数",
+    column: "severeCaseBedUtilizationRate",
+    column_jp: "重症者病床使用率",
+    column_description: "重症患者数/ベッド数",
+  },
+  {
+    column: "accomondationRoomUtilizationRate",
+    column_jp: "宿泊療養居室使用率",
+    column_description: "療養者数/ベッド数",
   },
 ]

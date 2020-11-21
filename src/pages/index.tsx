@@ -12,7 +12,8 @@ import { HomePageQuery } from "../../types/graphql-types"
 
 import { COLUMN_SELECTION, COLUMN_PROPERTIES } from "../constants"
 
-const formatDate = timeFormat("%Y/%m/%d")
+const formatYMD = timeFormat("%Y年%-m月%-d日")
+const formatMD = timeFormat("%-m月%-d日")
 
 type Props = {
   data: HomePageQuery
@@ -20,18 +21,18 @@ type Props = {
 
 const Home: React.FC<Props> = ({ data }) => {
   // get data from page query
-  const rawData = data.allCovidPatientsJson.nodes
+  const rawData = data.allJapanPrefectureMedicalTreatmentJson.nodes
 
   //check number of prefectures in data
-  const setPrefs = new Set(rawData.map(node => node.pref_name_jp))
+  const setPrefs = new Set(rawData.map(node => node.prefectureNameJP))
   if (setPrefs.size !== 47)
     throw Error("number of unique prefecture is not 47.")
 
   // get latest data in data
-  const latestDate = new Date(d3Array.max(rawData, node => node.update_date))
+  const latestDate = new Date(d3Array.max(rawData, node => node.updateDate))
 
   const [selectedColumn, setSelectedColumn] = useState(
-    COLUMN_SELECTION.pref_patients_beds_ratio
+    COLUMN_SELECTION.bedUtilizationRate
   )
 
   const selectedColumnProperty = COLUMN_PROPERTIES.find(
@@ -39,16 +40,27 @@ const Home: React.FC<Props> = ({ data }) => {
   )
 
   // set react-table data
-  const dashboardData: DashboardData[] = rawData
-    .sort((a, b) => d3Array.descending(a[selectedColumn], b[selectedColumn]))
-    .map(element => ({
-      entity: element.pref_name_jp,
-      indicator: element[selectedColumn],
-      trend: element.last_1w?.map(e => ({
-        date: e?.update_date,
-        indicator: e[selectedColumn],
-      })),
-    }))
+  const dashboardData: DashboardData[] = Array.from(setPrefs).map(pref => {
+    const prefArray = rawData
+      .filter(element => element.prefectureNameJP === pref)
+      .sort((a, b) => d3Array.descending(a.updateDate, b.updateDate))
+
+    return {
+      ...prefArray.map(element => ({
+        entity: element.prefectureNameJP,
+        indicator: element[selectedColumn],
+      }))[0],
+      trend: prefArray
+        .slice(0, 4)
+        .map(element => ({
+          date: element.updateDate,
+          indicator: element[selectedColumn],
+        }))
+        .sort((a, b) => d3Array.ascending(a.date, b.date)),
+    }
+  })
+
+  console.log(dashboardData)
 
   return (
     <Layout
@@ -97,19 +109,21 @@ const Home: React.FC<Props> = ({ data }) => {
           <div className="column is-narrow">
             <div className="box">
               <span className="tag is-info is-light is-medium">
-                {`${formatDate(latestDate)} 時点`}
+                {`${formatYMD(latestDate)} 時点`}
               </span>
 
               <Dashboard
                 className="table"
                 entityLabel="都道府県"
-                indicatorLabel={selectedColumnProperty?.column_jp}
+                indicatorLabel={selectedColumnProperty.column_jp}
                 indicatorFormatter={({ value }) =>
                   `${Math.floor(100 * value)}%`
                 }
-                trendLabel="過去1週間"
+                trendLabel="過去4週間"
                 trendTooltipFormatter={({ datum }) =>
-                  `${Math.floor(100 * datum.y)}%`
+                  `${formatMD(new Date(datum.x))}時点\n${Math.floor(
+                    100 * datum.y
+                  )}%`
                 }
                 data={dashboardData}
               />
@@ -125,17 +139,32 @@ export default Home
 
 export const pageQuery = graphql`
   query HomePage {
-    allCovidPatientsJson {
+    allJapanPrefectureMedicalTreatmentJson {
       nodes {
-        update_date
-        pref_name_jp
-        pref_heavy_patients_beds_ratio
-        pref_patients_beds_ratio
-        last_1w {
-          pref_heavy_patients_beds_ratio
-          pref_patients_beds_ratio
-          update_date
-        }
+        prefectureNameJP
+        updateDate
+        testedPositive
+        hosipitalized
+        bedCurrentPhase
+        bedFinalPhase
+        bedCapacity
+        bedUtilizationRate
+        plannedBedCapacity
+        severeCase
+        severeCaseBedCurrentPhase
+        severeCaseBedFinalPhase
+        severeCaseBedCapacity
+        severeCaseBedUtilizationRate
+        plannedSevereCaseBedCapacity
+        accomondated
+        accomondationCurrentPhase
+        accomondationFinalPhase
+        accomondationRoomCapacity
+        accomondationRoomUtilizationRate
+        plannedaccomondationRoomCapacity
+        atHome
+        atWelfareFacility
+        unconfirmed
       }
     }
   }
