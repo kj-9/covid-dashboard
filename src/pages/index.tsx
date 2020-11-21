@@ -106,7 +106,10 @@ const Home: React.FC<Props> = ({ data }) => {
 
         <div className="columns">
           <div className="column is-3">
-            <div className="box has-background-grey-lighter">
+            <div
+              className="box has-background-grey-lighter"
+              css={{ height: "100%" }}
+            >
               <div className="heading">
                 <span className="tag is-info is-light is-medium">
                   表示中の指標
