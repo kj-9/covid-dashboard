@@ -11,8 +11,8 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v2
 
-      - name: R:Run srcData
-        run: docker run --entrypoint 'Rscript' --workdir /home/rstudio -v $(pwd):/home/rstudio rocker/tidyverse:4.0.2 srcData/extract_covid_patients.R
+      - name: Fetch data
+        run: curl https://raw.githubusercontent.com/kj002/covid19-open-data/master/data/covid19/japan_prefecture_medical_treatment.json -o data/japan_prefecture_medical_treatment.json
 
       - name: Node.js:Setup
         uses: actions/setup-node@v1
