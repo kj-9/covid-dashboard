@@ -41,7 +41,13 @@ export const Dashboard = ({
         {
           accessor: "entity",
           Cell: ({ value }) => (
-            <Cell textAlign="right" cssObject={{ whiteSpace: "nowrap" }}>
+            <Cell
+              textAlign="right"
+              cssObject={{
+                whiteSpace: "nowrap",
+                verticalAlign: "middle !important",
+              }}
+            >
               {value}
             </Cell>
           ),
@@ -63,7 +69,13 @@ export const Dashboard = ({
           id: "indicator_" + indicatorLabel,
           accessor: "indicator",
           Cell: ({ value }) => (
-            <Cell textAlign="right" cssObject={{ whiteSpace: "nowrap" }}>
+            <Cell
+              textAlign="right"
+              cssObject={{
+                whiteSpace: "nowrap",
+                verticalAlign: "middle !important",
+              }}
+            >
               {indicatorFormatter({ value })}
             </Cell>
           ),
