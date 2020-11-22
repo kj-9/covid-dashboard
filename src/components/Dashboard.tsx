@@ -1,13 +1,17 @@
 import React from "react"
 import { Cell } from "../components/Cell/Cell"
-import { CellAxis } from "../components/Cell/CellAxis"
-import { CellBar } from "../components/Cell/CellBar"
 import { CellSparkline } from "../components/Cell/CellSparkline"
+import { CellStatusBar } from "../components/Cell/CellStatusBar"
 import { Table } from "./Table"
 import { Column } from "react-table"
+import { CellProgressBar } from "./Cell/CellProgressBar"
 
 export interface DashboardData {
   entity: string
+  phase: {
+    current: number
+    max: number
+  }
   indicator: number
   trend: {
     date: Date
@@ -27,7 +31,6 @@ export interface DashboardProps {
 
 export const Dashboard = ({
   className,
-  entityLabel,
   indicatorLabel,
   indicatorFormatter,
   trendLabel,
@@ -36,33 +39,43 @@ export const Dashboard = ({
 }: DashboardProps): React.ReactElement => {
   const columns: Column<DashboardData>[] = [
     {
-      Header: entityLabel,
-      columns: [
-        {
-          accessor: "entity",
-          Cell: ({ value }) => (
-            <Cell
-              textAlign="right"
-              cssObject={{
-                whiteSpace: "nowrap",
-                verticalAlign: "middle !important",
-              }}
-            >
-              {value}
-            </Cell>
-          ),
-          withoutCellTag: true,
-        },
-      ],
+      Header: "都道府県",
+      accessor: "entity",
+      Cell: ({ value }) => (
+        <Cell
+          textAlign="right"
+          cssObject={{
+            whiteSpace: "nowrap",
+            verticalAlign: "middle !important",
+          }}
+        >
+          {value}
+        </Cell>
+      ),
+      withoutCellTag: true,
     },
+    {
+      Header: "警戒レベル",
+      accessor: "phase",
+      id: "phaseStatusBar",
+      Cell: ({ value }) => (
+        <CellStatusBar
+          current={value.current}
+          max={value.max}
+          label={`現在のレベル:${value.current}\n最大レベル:${value.max}`}
+          tooltipWidth={100}
+        />
+      ),
+      withoutCellTag: true,
+    },
+
     {
       Header: indicatorLabel,
       columns: [
         {
           accessor: "indicator",
-          Header: CellAxis,
-          withoutHeaderTag: true,
-          Cell: CellBar,
+          Header: "現在",
+          Cell: ({ value }) => <CellProgressBar value={value} range={1} />,
           withoutCellTag: true,
         },
         {
