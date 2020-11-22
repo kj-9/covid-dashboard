@@ -43,18 +43,24 @@ export const CellStackBar: React.FC<CellStackBarProps> = ({
         containerComponent={
           <VictoryContainer width={width} responsive={false} />
         }
-        labelComponent={
-          <VictoryTooltip
-            style={{ fill: "white" }}
-            flyoutStyle={{ fill: "black" }}
-            flyoutWidth={tooltipWidth}
-            orientation="top"
-            text={({ datum }) => datum?.label}
-          />
-        }
       >
-        {data.map(element => (
-          <VictoryBar data={[element]} barRatio={1.3} />
+        {data.map((element, index) => (
+          <VictoryBar
+            data={[element]}
+            barRatio={1.3}
+            key={index}
+            labels={({ datum }) => datum?.label}
+            labelComponent={
+              element.label ? (
+                <VictoryTooltip
+                  style={{ fill: "white" }}
+                  flyoutStyle={{ fill: "black" }}
+                  flyoutWidth={tooltipWidth}
+                  orientation="top"
+                />
+              ) : undefined
+            }
+          />
         ))}
       </VictoryStack>
     </Cell>

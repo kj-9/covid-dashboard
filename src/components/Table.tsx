@@ -1,17 +1,14 @@
 import React from "react"
 import { useTable, TableOptions } from "react-table"
-import { CSSObject } from "@emotion/css"
 
 interface TableProps<T extends object = {}> extends TableOptions<T> {
   className: string
-  cssObject?: CSSObject
 }
 
 export const Table = <T extends object>({
   columns,
   data,
   className,
-  cssObject,
 }: TableProps<T>): React.ReactElement => {
   const {
     getTableProps,
@@ -22,7 +19,7 @@ export const Table = <T extends object>({
   } = useTable<T>({ columns, data })
 
   return (
-    <table {...getTableProps()} className={className} css={cssObject}>
+    <table {...getTableProps()} className={className}>
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
