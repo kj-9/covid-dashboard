@@ -25,7 +25,7 @@ export const CellTrafficLight: React.FC<CellTrafficLightProps> = ({
     y: 1,
     fill:
       element + 1 <= current
-        ? CellDefaultColorScale([0, max])(current)
+        ? CellDefaultColorScale([1, max])(current)
         : "rgb(232,232,232)",
   }))
 
