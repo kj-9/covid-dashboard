@@ -50,6 +50,10 @@ const Home: React.FC<Props> = ({ data }) => {
         ...prefArray.map(element => ({
           entity: element.prefectureNameJP,
           indicator: element[selectedColumn],
+          phase: {
+            current: element[selectedColumnProperty.currentPhase],
+            max: element[selectedColumnProperty.finalPhase],
+          },
         }))[0],
         trend: prefArray.slice(0, 4).map(element => ({
           date: element.updateDate,
@@ -65,6 +69,10 @@ const Home: React.FC<Props> = ({ data }) => {
       entity: element.entity,
       indicator: element.indicator,
       trend: element.trend.sort((a, b) => d3Array.ascending(a.date, b.date)),
+      phase: {
+        current: element.phase.current,
+        max: element.phase.max,
+      },
     }))
 
   return (
@@ -162,7 +170,7 @@ const Home: React.FC<Props> = ({ data }) => {
 
               <div className="table-container">
                 <Dashboard
-                  className="table is-narrow is-hoverable"
+                  className="table is-hoverable"
                   entityLabel="都道府県"
                   indicatorLabel={selectedColumnProperty.column_jp}
                   indicatorFormatter={({ value }) =>
@@ -193,28 +201,15 @@ export const pageQuery = graphql`
       nodes {
         prefectureNameJP
         updateDate
-        testedPositive
-        hosipitalized
         bedCurrentPhase
         bedFinalPhase
-        bedCapacity
         bedUtilizationRate
-        plannedBedCapacity
-        severeCase
         severeCaseBedCurrentPhase
         severeCaseBedFinalPhase
-        severeCaseBedCapacity
         severeCaseBedUtilizationRate
-        plannedSevereCaseBedCapacity
-        accomondated
         accomondationCurrentPhase
         accomondationFinalPhase
-        accomondationRoomCapacity
         accomondationRoomUtilizationRate
-        plannedaccomondationRoomCapacity
-        atHome
-        atWelfareFacility
-        unconfirmed
       }
     }
   }
