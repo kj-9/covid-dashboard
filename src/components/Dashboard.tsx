@@ -1,4 +1,5 @@
 import React from "react"
+import { css } from "@emotion/core"
 import { Cell } from "../components/Cell/Cell"
 import { CellSparkline } from "../components/Cell/CellSparkline"
 import { CellStatusBar } from "../components/Cell/CellStatusBar"
@@ -28,6 +29,72 @@ export interface DashboardProps {
   trendTooltipFormatter: ({ datum }: { datum: any }) => string
   data: DashboardData[]
 }
+
+const DashboardCSS = css`
+  table {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    /* header row */
+    thead {
+      tr:first-of-type {
+        th {
+          border-width: 3px 0 0;
+        }
+      }
+      tr:nth-of-type(2) {
+        th {
+          text-align: center;
+          padding-top: 0.1rem;
+          font-size: 0.9rem;
+        }
+      }
+
+      /* header column */
+      tr {
+        th:first-of-type,
+        th:nth-of-type(3) {
+          border-left-width: 2px;
+        }
+
+        th:nth-of-type(5) {
+          border-right-width: 2px;
+        }
+      }
+
+      tr:first-of-type {
+        th:nth-of-type(3) {
+          border-right-width: 2px;
+        }
+      }
+    }
+
+    tbody {
+      /* body column */
+      tr {
+        td {
+          border-bottom-width: 0.5px;
+        }
+
+        td:first-of-type,
+        td:nth-of-type(2),
+        td:nth-of-type(3) {
+          border-left-width: 2px;
+        }
+
+        td:nth-of-type(5) {
+          border-right-width: 2px;
+        }
+      }
+
+      tr:last-of-type {
+        td {
+          border-bottom-width: 2px;
+        }
+      }
+    }
+  }
+`
 
 export const Dashboard = ({
   className,
@@ -75,7 +142,13 @@ export const Dashboard = ({
         {
           accessor: "indicator",
           Header: "現在",
-          Cell: ({ value }) => <CellProgressBar value={value} range={1} />,
+          Cell: ({ value }) => (
+            <CellProgressBar
+              value={value}
+              range={1}
+              label={`${indicatorFormatter({ value })}`}
+            />
+          ),
           withoutCellTag: true,
         },
         {
@@ -117,10 +190,12 @@ export const Dashboard = ({
   const memoData = React.useMemo(() => data, [data])
 
   return (
-    <Table<DashboardData>
-      className={className}
-      columns={memoColumns}
-      data={memoData}
-    />
+    <div css={DashboardCSS}>
+      <Table<DashboardData>
+        className={className}
+        columns={memoColumns}
+        data={memoData}
+      />
+    </div>
   )
 }
