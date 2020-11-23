@@ -22,12 +22,14 @@ const Template: Story<CellStatusBarProps> = args => {
       <tbody>
         {currentArr.map((element, index) => (
           <tr key={index}>
-            <CellStatusBar
-              {...args}
-              max={max}
-              current={element + 1}
-              label={`currrent is:${element + 1}\nmax is:${max}`}
-            />
+            <td>
+              <CellStatusBar
+                {...args}
+                max={max}
+                current={element + 1}
+                label={`currrent is:${element + 1}\nmax is:${max}`}
+              />
+            </td>
           </tr>
         ))}
         <tr>end</tr>

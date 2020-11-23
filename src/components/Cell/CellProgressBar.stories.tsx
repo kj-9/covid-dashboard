@@ -18,7 +18,9 @@ const Template: Story<CellProgressBarProps> = args => {
       </thead>
       <tbody>
         <tr>
-          <CellProgressBar {...args} label={`value is:${args.value}`} />
+          <td>
+            <CellProgressBar {...args} label={`value is:${args.value}`} />
+          </td>
         </tr>
         <tr>end</tr>
       </tbody>

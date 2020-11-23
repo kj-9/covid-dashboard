@@ -1,6 +1,5 @@
 import React from "react"
 import { css } from "@emotion/core"
-import { Cell } from "../components/Cell/Cell"
 import { CellSparkline } from "../components/Cell/CellSparkline"
 import { CellStatusBar } from "../components/Cell/CellStatusBar"
 import { Table } from "./Table"
@@ -107,18 +106,6 @@ export const Dashboard = ({
     {
       Header: "都道府県",
       accessor: "entity",
-      Cell: ({ value }) => (
-        <Cell
-          textAlign="right"
-          cssObject={{
-            whiteSpace: "nowrap",
-            verticalAlign: "middle !important",
-          }}
-        >
-          {value}
-        </Cell>
-      ),
-      withoutCellTag: true,
     },
     {
       Header: "警戒レベル",
@@ -132,7 +119,6 @@ export const Dashboard = ({
           tooltipWidth={100}
         />
       ),
-      withoutCellTag: true,
     },
 
     {
@@ -148,23 +134,11 @@ export const Dashboard = ({
               label={`${indicatorFormatter({ value })}`}
             />
           ),
-          withoutCellTag: true,
         },
         {
           id: "indicator_" + indicatorLabel,
           accessor: "indicator",
-          Cell: ({ value }) => (
-            <Cell
-              textAlign="right"
-              cssObject={{
-                whiteSpace: "nowrap",
-                verticalAlign: "middle !important",
-              }}
-            >
-              {indicatorFormatter({ value })}
-            </Cell>
-          ),
-          withoutCellTag: true,
+          Cell: ({ value }) => indicatorFormatter({ value }),
         },
         {
           id: "trend_" + indicatorLabel,
@@ -180,7 +154,6 @@ export const Dashboard = ({
               scale={{ x: "time" }}
             />
           ),
-          withoutCellTag: true,
         },
       ],
     },

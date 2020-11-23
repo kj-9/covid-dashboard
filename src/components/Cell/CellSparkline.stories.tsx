@@ -18,10 +18,14 @@ const Template: Story<CellSparklineProps> = args => {
       </thead>
       <tbody>
         <tr>
-          <CellSparkline {...args} />
+          <td>
+            <CellSparkline {...args} />
+          </td>
         </tr>
         <tr>
-          <CellSparkline {...args} />
+          <td>
+            <CellSparkline {...args} />
+          </td>
         </tr>
       </tbody>
     </table>

@@ -18,7 +18,9 @@ const Template: Story<CellStackBarProps> = args => {
       </thead>
       <tbody>
         <tr>
-          <CellStackBar {...args} />
+          <td>
+            <CellStackBar {...args} />
+          </td>
         </tr>
         <tr>end</tr>
       </tbody>

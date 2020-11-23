@@ -1,9 +1,7 @@
 import { VictoryCommonProps } from "victory-core"
-import { CellProps } from "./Cell"
 
 export interface CellVictoryCommonProps
-  extends Pick<VictoryCommonProps, "width" | "height" | "padding">,
-    Pick<CellProps, "tagProps"> {}
+  extends Pick<VictoryCommonProps, "width" | "height" | "padding"> {}
 
 export const CellVictorydefaultProps = {
   width: 100,
