@@ -1,5 +1,4 @@
-import { CSSObject } from "@emotion/css"
-import { cx, css } from "emotion"
+import { cx, css, CSSObject } from "@emotion/css"
 import React from "react"
 
 type tagType = "td" | "th"
