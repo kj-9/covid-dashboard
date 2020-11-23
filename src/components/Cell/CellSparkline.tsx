@@ -1,9 +1,10 @@
 import React from "react"
 import {
   VictoryLine,
-  VictoryVoronoiContainer,
-  VictoryVoronoiContainerProps,
   VictoryLineProps,
+  VictoryGroup,
+  VictoryVoronoiContainer,
+  VictoryScatter,
   VictoryTooltip,
 } from "victory"
 import { CellVictoryCommonProps, CellVictorydefaultProps } from "./"
@@ -11,9 +12,8 @@ import { Cell } from "./Cell"
 
 export interface CellSparklineProps
   extends CellVictoryCommonProps,
-    Pick<VictoryVoronoiContainerProps, "labels">,
     Pick<VictoryLineProps, "scale" | "domain"> {
-  data: { x: any; y: number }[]
+  data: { x: any; y: number; label?: string }[]
 }
 
 export const CellSparkline: React.FC<CellSparklineProps> = ({
@@ -23,7 +23,6 @@ export const CellSparkline: React.FC<CellSparklineProps> = ({
   domain,
   scale,
   data,
-  labels,
   tagProps,
 }: CellSparklineProps) => {
   // To show tooltip outside SVG
@@ -35,37 +34,45 @@ export const CellSparkline: React.FC<CellSparklineProps> = ({
     },
   }
 
+  const lastData = [data.map(e => ({ x: e.x, y: e.y }))[data.length - 1]]
+
   return (
     <Cell tagProps={Object.assign(defaultTagCSS, tagProps)}>
-      <VictoryLine
+      <VictoryGroup
         width={width}
         height={height}
         padding={padding}
         domain={domain}
         scale={scale}
-        style={{
-          data: {
-            stroke: "lightgrey",
-            strokeWidth: 1.5,
-          },
-        }}
-        data={data}
         containerComponent={
-          <VictoryVoronoiContainer
-            width={width}
-            responsive={false}
-            voronoiDimension="x"
-            labels={labels}
-            labelComponent={
-              <VictoryTooltip
-                style={{ fill: "white" }}
-                flyoutStyle={{ fill: "black" }}
-                flyoutPadding={{ left: 15, right: 15 }}
-              />
-            }
-          />
+          <VictoryVoronoiContainer responsive={false} voronoiDimension="x" />
         }
-      />
+      >
+        <VictoryLine
+          data={data}
+          style={{
+            data: {
+              stroke: "lightgrey",
+              strokeWidth: 1.5,
+            },
+          }}
+          labelComponent={
+            <VictoryTooltip
+              style={{ fill: "white" }}
+              flyoutStyle={{ fill: "black" }}
+              flyoutPadding={{ left: 15, right: 15 }}
+            />
+          }
+        />
+        <VictoryScatter
+          data={lastData}
+          style={{
+            data: {
+              fill: "lightgrey",
+            },
+          }}
+        />
+      </VictoryGroup>
     </Cell>
   )
 }
