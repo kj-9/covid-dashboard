@@ -5,7 +5,11 @@ import {
   VictoryContainer,
   VictoryTooltip,
 } from "victory"
-import { CellVictoryCommonProps, CellVictorydefaultProps } from "."
+import {
+  CellVictoryCommonProps,
+  DefaultContainerProps,
+  DefaultTooltipProps,
+} from "."
 
 export interface CellStackBarProps extends CellVictoryCommonProps {
   data: {
@@ -38,19 +42,17 @@ export const CellStackBar: React.FC<CellStackBarProps> = ({
           strokeWidth: 1,
         },
       }}
-      containerComponent={<VictoryContainer width={width} responsive={false} />}
+      containerComponent={<VictoryContainer responsive={false} />}
     >
       {data.map((element, index) => (
         <VictoryBar
           data={[element]}
           barRatio={1.3}
           key={index}
-          labels={({ datum }) => datum?.label}
           labelComponent={
             element.label ? (
               <VictoryTooltip
-                style={{ fill: "white" }}
-                flyoutStyle={{ fill: "black" }}
+                {...DefaultTooltipProps}
                 flyoutWidth={tooltipWidth}
                 orientation="top"
               />
@@ -62,4 +64,4 @@ export const CellStackBar: React.FC<CellStackBarProps> = ({
   )
 }
 
-CellStackBar.defaultProps = CellVictorydefaultProps
+CellStackBar.defaultProps = DefaultContainerProps

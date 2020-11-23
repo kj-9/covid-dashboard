@@ -35,7 +35,7 @@ const Home: React.FC<Props> = ({ data }) => {
     COLUMN_SELECTION.bedUtilizationRate
   )
 
-  const selectedColumnProperty = COLUMN_PROPERTIES.find(
+  let selectedColumnProperty = COLUMN_PROPERTIES.find(
     element => element.column === selectedColumn
   )
 
@@ -49,15 +49,21 @@ const Home: React.FC<Props> = ({ data }) => {
       return {
         ...prefArray.map(element => ({
           entity: element.prefectureNameJP,
-          indicator: element[selectedColumn],
           phase: {
             current: element[selectedColumnProperty.currentPhase],
             max: element[selectedColumnProperty.finalPhase],
+            label: `現在のレベル:${
+              element[selectedColumnProperty.currentPhase]
+            }\n最大レベル:${element[selectedColumnProperty.finalPhase]}`,
+          },
+          indicator: {
+            value: element[selectedColumn],
+            label: `${Math.floor(100 * element[selectedColumn])}%`,
           },
         }))[0],
         trend: prefArray.slice(0, 8).map(element => ({
           date: new Date(element.updateDate),
-          indicator: element[selectedColumn],
+          value: element[selectedColumn],
           label: `${formatMD(new Date(element.updateDate))}時点\n${Math.floor(
             100 * element[selectedColumn]
           )}%`,
@@ -67,16 +73,16 @@ const Home: React.FC<Props> = ({ data }) => {
     // need to sort whole array, and then nested array.
     // otherwise, nested array's order will be reset.
     // need to fix in the future.
-    .sort((a, b) => d3Array.descending(a.indicator, b.indicator))
-    .map(element => ({
-      entity: element.entity,
-      indicator: element.indicator,
-      trend: element.trend.sort((a, b) => d3Array.ascending(a.date, b.date)),
-      phase: {
-        current: element.phase.current,
-        max: element.phase.max,
-      },
-    }))
+    .sort((a, b) => d3Array.descending(a.indicator.value, b.indicator.value))
+    .map(element => {
+      const { entity, phase, indicator, trend } = element
+      return {
+        entity: entity,
+        phase: phase,
+        indicator: indicator,
+        trend: trend.sort((a, b) => d3Array.ascending(a.value, b.value)),
+      }
+    })
 
   return (
     <Layout
@@ -174,12 +180,11 @@ const Home: React.FC<Props> = ({ data }) => {
               <div className="table-container">
                 <Dashboard
                   className="table is-hoverable"
-                  entityLabel="都道府県"
-                  indicatorLabel={selectedColumnProperty.column_jp}
-                  indicatorFormatter={({ value }) =>
-                    `${Math.floor(100 * value)}%`
-                  }
-                  trendLabel="過去8週間"
+                  header={{
+                    entity: "都道府県",
+                    indicator: selectedColumnProperty.column_jp,
+                    trend: "過去8週間",
+                  }}
                   data={dashboardData}
                 />
               </div>

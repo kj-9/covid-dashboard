@@ -7,11 +7,18 @@ import {
   VictoryScatter,
   VictoryTooltip,
 } from "victory"
-import { CellVictoryCommonProps, CellVictorydefaultProps } from "./"
+import {
+  CellVictoryCommonProps,
+  DefaultContainerProps,
+  DefaultTooltipProps,
+} from "./"
+
+import * as d3Array from "d3-array"
 
 export interface CellSparklineProps
   extends CellVictoryCommonProps,
     Pick<VictoryLineProps, "scale" | "domain"> {
+  tooltipWidth?: number
   data: { x: any; y: number; label?: string }[]
 }
 
@@ -22,10 +29,15 @@ export const CellSparkline: React.FC<CellSparklineProps> = ({
   domain,
   scale,
   data,
+  tooltipWidth,
 }: CellSparklineProps) => {
   // To show tooltip outside SVG
 
-  const lastData = [data.map(e => ({ x: e.x, y: e.y }))[data.length - 1]]
+  const lastData = [
+    data
+      .sort((a, b) => d3Array.descending(a.x, b.x))
+      .map(e => ({ x: e.x, y: e.y }))[0],
+  ]
 
   return (
     <VictoryGroup
@@ -47,11 +59,7 @@ export const CellSparkline: React.FC<CellSparklineProps> = ({
           },
         }}
         labelComponent={
-          <VictoryTooltip
-            style={{ fill: "white" }}
-            flyoutStyle={{ fill: "black" }}
-            flyoutPadding={{ left: 15, right: 15 }}
-          />
+          <VictoryTooltip {...DefaultTooltipProps} flyoutWidth={tooltipWidth} />
         }
       />
       <VictoryScatter
@@ -66,4 +74,4 @@ export const CellSparkline: React.FC<CellSparklineProps> = ({
   )
 }
 
-CellSparkline.defaultProps = CellVictorydefaultProps
+CellSparkline.defaultProps = DefaultContainerProps

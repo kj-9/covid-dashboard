@@ -11,21 +11,26 @@ export interface DashboardData {
   phase: {
     current: number
     max: number
+    label: string
   }
-  indicator: number
+  indicator: {
+    value: number
+    label: string
+  }
   trend: {
     date: Date
-    indicator: number
+    value: number
     label: string
   }[]
 }
 
 export interface DashboardProps {
   className: string
-  entityLabel: string
-  indicatorLabel: string
-  indicatorFormatter: ({ value }: { value: any }) => string
-  trendLabel: string
+  header: {
+    entity: string
+    indicator: string
+    trend: string
+  }
   data: DashboardData[]
 }
 
@@ -97,9 +102,7 @@ const DashboardCSS = css`
 
 export const Dashboard = ({
   className,
-  indicatorLabel,
-  indicatorFormatter,
-  trendLabel,
+  header,
   data,
 }: DashboardProps): React.ReactElement => {
   const columns: Column<DashboardData>[] = [
@@ -115,40 +118,41 @@ export const Dashboard = ({
         <CellStatusBar
           current={value.current}
           max={value.max}
-          label={`現在のレベル:${value.current}\n最大レベル:${value.max}`}
+          label={value.label}
           tooltipWidth={100}
         />
       ),
     },
 
     {
-      Header: indicatorLabel,
+      Header: header.indicator,
       columns: [
         {
+          id: "indicator_bar",
           accessor: "indicator",
           Header: "現在",
           Cell: ({ value }) => (
             <CellProgressBar
-              value={value}
+              value={value.value}
               range={1}
-              label={`${indicatorFormatter({ value })}`}
+              label={value.label}
             />
           ),
         },
         {
-          id: "indicator_" + indicatorLabel,
+          id: "indicator_label",
           accessor: "indicator",
-          Cell: ({ value }) => indicatorFormatter({ value }),
+          Cell: ({ value }) => value.label,
         },
         {
-          id: "trend_" + indicatorLabel,
-          Header: trendLabel,
+          id: "trend_sparkline",
+          Header: header.trend,
           accessor: "trend",
           Cell: ({ value }) => (
             <CellSparkline
               data={value.map(element => ({
                 x: element.date,
-                y: element.indicator,
+                y: element.value,
                 label: element.label,
               }))}
               scale={{ x: "time" }}
