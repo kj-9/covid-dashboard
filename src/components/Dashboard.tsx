@@ -17,6 +17,7 @@ export interface DashboardData {
   trend: {
     date: Date
     indicator: number
+    label: string
   }[]
 }
 
@@ -26,7 +27,6 @@ export interface DashboardProps {
   indicatorLabel: string
   indicatorFormatter: ({ value }: { value: any }) => string
   trendLabel: string
-  trendTooltipFormatter: ({ datum }: { datum: any }) => string
   data: DashboardData[]
 }
 
@@ -176,8 +176,9 @@ export const Dashboard = ({
               data={value.map(element => ({
                 x: element.date,
                 y: element.indicator,
+                label: element.label,
               }))}
-              labels={trendTooltipFormatter}
+              scale={{ x: "time" }}
             />
           ),
           withoutCellTag: true,

@@ -56,8 +56,11 @@ const Home: React.FC<Props> = ({ data }) => {
           },
         }))[0],
         trend: prefArray.slice(0, 4).map(element => ({
-          date: element.updateDate,
+          date: new Date(element.updateDate),
           indicator: element[selectedColumn],
+          label: `${formatMD(new Date(element.updateDate))}時点\n${Math.floor(
+            100 * element[selectedColumn]
+          )}%`,
         })),
       }
     })
@@ -177,11 +180,6 @@ const Home: React.FC<Props> = ({ data }) => {
                     `${Math.floor(100 * value)}%`
                   }
                   trendLabel="過去4週間"
-                  trendTooltipFormatter={({ datum }) =>
-                    `${formatMD(new Date(datum.x))}時点\n${Math.floor(
-                      100 * datum.y
-                    )}%`
-                  }
                   data={dashboardData}
                 />
               </div>
