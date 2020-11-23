@@ -55,7 +55,7 @@ const Home: React.FC<Props> = ({ data }) => {
             max: element[selectedColumnProperty.finalPhase],
           },
         }))[0],
-        trend: prefArray.slice(0, 4).map(element => ({
+        trend: prefArray.slice(0, 8).map(element => ({
           date: new Date(element.updateDate),
           indicator: element[selectedColumn],
           label: `${formatMD(new Date(element.updateDate))}時点\n${Math.floor(
@@ -179,7 +179,7 @@ const Home: React.FC<Props> = ({ data }) => {
                   indicatorFormatter={({ value }) =>
                     `${Math.floor(100 * value)}%`
                   }
-                  trendLabel="過去4週間"
+                  trendLabel="過去8週間"
                   data={dashboardData}
                 />
               </div>
