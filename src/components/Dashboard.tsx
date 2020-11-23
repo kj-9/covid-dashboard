@@ -101,7 +101,6 @@ export const Dashboard = ({
   indicatorLabel,
   indicatorFormatter,
   trendLabel,
-  trendTooltipFormatter,
   data,
 }: DashboardProps): React.ReactElement => {
   const columns: Column<DashboardData>[] = [
