@@ -20,8 +20,8 @@ const Template: Story<CellStatusBarProps> = args => {
         </tr>
       </thead>
       <tbody>
-        {currentArr.map(element => (
-          <tr>
+        {currentArr.map((element, index) => (
+          <tr key={index}>
             <CellStatusBar
               {...args}
               max={max}
