@@ -39,61 +39,43 @@ const DashboardCSS = css`
     margin-top: 1rem;
     margin-bottom: 1rem;
 
-    /* header row */
-    thead {
-      tr:first-of-type {
-        th {
-          border-width: 3px 0 0;
-        }
-      }
-      tr:nth-of-type(2) {
-        th {
-          text-align: center;
-          padding-top: 0.1rem;
-          font-size: 0.9rem;
-        }
-      }
+    td {
+      border-bottom-width: 0.5px;
+      white-space: nowrap;
+    }
 
-      /* header column */
-      tr {
-        th:first-of-type,
-        th:nth-of-type(3) {
-          border-left-width: 2px;
-        }
-
-        th:nth-of-type(5) {
-          border-right-width: 2px;
-        }
+    /* vertical border */
+    tr {
+      th:first-of-type,
+      th:nth-of-type(3),
+      td:first-of-type,
+      td:nth-of-type(2),
+      td:nth-of-type(3) {
+        border-left-width: 2px;
       }
-
-      tr:first-of-type {
-        th:nth-of-type(3) {
-          border-right-width: 2px;
+      th:last-of-type,
+      td:last-of-type {
+        border-right-width: 2px;
+      }
+      :last-of-type {
+        td {
+          border-bottom-width: 2px;
         }
       }
     }
 
-    tbody {
-      /* body column */
+    thead {
       tr {
-        td {
-          border-bottom-width: 0.5px;
+        /* header specific border */
+        :first-of-type th {
+          border-top-width: 3px;
+          border-bottom-width: 0;
         }
-
-        td:first-of-type,
-        td:nth-of-type(2),
-        td:nth-of-type(3) {
-          border-left-width: 2px;
-        }
-
-        td:nth-of-type(5) {
-          border-right-width: 2px;
-        }
-      }
-
-      tr:last-of-type {
-        td {
-          border-bottom-width: 2px;
+        /* style in nested header */
+        :last-of-type th {
+          text-align: center;
+          padding-top: 0.1rem;
+          font-size: 0.9rem;
         }
       }
     }
