@@ -179,7 +179,7 @@ const Home: React.FC<Props> = ({ data }) => {
 
               <div className="table-container">
                 <Dashboard
-                  className="table is-hoverable"
+                  className="table"
                   header={{
                     entity: "都道府県",
                     indicator: selectedColumnProperty.column_jp,
