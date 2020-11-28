@@ -44,8 +44,12 @@ const DashboardCSS = css`
       white-space: nowrap;
     }
 
-    /* vertical border */
     tr {
+      td {
+        text-align: right;
+      }
+
+      /* vertical border */
       th:first-of-type,
       th:nth-of-type(3),
       td:first-of-type,
@@ -57,6 +61,8 @@ const DashboardCSS = css`
       td:last-of-type {
         border-right-width: 2px;
       }
+
+      /* last horizontal border */
       :last-of-type {
         td {
           border-bottom-width: 2px;
