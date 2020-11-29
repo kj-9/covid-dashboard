@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useMemo } from "react"
 import { graphql } from "gatsby"
 import "../styles/bulma.scss"
 
@@ -23,6 +23,8 @@ const Home: React.FC<Props> = ({ data }) => {
   const [selectedColumn, setSelectedColumn] = useState(
     COLUMN_SELECTION.bedUtilizationRate
   )
+
+  const latestDate = useMemo(() =>  new Date(data.current.nodes[0].updateDate), [])
 
   let selectedColumnProperty = COLUMN_PROPERTIES.find(
     element => element.column === selectedColumn
@@ -151,7 +153,7 @@ const Home: React.FC<Props> = ({ data }) => {
           <div className="column">
             <div className="box">
               <span className="tag is-info is-light is-medium">
-                {`${formatYMD(data.current.nodes[0].updateDate)} 時点`}
+                {`${formatYMD(latestDate)} 時点`}
               </span>
               <div className="table-container">
                 <Dashboard
