@@ -120,7 +120,7 @@ const Home: React.FC<Props> = ({ data }) => {
         </div>
 
         <div className="columns">
-          <div className="column">
+          <div className="column is-narrow">
             <div
               className="box has-background-grey-lighter"
               css={{ height: "100%" }}
@@ -148,7 +148,7 @@ const Home: React.FC<Props> = ({ data }) => {
               </div>
             </div>
           </div>
-          <div className="column is-narrow">
+          <div className="column">
             <div
               className="box has-background-grey-lighter"
               css={{ height: "100%" }}
