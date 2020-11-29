@@ -43,9 +43,9 @@ const DashboardCSS = css`
 
     td {
       vertical-align: middle;
-      border-bottom-width: 0;
       padding: 0.3rem;
       color: grey;
+      border-bottom-width: 0;
     }
 
     th {
@@ -76,9 +76,15 @@ const DashboardCSS = css`
       }
 
       /* last horizontal border */
-      :last-of-type {
+      :nth-of-type(3n) {
         td {
           border-bottom-width: 1px;
+        }
+      }
+
+      :last-of-type {
+        td {
+          border-bottom-width: 2px;
         }
       }
     }
