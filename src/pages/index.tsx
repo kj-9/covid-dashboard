@@ -20,17 +20,6 @@ type Props = {
 }
 
 const Home: React.FC<Props> = ({ data }) => {
-  // get data from page query
-  const rawData = data.allJapanPrefectureMedicalTreatmentJson.nodes
-
-  //check number of prefectures in data
-  const setPrefs = new Set(rawData.map(node => node.prefectureNameJP))
-  if (setPrefs.size !== 47)
-    throw Error("number of unique prefecture is not 47.")
-
-  // get latest data in data
-  const latestDate = new Date(d3Array.max(rawData, node => node.updateDate))
-
   const [selectedColumn, setSelectedColumn] = useState(
     COLUMN_SELECTION.bedUtilizationRate
   )
@@ -40,49 +29,37 @@ const Home: React.FC<Props> = ({ data }) => {
   )
 
   // set react-table data
-  const dashboardData: DashboardData[] = Array.from(setPrefs)
-    .map(pref => {
-      const prefArray = rawData
-        .filter(element => element.prefectureNameJP === pref)
-        .sort((a, b) => d3Array.descending(a.updateDate, b.updateDate))
-
+  const dashboardData: DashboardData[] = data.current.nodes
+  .sort((a, b) => d3Array.descending(a[selectedColumn], b.[selectedColumn]))
+  .map(
+    currentRecord => {
       return {
-        ...prefArray.map(element => ({
-          entity: element.prefectureNameJP,
-          phase: {
-            current: element[selectedColumnProperty.currentPhase],
-            max: element[selectedColumnProperty.finalPhase],
-            label: `現在のレベル:${
-              element[selectedColumnProperty.currentPhase]
-            }\n最大レベル:${element[selectedColumnProperty.finalPhase]}`,
-          },
-          indicator: {
-            value: element[selectedColumn],
-            label: `${Math.floor(100 * element[selectedColumn])}%`,
-          },
-        }))[0],
-        trend: prefArray.slice(0, 8).map(element => ({
-          date: new Date(element.updateDate),
-          value: element[selectedColumn],
-          label: `${formatMD(new Date(element.updateDate))}時点\n${Math.floor(
-            100 * element[selectedColumn]
-          )}%`,
-        })),
+        entity: currentRecord.prefectureNameJP,
+        phase: {
+          current: currentRecord[selectedColumnProperty.currentPhase],
+          max: currentRecord[selectedColumnProperty.finalPhase],
+          label: `現在のレベル:${
+            currentRecord[selectedColumnProperty.currentPhase]
+          }\n最大レベル:${currentRecord[selectedColumnProperty.finalPhase]}`,
+        },
+        indicator: {
+          value: currentRecord[selectedColumn],
+          label: `${Math.floor(100 * currentRecord[selectedColumn])}%`,
+        },
+        trend: data.trend.nodes
+          .filter(
+            node => node.prefectureNameJP === currentRecord.prefectureNameJP
+          )
+          .map(trendRecord => ({
+            date: new Date(trendRecord.updateDate),
+            value: trendRecord[selectedColumn],
+            label: `${formatMD(
+              new Date(trendRecord.updateDate)
+            )}時点\n${Math.floor(100 * trendRecord[selectedColumn])}%`,
+          })),
       }
-    })
-    // need to sort whole array, and then nested array.
-    // otherwise, nested array's order will be reset.
-    // need to fix in the future.
-    .sort((a, b) => d3Array.descending(a.indicator.value, b.indicator.value))
-    .map(element => {
-      const { entity, phase, indicator, trend } = element
-      return {
-        entity: entity,
-        phase: phase,
-        indicator: indicator,
-        trend: trend.sort((a, b) => d3Array.ascending(a.value, b.value)),
-      }
-    })
+    }
+  )
 
   return (
     <Layout
@@ -174,9 +151,8 @@ const Home: React.FC<Props> = ({ data }) => {
           <div className="column">
             <div className="box">
               <span className="tag is-info is-light is-medium">
-                {`${formatYMD(latestDate)} 時点`}
+                {`${formatYMD(data.current.nodes[0].updateDate)} 時点`}
               </span>
-
               <div className="table-container">
                 <Dashboard
                   className="table"
@@ -199,20 +175,38 @@ const Home: React.FC<Props> = ({ data }) => {
 export default Home
 
 export const pageQuery = graphql`
+  fragment fragmentName on JapanPrefectureMedicalTreatmentJson {
+    prefectureNameJP
+    updateDate
+    bedCurrentPhase
+    bedFinalPhase
+    bedUtilizationRate
+    severeCaseBedCurrentPhase
+    severeCaseBedFinalPhase
+    severeCaseBedUtilizationRate
+    accomondationCurrentPhase
+    accomondationFinalPhase
+    accomondationRoomUtilizationRate
+  }
+
   query HomePage {
-    allJapanPrefectureMedicalTreatmentJson {
+    pref: allJapanPrefectureMedicalTreatmentJson {
+      distinct(field: prefectureNameJP)
+    }
+    current: allJapanPrefectureMedicalTreatmentJson(
+      limit: 47
+      sort: { fields: [updateDate], order: DESC }
+    ) {
       nodes {
-        prefectureNameJP
-        updateDate
-        bedCurrentPhase
-        bedFinalPhase
-        bedUtilizationRate
-        severeCaseBedCurrentPhase
-        severeCaseBedFinalPhase
-        severeCaseBedUtilizationRate
-        accomondationCurrentPhase
-        accomondationFinalPhase
-        accomondationRoomUtilizationRate
+        ...fragmentName
+      }
+    }
+    trend: allJapanPrefectureMedicalTreatmentJson(
+      limit: 376
+      sort: { fields: updateDate, order: DESC }
+    ) {
+      nodes {
+        ...fragmentName
       }
     }
   }
