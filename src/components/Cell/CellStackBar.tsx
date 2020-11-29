@@ -39,7 +39,7 @@ export const CellStackBar: React.FC<CellStackBarProps> = ({
         data: {
           fill: ({ datum }) => datum?.fill,
           stroke: ({ datum }) => datum?.strokeColor,
-          strokeWidth: 1,
+          strokeWidth: 0.5,
         },
       }}
       containerComponent={<VictoryContainer responsive={false} />}

@@ -55,7 +55,7 @@ export const CellSparkline: React.FC<CellSparklineProps> = ({
         style={{
           data: {
             stroke: "lightgrey",
-            strokeWidth: 1.5,
+            strokeWidth: 1.2,
           },
         }}
         labelComponent={

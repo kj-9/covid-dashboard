@@ -38,10 +38,18 @@ const DashboardCSS = css`
   table {
     margin-top: 1rem;
     margin-bottom: 1rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
 
     td {
-      border-bottom-width: 0.5px;
-      white-space: nowrap;
+      vertical-align: middle;
+      border-bottom-width: 0;
+      padding: 0.3rem;
+      color: grey;
+    }
+
+    th {
+      font-weight: 500;
     }
 
     tr {
@@ -50,13 +58,18 @@ const DashboardCSS = css`
       }
 
       /* vertical border */
+
       th:first-of-type,
-      th:nth-of-type(3),
-      td:first-of-type,
-      td:nth-of-type(2),
-      td:nth-of-type(3) {
+      td:first-of-type {
         border-left-width: 2px;
       }
+
+      th:nth-of-type(3),
+      td:nth-of-type(2),
+      td:nth-of-type(3) {
+        border-left-width: 1px;
+      }
+
       th:last-of-type,
       td:last-of-type {
         border-right-width: 2px;
@@ -65,7 +78,7 @@ const DashboardCSS = css`
       /* last horizontal border */
       :last-of-type {
         td {
-          border-bottom-width: 2px;
+          border-bottom-width: 1px;
         }
       }
     }
@@ -74,14 +87,13 @@ const DashboardCSS = css`
       tr {
         /* header specific border */
         :first-of-type th {
-          border-top-width: 3px;
+          border-top-width: 2px;
           border-bottom-width: 0;
         }
         /* style in nested header */
         :last-of-type th {
           text-align: center;
           padding-top: 0.1rem;
-          font-size: 0.9rem;
         }
       }
     }

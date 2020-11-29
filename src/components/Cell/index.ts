@@ -3,8 +3,8 @@ export interface CellVictoryCommonProps
   extends Pick<VictoryCommonProps, "width" | "height" | "padding"> {}
 
 export const DefaultContainerProps = {
-  width: 100,
-  height: 30,
+  width: 80,
+  height: 25,
   padding: { top: 5, bottom: 5, left: 10, right: 14 },
 }
 

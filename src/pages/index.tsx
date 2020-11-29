@@ -92,7 +92,7 @@ const Home: React.FC<Props> = ({ data }) => {
     >
       <div className="container ml-4 mt-4">
         <div className="columns">
-          <div className="column is-9">
+          <div className="column">
             <div className="box has-background-grey-lighter">
               <div className="heading">
                 <span className="tag is-info is-light is-medium">
@@ -120,7 +120,7 @@ const Home: React.FC<Props> = ({ data }) => {
         </div>
 
         <div className="columns">
-          <div className="column is-3">
+          <div className="column">
             <div
               className="box has-background-grey-lighter"
               css={{ height: "100%" }}
@@ -148,7 +148,7 @@ const Home: React.FC<Props> = ({ data }) => {
               </div>
             </div>
           </div>
-          <div className="column is-6">
+          <div className="column is-narrow">
             <div
               className="box has-background-grey-lighter"
               css={{ height: "100%" }}
@@ -171,7 +171,7 @@ const Home: React.FC<Props> = ({ data }) => {
           </div>
         </div>
         <div className="columns">
-          <div className="column is-narrow">
+          <div className="column">
             <div className="box">
               <span className="tag is-info is-light is-medium">
                 {`${formatYMD(latestDate)} 時点`}
