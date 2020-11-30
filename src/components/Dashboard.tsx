@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { css } from "@emotion/core"
 import { CellSparkline } from "../components/Cell/CellSparkline"
 import { CellStatusBar } from "../components/Cell/CellStatusBar"
@@ -111,6 +111,12 @@ export const Dashboard = ({
   header,
   data,
 }: DashboardProps): React.ReactElement => {
+  const [isRendering, setIsRendering] = useState(true)
+
+  useEffect(() => {
+    setIsRendering(false)
+  })
+
   const columns: Column<DashboardData>[] = [
     {
       Header: "都道府県",
@@ -171,6 +177,14 @@ export const Dashboard = ({
 
   const memoColumns = React.useMemo(() => columns, [columns])
   const memoData = React.useMemo(() => data, [data])
+
+  if (isRendering) {
+    return (
+      <div className="mt-2">
+        <button className="button is-loading">Loading</button>
+      </div>
+    )
+  }
 
   return (
     <div css={DashboardCSS}>
