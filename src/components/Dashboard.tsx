@@ -58,7 +58,6 @@ const DashboardCSS = css`
       }
 
       /* vertical border */
-
       th:first-of-type,
       td:first-of-type {
         border-left-width: 2px;
@@ -112,9 +111,17 @@ export const Dashboard = ({
   data,
 }: DashboardProps): React.ReactElement => {
   const [isRendering, setIsRendering] = useState(true)
+  const [prevData, setPrevData] = useState(data)
+
+  if (data !== prevData) {
+    setIsRendering(true)
+    setPrevData(data)
+  }
 
   useEffect(() => {
-    setIsRendering(false)
+    const id = setTimeout(() => setIsRendering(false), 1)
+
+    return () => clearTimeout(id)
   })
 
   const columns: Column<DashboardData>[] = [
@@ -175,8 +182,12 @@ export const Dashboard = ({
     },
   ]
 
-  const memoColumns = React.useMemo(() => columns, [columns])
-  const memoData = React.useMemo(() => data, [data])
+  const memoColumns = React.useMemo(() => columns, [
+    columns,
+    isRendering,
+    prevData,
+  ])
+  const memoData = React.useMemo(() => data, [data, isRendering, prevData])
 
   if (isRendering) {
     return (
