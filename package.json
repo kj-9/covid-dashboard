@@ -16,6 +16,7 @@
     "build-storybook": "NODE_ENV=production build-storybook -s public"
   },
   "dependencies": {
+    "@creativebulma/bulma-tooltip": "^1.2.0",
     "@emotion/css": "^11.0.0",
     "@emotion/react": "^11.1.1",
     "@types/d3-array": "^2.8.0",

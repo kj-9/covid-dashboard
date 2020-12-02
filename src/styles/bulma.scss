@@ -3,4 +3,8 @@
 // If need, change your variables before importing Bulma
 /* $title-color: #ff0000;
  */
+
+$progress-value-background-color: hsl(0, 0%, 71%);
+
 @import "~bulma/bulma.sass";
+@import "@creativebulma/bulma-tooltip";

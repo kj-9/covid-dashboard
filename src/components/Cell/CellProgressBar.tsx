@@ -1,5 +1,5 @@
 import React from "react"
-import { CellStackBar, CellStackBarProps } from "./CellStackBar"
+import { CellStackBarProps } from "./CellStackBar"
 
 export interface CellProgressBarProps
   extends Pick<CellStackBarProps, "tooltipWidth"> {
@@ -12,26 +12,22 @@ export const CellProgressBar: React.FC<CellProgressBarProps> = ({
   value,
   range,
   label,
-  tooltipWidth,
 }: CellProgressBarProps) => {
-  const strokeColor = "lightgrey"
-  const spaceColor = "white"
-  const valueColor = "lightgrey"
-  const inputData = [
-    {
-      x: 1,
-      y: value,
-      fill: valueColor,
-      strokeColor: strokeColor,
-      label: label,
-    },
-    {
-      x: 1,
-      y: range - value,
-      strokeColor: strokeColor,
-      fill: spaceColor,
-    },
-  ]
-
-  return <CellStackBar data={inputData} tooltipWidth={tooltipWidth} />
+  return (
+    <div
+      css={{
+        margin: "auto",
+        width: 60,
+        paddingLeft: 3,
+        paddingRight: 3,
+      }}
+      data-tooltip={label}
+    >
+      <progress
+        className="progress is-small is-light-invert"
+        value={value}
+        max={range}
+      ></progress>
+    </div>
+  )
 }
