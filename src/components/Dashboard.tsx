@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { css } from "@emotion/core"
 import { CellSparkline } from "../components/Cell/CellSparkline"
-import { CellStatusBar } from "../components/Cell/CellStatusBar"
 import { Table } from "./Table"
 import { Column } from "react-table"
 import { CellProgressBar } from "./Cell/CellProgressBar"
@@ -105,6 +104,17 @@ const DashboardCSS = css`
   }
 `
 
+const getPhaseStatusModifier = (current: number, max: number) => {
+  const currentRate = current / max
+
+  if (currentRate <= 0.5) {
+  } else if (currentRate < 1) {
+    return "isWarning"
+  } else {
+    return "isDanger"
+  }
+}
+
 export const Dashboard = ({
   className,
   header,
@@ -134,11 +144,11 @@ export const Dashboard = ({
       accessor: "phase",
       id: "phaseStatusBar",
       Cell: ({ value }) => (
-        <CellStatusBar
-          current={value.current}
-          max={value.max}
+        <CellProgressBar
+          value={value.current}
+          range={value.max}
           label={value.label}
-          tooltipWidth={100}
+          modifier={getPhaseStatusModifier(value.current, value.max)}
         />
       ),
     },

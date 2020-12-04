@@ -1,10 +1,11 @@
 import React from "react"
-import { CellStackBarProps } from "./CellStackBar"
+import style from "./CellProgressBar.module.scss"
 
-export interface CellProgressBarProps
-  extends Pick<CellStackBarProps, "tooltipWidth"> {
+console.log(style)
+export interface CellProgressBarProps {
   value: number
   range: number
+  modifier?: string
   label?: string
 }
 
@@ -12,6 +13,7 @@ export const CellProgressBar: React.FC<CellProgressBarProps> = ({
   value,
   range,
   label,
+  modifier,
 }: CellProgressBarProps) => {
   return (
     <div
@@ -24,7 +26,7 @@ export const CellProgressBar: React.FC<CellProgressBarProps> = ({
       data-tooltip={label}
     >
       <progress
-        className="progress is-small is-light-invert"
+        className={[style.progress, style.isSmall, style[modifier]].join(" ")}
         value={value}
         max={range}
       ></progress>
