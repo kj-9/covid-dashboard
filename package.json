@@ -12,8 +12,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "storybook": "NODE_ENV=production start-storybook -s public",
-    "build-storybook": "NODE_ENV=production build-storybook -s public"
+    "storybook": "start-storybook -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "dependencies": {
     "@creativebulma/bulma-tooltip": "^1.2.0",
