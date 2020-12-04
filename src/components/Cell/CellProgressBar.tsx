@@ -1,7 +1,6 @@
 import React from "react"
 import style from "./CellProgressBar.module.scss"
 
-console.log(style)
 export interface CellProgressBarProps {
   value: number
   range: number
