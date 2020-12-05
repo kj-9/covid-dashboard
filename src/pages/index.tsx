@@ -90,7 +90,7 @@ const Home: React.FC<Props> = ({ data }) => {
           </ColumnBox>
         </div>
         <div className="columns">
-          <ColumnBox heading="表示中の指標">
+          <ColumnBox heading="表示中の指標" columnModifier={["is-narrow"]}>
             <div className="field">
               <div className="control">
                 <div className="select">
