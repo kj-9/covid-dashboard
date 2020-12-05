@@ -659,6 +659,7 @@ export type File = Node & {
   children: Array<Node>;
   internal: Internal;
   childrenCovidPatientsJson?: Maybe<Array<Maybe<CovidPatientsJson>>>;
+  childrenJapanPrefectureMedicalTreatmentJson?: Maybe<Array<Maybe<JapanPrefectureMedicalTreatmentJson>>>;
 };
 
 
@@ -933,7 +934,72 @@ export type FileFieldsEnum =
   | 'childrenCovidPatientsJson___row_number'
   | 'childrenCovidPatientsJson___pref_positive_rate'
   | 'childrenCovidPatientsJson___pref_patients_beds_ratio'
-  | 'childrenCovidPatientsJson___pref_heavy_patients_beds_ratio';
+  | 'childrenCovidPatientsJson___pref_heavy_patients_beds_ratio'
+  | 'childrenJapanPrefectureMedicalTreatmentJson'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___id'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___id'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___parent___id'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___parent___children'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___children'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___children___id'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___children___children'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___internal___content'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___internal___contentDigest'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___internal___description'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___internal___fieldOwners'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___internal___ignoreType'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___internal___mediaType'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___internal___owner'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___parent___internal___type'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___id'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___parent___id'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___parent___children'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___children'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___children___id'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___children___children'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___internal___content'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___internal___contentDigest'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___internal___description'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___internal___fieldOwners'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___internal___ignoreType'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___internal___mediaType'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___internal___owner'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___children___internal___type'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___internal___content'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___internal___contentDigest'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___internal___description'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___internal___fieldOwners'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___internal___ignoreType'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___internal___mediaType'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___internal___owner'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___internal___type'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___url'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___fileName'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___updateDate'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___prefectureNameJP'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___testedPositive'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___hosipitalized'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___bedCurrentPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___bedFinalPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___bedCapacity'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___bedUtilizationRate'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___plannedBedCapacity'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCaseBedCurrentPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCaseBedFinalPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCaseBedCapacity'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCaseBedUtilizationRate'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___plannedSevereCaseBedCapacity'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___accomondated'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___accomondationCurrentPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___accomondationFinalPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___accomondationRoomCapacity'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___accomondationRoomUtilizationRate'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___plannedaccomondationRoomCapacity'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___atHome'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___atWelfareFacility'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___unconfirmed';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -975,6 +1041,7 @@ export type FileFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childrenCovidPatientsJson?: Maybe<CovidPatientsJsonFilterListInput>;
+  childrenJapanPrefectureMedicalTreatmentJson?: Maybe<JapanPrefectureMedicalTreatmentJsonFilterListInput>;
 };
 
 export type FileGroupConnection = {
@@ -1035,6 +1102,239 @@ export type IntQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Int']>>>;
 };
 
+export type JapanPrefectureMedicalTreatmentJson = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  url?: Maybe<Scalars['String']>;
+  fileName?: Maybe<Scalars['String']>;
+  updateDate?: Maybe<Scalars['Date']>;
+  prefectureNameJP?: Maybe<Scalars['String']>;
+  testedPositive?: Maybe<Scalars['Int']>;
+  hosipitalized?: Maybe<Scalars['Int']>;
+  bedCurrentPhase?: Maybe<Scalars['Int']>;
+  bedFinalPhase?: Maybe<Scalars['Int']>;
+  bedCapacity?: Maybe<Scalars['Int']>;
+  bedUtilizationRate?: Maybe<Scalars['Float']>;
+  plannedBedCapacity?: Maybe<Scalars['Int']>;
+  severeCase?: Maybe<Scalars['Int']>;
+  severeCaseBedCurrentPhase?: Maybe<Scalars['Int']>;
+  severeCaseBedFinalPhase?: Maybe<Scalars['Int']>;
+  severeCaseBedCapacity?: Maybe<Scalars['Int']>;
+  severeCaseBedUtilizationRate?: Maybe<Scalars['Float']>;
+  plannedSevereCaseBedCapacity?: Maybe<Scalars['Int']>;
+  accomondated?: Maybe<Scalars['Int']>;
+  accomondationCurrentPhase?: Maybe<Scalars['Int']>;
+  accomondationFinalPhase?: Maybe<Scalars['Int']>;
+  accomondationRoomCapacity?: Maybe<Scalars['Int']>;
+  accomondationRoomUtilizationRate?: Maybe<Scalars['Float']>;
+  plannedaccomondationRoomCapacity?: Maybe<Scalars['Int']>;
+  atHome?: Maybe<Scalars['Int']>;
+  atWelfareFacility?: Maybe<Scalars['Int']>;
+  unconfirmed?: Maybe<Scalars['Int']>;
+};
+
+
+export type JapanPrefectureMedicalTreatmentJsonUpdateDateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type JapanPrefectureMedicalTreatmentJsonConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<JapanPrefectureMedicalTreatmentJsonEdge>;
+  nodes: Array<JapanPrefectureMedicalTreatmentJson>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<JapanPrefectureMedicalTreatmentJsonGroupConnection>;
+};
+
+
+export type JapanPrefectureMedicalTreatmentJsonConnectionDistinctArgs = {
+  field: JapanPrefectureMedicalTreatmentJsonFieldsEnum;
+};
+
+
+export type JapanPrefectureMedicalTreatmentJsonConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: JapanPrefectureMedicalTreatmentJsonFieldsEnum;
+};
+
+export type JapanPrefectureMedicalTreatmentJsonEdge = {
+  next?: Maybe<JapanPrefectureMedicalTreatmentJson>;
+  node: JapanPrefectureMedicalTreatmentJson;
+  previous?: Maybe<JapanPrefectureMedicalTreatmentJson>;
+};
+
+export type JapanPrefectureMedicalTreatmentJsonFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'url'
+  | 'fileName'
+  | 'updateDate'
+  | 'prefectureNameJP'
+  | 'testedPositive'
+  | 'hosipitalized'
+  | 'bedCurrentPhase'
+  | 'bedFinalPhase'
+  | 'bedCapacity'
+  | 'bedUtilizationRate'
+  | 'plannedBedCapacity'
+  | 'severeCase'
+  | 'severeCaseBedCurrentPhase'
+  | 'severeCaseBedFinalPhase'
+  | 'severeCaseBedCapacity'
+  | 'severeCaseBedUtilizationRate'
+  | 'plannedSevereCaseBedCapacity'
+  | 'accomondated'
+  | 'accomondationCurrentPhase'
+  | 'accomondationFinalPhase'
+  | 'accomondationRoomCapacity'
+  | 'accomondationRoomUtilizationRate'
+  | 'plannedaccomondationRoomCapacity'
+  | 'atHome'
+  | 'atWelfareFacility'
+  | 'unconfirmed';
+
+export type JapanPrefectureMedicalTreatmentJsonFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  fileName?: Maybe<StringQueryOperatorInput>;
+  updateDate?: Maybe<DateQueryOperatorInput>;
+  prefectureNameJP?: Maybe<StringQueryOperatorInput>;
+  testedPositive?: Maybe<IntQueryOperatorInput>;
+  hosipitalized?: Maybe<IntQueryOperatorInput>;
+  bedCurrentPhase?: Maybe<IntQueryOperatorInput>;
+  bedFinalPhase?: Maybe<IntQueryOperatorInput>;
+  bedCapacity?: Maybe<IntQueryOperatorInput>;
+  bedUtilizationRate?: Maybe<FloatQueryOperatorInput>;
+  plannedBedCapacity?: Maybe<IntQueryOperatorInput>;
+  severeCase?: Maybe<IntQueryOperatorInput>;
+  severeCaseBedCurrentPhase?: Maybe<IntQueryOperatorInput>;
+  severeCaseBedFinalPhase?: Maybe<IntQueryOperatorInput>;
+  severeCaseBedCapacity?: Maybe<IntQueryOperatorInput>;
+  severeCaseBedUtilizationRate?: Maybe<FloatQueryOperatorInput>;
+  plannedSevereCaseBedCapacity?: Maybe<IntQueryOperatorInput>;
+  accomondated?: Maybe<IntQueryOperatorInput>;
+  accomondationCurrentPhase?: Maybe<IntQueryOperatorInput>;
+  accomondationFinalPhase?: Maybe<IntQueryOperatorInput>;
+  accomondationRoomCapacity?: Maybe<IntQueryOperatorInput>;
+  accomondationRoomUtilizationRate?: Maybe<FloatQueryOperatorInput>;
+  plannedaccomondationRoomCapacity?: Maybe<IntQueryOperatorInput>;
+  atHome?: Maybe<IntQueryOperatorInput>;
+  atWelfareFacility?: Maybe<IntQueryOperatorInput>;
+  unconfirmed?: Maybe<IntQueryOperatorInput>;
+};
+
+export type JapanPrefectureMedicalTreatmentJsonFilterListInput = {
+  elemMatch?: Maybe<JapanPrefectureMedicalTreatmentJsonFilterInput>;
+};
+
+export type JapanPrefectureMedicalTreatmentJsonGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<JapanPrefectureMedicalTreatmentJsonEdge>;
+  nodes: Array<JapanPrefectureMedicalTreatmentJson>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type JapanPrefectureMedicalTreatmentJsonSortInput = {
+  fields?: Maybe<Array<Maybe<JapanPrefectureMedicalTreatmentJsonFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 
 /** Node Interface */
 export type Node = {
@@ -1074,6 +1374,8 @@ export type Query = {
   allSite: SiteConnection;
   sitePage?: Maybe<SitePage>;
   allSitePage: SitePageConnection;
+  japanPrefectureMedicalTreatmentJson?: Maybe<JapanPrefectureMedicalTreatmentJson>;
+  allJapanPrefectureMedicalTreatmentJson: JapanPrefectureMedicalTreatmentJsonConnection;
   covidPatientsJson?: Maybe<CovidPatientsJson>;
   allCovidPatientsJson: CovidPatientsJsonConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
@@ -1123,6 +1425,7 @@ export type QueryFileArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childrenCovidPatientsJson?: Maybe<CovidPatientsJsonFilterListInput>;
+  childrenJapanPrefectureMedicalTreatmentJson?: Maybe<JapanPrefectureMedicalTreatmentJsonFilterListInput>;
 };
 
 
@@ -1225,6 +1528,48 @@ export type QuerySitePageArgs = {
 export type QueryAllSitePageArgs = {
   filter?: Maybe<SitePageFilterInput>;
   sort?: Maybe<SitePageSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryJapanPrefectureMedicalTreatmentJsonArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  fileName?: Maybe<StringQueryOperatorInput>;
+  updateDate?: Maybe<DateQueryOperatorInput>;
+  prefectureNameJP?: Maybe<StringQueryOperatorInput>;
+  testedPositive?: Maybe<IntQueryOperatorInput>;
+  hosipitalized?: Maybe<IntQueryOperatorInput>;
+  bedCurrentPhase?: Maybe<IntQueryOperatorInput>;
+  bedFinalPhase?: Maybe<IntQueryOperatorInput>;
+  bedCapacity?: Maybe<IntQueryOperatorInput>;
+  bedUtilizationRate?: Maybe<FloatQueryOperatorInput>;
+  plannedBedCapacity?: Maybe<IntQueryOperatorInput>;
+  severeCase?: Maybe<IntQueryOperatorInput>;
+  severeCaseBedCurrentPhase?: Maybe<IntQueryOperatorInput>;
+  severeCaseBedFinalPhase?: Maybe<IntQueryOperatorInput>;
+  severeCaseBedCapacity?: Maybe<IntQueryOperatorInput>;
+  severeCaseBedUtilizationRate?: Maybe<FloatQueryOperatorInput>;
+  plannedSevereCaseBedCapacity?: Maybe<IntQueryOperatorInput>;
+  accomondated?: Maybe<IntQueryOperatorInput>;
+  accomondationCurrentPhase?: Maybe<IntQueryOperatorInput>;
+  accomondationFinalPhase?: Maybe<IntQueryOperatorInput>;
+  accomondationRoomCapacity?: Maybe<IntQueryOperatorInput>;
+  accomondationRoomUtilizationRate?: Maybe<FloatQueryOperatorInput>;
+  plannedaccomondationRoomCapacity?: Maybe<IntQueryOperatorInput>;
+  atHome?: Maybe<IntQueryOperatorInput>;
+  atWelfareFacility?: Maybe<IntQueryOperatorInput>;
+  unconfirmed?: Maybe<IntQueryOperatorInput>;
+};
+
+
+export type QueryAllJapanPrefectureMedicalTreatmentJsonArgs = {
+  filter?: Maybe<JapanPrefectureMedicalTreatmentJsonFilterInput>;
+  sort?: Maybe<JapanPrefectureMedicalTreatmentJsonSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2160,7 +2505,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   sourceMap?: Maybe<Scalars['Boolean']>;
-  autoLabel?: Maybe<Scalars['Boolean']>;
+  autoLabel?: Maybe<Scalars['String']>;
   labelFormat?: Maybe<Scalars['String']>;
   cssPropOptimization?: Maybe<Scalars['Boolean']>;
   indentedSyntax?: Maybe<Scalars['Boolean']>;
@@ -2191,7 +2536,7 @@ export type SitePluginPluginOptions = {
 
 export type SitePluginPluginOptionsFilterInput = {
   sourceMap?: Maybe<BooleanQueryOperatorInput>;
-  autoLabel?: Maybe<BooleanQueryOperatorInput>;
+  autoLabel?: Maybe<StringQueryOperatorInput>;
   labelFormat?: Maybe<StringQueryOperatorInput>;
   cssPropOptimization?: Maybe<BooleanQueryOperatorInput>;
   indentedSyntax?: Maybe<BooleanQueryOperatorInput>;
@@ -2260,19 +2605,3 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
-
-export type SeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type SeoQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
-      Pick<SiteSiteMetadata, 'titleTemplate' | 'siteUrl'>
-      & { defaultTitle: SiteSiteMetadata['title'], defaultDescription: SiteSiteMetadata['description'], defaultImage: SiteSiteMetadata['image'] }
-    )> }> };
-
-export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type HomePageQuery = { allCovidPatientsJson: { nodes: Array<(
-      Pick<CovidPatientsJson, 'update_date' | 'pref_name_jp' | 'pref_heavy_patients_beds_ratio' | 'pref_patients_beds_ratio'>
-      & { last_1w?: Maybe<Array<Maybe<Pick<CovidPatientsJsonLast_1w, 'pref_heavy_patients_beds_ratio' | 'pref_patients_beds_ratio' | 'update_date'>>>> }
-    )> } };
