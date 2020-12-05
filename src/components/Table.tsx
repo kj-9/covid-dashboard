@@ -1,15 +1,10 @@
 import React from "react"
 import { useTable, TableOptions } from "react-table"
 
-interface TableProps<T extends object = {}> extends TableOptions<T> {
-  className: string
-}
-
 export const Table = <T extends object>({
   columns,
   data,
-  className,
-}: TableProps<T>): React.ReactElement => {
+}: TableOptions<T>): React.ReactElement => {
   const {
     getTableProps,
     getTableBodyProps,
@@ -19,7 +14,7 @@ export const Table = <T extends object>({
   } = useTable<T>({ columns, data })
 
   return (
-    <table {...getTableProps()} className={className}>
+    <table {...getTableProps()}>
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>

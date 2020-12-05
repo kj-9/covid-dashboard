@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react"
-import { css } from "@emotion/core"
 import { CellSparkline } from "../components/Cell/CellSparkline"
 import { Table } from "./Table"
 import { Column } from "react-table"
 import { CellProgressBar } from "./Cell/CellProgressBar"
-
+import style from "./Dashboard.module.scss"
 export interface DashboardData {
   entity: string
   phase: {
@@ -33,77 +32,6 @@ export interface DashboardProps {
   data: DashboardData[]
 }
 
-const DashboardCSS = css`
-  table {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    white-space: nowrap;
-
-    td {
-      vertical-align: middle;
-      padding: 0.3rem;
-      color: grey;
-      border-bottom-width: 0;
-    }
-
-    th {
-      font-weight: 500;
-    }
-
-    tr {
-      td {
-        text-align: right;
-      }
-
-      /* vertical border */
-      th:first-of-type,
-      td:first-of-type {
-        border-left-width: 2px;
-      }
-
-      th:nth-of-type(3),
-      td:nth-of-type(2),
-      td:nth-of-type(3) {
-        border-left-width: 1px;
-      }
-
-      th:last-of-type,
-      td:last-of-type {
-        border-right-width: 2px;
-      }
-
-      /* last horizontal border */
-      :nth-of-type(3n) {
-        td {
-          border-bottom-width: 1px;
-        }
-      }
-
-      :last-of-type {
-        td {
-          border-bottom-width: 2px;
-        }
-      }
-    }
-
-    thead {
-      tr {
-        /* header specific border */
-        :first-of-type th {
-          border-top-width: 2px;
-          border-bottom-width: 0;
-        }
-        /* style in nested header */
-        :last-of-type th {
-          text-align: center;
-          padding-top: 0.1rem;
-        }
-      }
-    }
-  }
-`
-
 const getPhaseStatusModifier = (current: number, max: number) => {
   const currentRate = current / max
 
@@ -116,7 +44,6 @@ const getPhaseStatusModifier = (current: number, max: number) => {
 }
 
 export const Dashboard = ({
-  className,
   header,
   data,
 }: DashboardProps): React.ReactElement => {
@@ -208,12 +135,8 @@ export const Dashboard = ({
   }
 
   return (
-    <div css={DashboardCSS}>
-      <Table<DashboardData>
-        className={className}
-        columns={memoColumns}
-        data={memoData}
-      />
+    <div className={style.Dashboard}>
+      <Table<DashboardData> columns={memoColumns} data={memoData} />
     </div>
   )
 }

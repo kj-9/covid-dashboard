@@ -155,9 +155,7 @@ const Home: React.FC<Props> = ({ data }) => {
               <span className="tag is-info is-light is-medium">
                 {`${formatYMD(latestDate)} 時点`}
               </span>
-              <div className="table-container">
                 <Dashboard
-                  className="table"
                   header={{
                     entity: "都道府県",
                     indicator: selectedColumnProperty.column_jp,
@@ -165,7 +163,6 @@ const Home: React.FC<Props> = ({ data }) => {
                   }}
                   data={dashboardData}
                 />
-              </div>
             </div>
           </div>
         </div>
