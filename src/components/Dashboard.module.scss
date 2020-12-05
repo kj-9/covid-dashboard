@@ -4,7 +4,6 @@ $back-ground-color: white;
 
 .Dashboard {
   overflow-x: auto;
-  width: 100%;
   height: 85vh;
   table {
     margin-top: 1rem;
@@ -76,7 +75,7 @@ $back-ground-color: white;
     thead {
       tr {
         th {
-          padding: 0.5em 0.75em;
+          padding: 0.5em 0.4em;
           border: $table-cell-border;
           font-weight: 500;
 

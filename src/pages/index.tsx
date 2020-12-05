@@ -118,18 +118,19 @@ const Home: React.FC<Props> = ({ data }) => {
             ))}
         </ColumnBox>
       </div>
-      <div className="columns">
-        <ColumnBox heading={`${formatYMD(latestDate)} 時点`} boxModifier={[]}>
-          <Dashboard
-            header={{
-              entity: "都道府県",
-              indicator: selectedColumnProperty.column_jp,
-              trend: "過去8週間",
-            }}
-            data={dashboardData}
-          />
-        </ColumnBox>
+      <div className="heading">
+        <span className="tag is-info is-light is-medium">{`${formatYMD(
+          latestDate
+        )} 時点`}</span>
       </div>
+      <Dashboard
+        header={{
+          entity: "都道府県",
+          indicator: selectedColumnProperty.column_jp,
+          trend: "過去8週間",
+        }}
+        data={dashboardData}
+      />
     </Layout>
   )
 }
