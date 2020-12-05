@@ -69,68 +69,66 @@ const Home: React.FC<Props> = ({ data }) => {
         title: "新型コロナ感染症ダッシュボード",
       }}
     >
-      <div className="container ml-4 mt-4">
-        <div className="columns">
-          <ColumnBox heading="このダッシュボードについて">
-            <p>
-              日本国内の新型コロナ感染症・療養状況についてのダッシュボードです。
-              都道府県ごとに可視化しています。
-            </p>
-            <p>
-              データソースは厚生労働所発表の
-              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/newpage_00023.html">
-                療養状況等及び入院患者受入病床数等に関する調査
-              </a>
-              。
-              <a href="https://github.com/kj002/covid19-open-data/tree/master/data/covid19">
-                こちら
-              </a>
-              からcsv/json形式で利用可能です。
-            </p>
-          </ColumnBox>
-        </div>
-        <div className="columns">
-          <ColumnBox heading="表示中の指標" columnModifier={["is-narrow"]}>
-            <div className="field">
-              <div className="control">
-                <div className="select">
-                  <select
-                    value={selectedColumn}
-                    onChange={event => setSelectedColumn(event.target.value)}
-                  >
-                    {COLUMN_PROPERTIES.map((element, index) => (
-                      <option key={index} value={element.column}>
-                        {element.column_jp}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+      <div className="columns">
+        <ColumnBox heading="このダッシュボードについて">
+          <p>
+            日本国内の新型コロナ感染症・療養状況についてのダッシュボードです。
+            都道府県ごとに可視化しています。
+          </p>
+          <p>
+            データソースは厚生労働所発表の
+            <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/newpage_00023.html">
+              療養状況等及び入院患者受入病床数等に関する調査
+            </a>
+            。
+            <a href="https://github.com/kj002/covid19-open-data/tree/master/data/covid19">
+              こちら
+            </a>
+            からcsv/json形式で利用可能です。
+          </p>
+        </ColumnBox>
+      </div>
+      <div className="columns">
+        <ColumnBox heading="表示中の指標" columnModifier={["is-narrow"]}>
+          <div className="field">
+            <div className="control">
+              <div className="select">
+                <select
+                  value={selectedColumn}
+                  onChange={event => setSelectedColumn(event.target.value)}
+                >
+                  {COLUMN_PROPERTIES.map((element, index) => (
+                    <option key={index} value={element.column}>
+                      {element.column_jp}
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
-          </ColumnBox>
-          <ColumnBox heading="指標について">
-            {selectedColumnProperty?.column_description
-              .split("\n")
-              .map((line, key) => (
-                <span key={key}>
-                  {line}
-                  <br />
-                </span>
-              ))}
-          </ColumnBox>
-        </div>
-        <div className="columns">
-          <ColumnBox heading={`${formatYMD(latestDate)} 時点`} boxModifier={[]}>
-            <Dashboard
-              header={{
-                entity: "都道府県",
-                indicator: selectedColumnProperty.column_jp,
-                trend: "過去8週間",
-              }}
-              data={dashboardData}
-            />
-          </ColumnBox>
-        </div>
+          </div>
+        </ColumnBox>
+        <ColumnBox heading="指標について">
+          {selectedColumnProperty?.column_description
+            .split("\n")
+            .map((line, key) => (
+              <span key={key}>
+                {line}
+                <br />
+              </span>
+            ))}
+        </ColumnBox>
+      </div>
+      <div className="columns">
+        <ColumnBox heading={`${formatYMD(latestDate)} 時点`} boxModifier={[]}>
+          <Dashboard
+            header={{
+              entity: "都道府県",
+              indicator: selectedColumnProperty.column_jp,
+              trend: "過去8週間",
+            }}
+            data={dashboardData}
+          />
+        </ColumnBox>
       </div>
     </Layout>
   )
