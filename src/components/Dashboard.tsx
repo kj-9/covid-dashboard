@@ -87,11 +87,7 @@ export const Dashboard = ({
           accessor: "indicator",
           Header: "現在",
           Cell: ({ value }) => (
-            <CellProgressBar
-              value={value.value}
-              range={1}
-              label={value.label}
-            />
+            <CellProgressBar value={value.value} range={1} />
           ),
         },
         {
