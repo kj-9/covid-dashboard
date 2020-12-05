@@ -30,7 +30,7 @@ export const CellSparkline: React.FC<CellSparklineProps> = ({
   scale,
   data,
   tooltipWidth,
-}: CellSparklineProps) => {
+}) => {
   // To show tooltip outside SVG
 
   const lastData = [

@@ -13,7 +13,7 @@ export const CellProgressBar: React.FC<CellProgressBarProps> = ({
   range,
   label,
   modifier,
-}: CellProgressBarProps) => {
+}) => {
   return (
     <div
       css={{
