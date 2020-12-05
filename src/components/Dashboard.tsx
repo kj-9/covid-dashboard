@@ -23,7 +23,6 @@ export interface DashboardData {
 }
 
 export interface DashboardProps {
-  className: string
   header: {
     entity: string
     indicator: string

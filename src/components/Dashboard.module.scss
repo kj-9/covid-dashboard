@@ -1,28 +1,26 @@
 $table-cell-border: 0 solid hsl(0, 0%, 86%);
 
 .Dashboard {
-  overflow-x: scroll;
   table {
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 0.9rem;
     white-space: nowrap;
 
-    td {
-      border: $table-cell-border;
-      vertical-align: middle;
-      padding: 0.3rem;
-      color: grey;
-      text-align: right;
-    }
-
-    th {
-      padding: 0.5em 0.75em;
-      border: $table-cell-border;
-      font-weight: 500;
-    }
-
     tr {
+      td {
+        border: $table-cell-border;
+        vertical-align: middle;
+        padding: 0.3rem;
+        color: grey;
+        text-align: right;
+      }
+      th {
+        padding: 0.5em 0.75em;
+        border: $table-cell-border;
+        font-weight: 500;
+      }
+
       /* vertical border */
       th:first-of-type,
       td:first-of-type {
