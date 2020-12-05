@@ -1,5 +1,7 @@
 $table-cell-border: 0 solid hsl(0, 0%, 86%);
+
 .Dashboard {
+  overflow-x: scroll;
   table {
     margin-top: 1rem;
     margin-bottom: 1rem;
