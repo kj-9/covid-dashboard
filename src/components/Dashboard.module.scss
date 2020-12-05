@@ -1,12 +1,16 @@
-$table-cell-border: 0 solid hsl(0, 0%, 86%);
+$border-color: hsl(0, 0%, 86%);
+$table-cell-border: 0 solid $border-color;
+$back-ground-color: white;
 
 .Dashboard {
+  overflow-x: auto;
+  width: 100%;
+  height: 85vh;
   table {
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 0.9rem;
     white-space: nowrap;
-
     tr {
       td {
         border: $table-cell-border;
@@ -14,11 +18,6 @@ $table-cell-border: 0 solid hsl(0, 0%, 86%);
         padding: 0.3rem;
         color: grey;
         text-align: right;
-      }
-      th {
-        padding: 0.5em 0.75em;
-        border: $table-cell-border;
-        font-weight: 500;
       }
 
       /* vertical border */
@@ -54,15 +53,48 @@ $table-cell-border: 0 solid hsl(0, 0%, 86%);
 
     thead {
       tr {
-        /* header specific border */
-        &:first-of-type th {
-          border-top-width: 2px;
+        th {
+          padding: 0.5em 0.75em;
+          border: $table-cell-border;
+          font-weight: 500;
+
+          /* sticky header */
+          position: -webkit-sticky;
+          position: sticky;
+          /* hide cell element when scrolled */
+          background-color: $back-ground-color;
+          z-index: 99;
         }
-        /* style in nested header */
+
+        &:first-of-type th {
+          top: 0;
+
+          /* border for scrolling */
+          &::after {
+            content: " ";
+            width: 100%;
+            height: 3px;
+            position: absolute;
+            bottom: 2.1rem; /* adjusted for scrolling */
+            left: 0;
+            background-color: $border-color;
+          }
+        }
         &:last-of-type th {
           text-align: center;
           padding-top: 0.1rem;
-          border-bottom-width: 2px;
+          top: 2.2rem; /* adjusted for scrolling */
+
+          /* border for scrolling */
+          &::after {
+            content: " ";
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: $border-color;
+          }
         }
       }
     }
