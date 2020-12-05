@@ -13,7 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ headerProps, children }) => {
       <SEO />
       <Header {...headerProps} />
       <hr className="m-0" />
-      <div className="container ml-4 mt-4">{children}</div>
+      <div className="container ml-1 mt-4">{children}</div>
       <Footer />
     </>
   )
