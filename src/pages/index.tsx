@@ -66,13 +66,13 @@ const Home: React.FC<Props> = ({ data }) => {
   return (
     <Layout
       headerProps={{
-        title: "新型コロナ感染症ダッシュボード",
+        title: "新型コロナ感染症 病床使用状況",
       }}
     >
       <div className="columns">
-        <ColumnBox heading="このダッシュボードについて">
+        <ColumnBox heading="このページについて">
           <p>
-            日本国内の新型コロナ感染症・療養状況についてのダッシュボードです。
+            日本国内の新型コロナ感染症の病床使用状況をまとめたダッシュボードです。
             都道府県ごとに可視化しています。
           </p>
           <p>

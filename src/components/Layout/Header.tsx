@@ -12,8 +12,8 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <div className="mt-2">
-          <span className="title has-text-white-ter has-text-weight-normal is-3 ml-2">
+        <div className="mt-3">
+          <span className="title has-text-white-ter has-text-weight-normal is-4 ml-2">
             {title}
           </span>
         </div>

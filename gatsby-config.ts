@@ -1,12 +1,12 @@
 export default {
   siteMetadata: {
-    title: "コロナ感染状況ダッシュボード",
+    title: "新型コロナ感染症 病床使用状況",
     titleTemplate: "%s",
     description:
-      "日本国内の都道府県別コロナ感染状況をまとめたダッシュボードです",
+      "日本国内の新型コロナ感染症の病床使用状況を都道府県別にまとめたダッシュボードです",
     siteUrl: "https://covid-19-japan.netlify.app",
     image: "", // Path to your image you placed in the 'static' folder
-    twitterUsername: "",
+    twitterUsername: "kj002",
   },
   plugins: [
     `gatsby-plugin-emotion`,
