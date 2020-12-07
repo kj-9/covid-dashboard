@@ -16,7 +16,7 @@ export type ColumnProperty = {
   }[]
 }
 
-export const COLUMN_PROPERTIES: ColumnProperty[] = [
+export const COLUMN_PROPS: ColumnProperty[] = [
   {
     column: "hospitalized",
     columnJP: "入院患者",

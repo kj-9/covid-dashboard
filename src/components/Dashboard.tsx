@@ -4,6 +4,11 @@ import { Table } from "./Table"
 import { Column } from "react-table"
 import { CellProgressBar } from "./Cell/CellProgressBar"
 import style from "./Dashboard.module.scss"
+
+import { timeFormat } from "d3-time-format"
+
+const formatMD = timeFormat("%-m月%-d日")
+
 export interface DashboardData {
   entity: string
   phase: {
@@ -29,6 +34,7 @@ export interface DashboardProps {
     indicators: {
       headerLabel: string
       indicatorLabel: string
+      formatter: (value: any) => string
     }[]
     trendLabel: string
   }
@@ -77,7 +83,7 @@ export const Dashboard = ({
         <CellProgressBar
           value={value.current}
           range={value.max}
-          label={value.label}
+          label={`現在のレベル:${value.current}\n最大レベル:${value.max}`}
           modifier={getPhaseStatusModifier(value.current, value.max)}
         />
       ),
@@ -89,14 +95,12 @@ export const Dashboard = ({
           id: `indicator_bar_${index}`,
           accessor: `indicators[${index}].indicator`,
           Header: "現在",
-          Cell: ({ value }) => (
-            <CellProgressBar value={value.value} range={1} />
-          ),
+          Cell: ({ value }) => <CellProgressBar value={value} range={1} />,
         },
         {
           id: `indicator_label_${index}`,
           accessor: `indicators[${index}].indicator`,
-          Cell: ({ value }) => value.label,
+          Cell: ({ value }) => indicator.formatter(value),
         },
         {
           id: `trend_sparkline_${index}`,
@@ -107,7 +111,9 @@ export const Dashboard = ({
               data={value.map(element => ({
                 x: element.date,
                 y: element.value,
-                label: element.label,
+                label: `${formatMD(
+                  new Date(element.date)
+                )}時点\n${indicator.formatter(element.value)}`,
               }))}
               scale={{ x: "time" }}
             />

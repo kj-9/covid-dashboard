@@ -5,18 +5,13 @@ import { HomePageQuery } from "../../types/graphql-types"
 import Layout from "../components/Layout"
 import { ColumnBox } from "../components/ColumnBox"
 import { Dashboard, DashboardData } from "../components/Dashboard"
-import {
-  COLUMN_SELECTION,
-  COLUMN_PROPERTIES,
-  ColumnProperty,
-} from "../constants"
+import { COLUMN_SELECTION, COLUMN_PROPS, ColumnProperty } from "../constants"
 import "../styles/bulma.scss"
 
 import * as d3Array from "d3-array"
 import { timeFormat } from "d3-time-format"
 
 const formatYMD = timeFormat("%Y年%-m月%-d日")
-const formatMD = timeFormat("%-m月%-d日")
 
 type Props = {
   data: HomePageQuery
@@ -32,7 +27,7 @@ const Home: React.FC<Props> = ({ data }) => {
     []
   )
 
-  let selectedColumnProperty = COLUMN_PROPERTIES.find(
+  let selectedColumnProps = COLUMN_PROPS.find(
     element => element.column === selectedColumn
   )
 
@@ -43,17 +38,11 @@ const Home: React.FC<Props> = ({ data }) => {
       return {
         entity: currentRecord.prefectureNameJP,
         phase: {
-          current: currentRecord[selectedColumnProperty.currentPhase],
-          max: currentRecord[selectedColumnProperty.finalPhase],
-          label: `現在のレベル:${
-            currentRecord[selectedColumnProperty.currentPhase]
-          }\n最大レベル:${currentRecord[selectedColumnProperty.finalPhase]}`,
+          current: currentRecord[selectedColumnProps.currentPhase],
+          max: currentRecord[selectedColumnProps.finalPhase],
         },
-        indicators: selectedColumnProperty.indicators.map(prop => ({
-          indicator: {
-            value: currentRecord[prop.indicator],
-            label: `${Math.floor(100 * currentRecord[prop.indicator])}%`,
-          },
+        indicators: selectedColumnProps.indicators.map(prop => ({
+          indicator: currentRecord[prop.indicator],
           trend: data.trend.nodes
             .filter(
               node => node.prefectureNameJP === currentRecord.prefectureNameJP
@@ -61,9 +50,6 @@ const Home: React.FC<Props> = ({ data }) => {
             .map(trendRecord => ({
               date: new Date(trendRecord.updateDate),
               value: trendRecord[prop.indicator],
-              label: `${formatMD(
-                new Date(trendRecord.updateDate)
-              )}時点\n${Math.floor(100 * trendRecord[prop.indicator])}%`,
             })),
         })),
       }
@@ -103,7 +89,7 @@ const Home: React.FC<Props> = ({ data }) => {
                   value={selectedColumn}
                   onChange={event => setSelectedColumn(event.target.value)}
                 >
-                  {COLUMN_PROPERTIES.map((element, index) => (
+                  {COLUMN_PROPS.map((element, index) => (
                     <option key={index} value={element.column}>
                       {element.columnJP}
                     </option>
@@ -114,7 +100,7 @@ const Home: React.FC<Props> = ({ data }) => {
           </div>
         </ColumnBox>
         <ColumnBox heading="指標について">
-          {selectedColumnProperty?.columnDescription
+          {selectedColumnProps?.columnDescription
             .split("\n")
             .map((line, key) => (
               <span key={key}>
@@ -135,14 +121,17 @@ const Home: React.FC<Props> = ({ data }) => {
             {
               headerLabel: "a",
               indicatorLabel: "b",
+              formatter: value => `${Math.floor(100 * value)}%`,
             },
             {
               headerLabel: "c",
               indicatorLabel: "d",
+              formatter: value => `${value.toLocaleString()}人`,
             },
             {
               headerLabel: "e",
               indicatorLabel: "f",
+              formatter: value => `${value.toLocaleString()}床`,
             },
           ],
           trendLabel: "過去8週間",
