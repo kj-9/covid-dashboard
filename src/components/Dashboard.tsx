@@ -11,22 +11,26 @@ export interface DashboardData {
     max: number
     label: string
   }
-  indicator: {
-    value: number
-    label: string
-  }
-  trend: {
-    date: Date
-    value: number
-    label: string
+  indicators: {
+    indicator: {
+      value: number
+      label: string
+    }
+    trend: {
+      date: Date
+      value: number
+      label: string
+    }[]
   }[]
 }
 
 export interface DashboardProps {
-  header: {
-    entity: string
-    indicator: string
-    trend: string
+  schema: {
+    indicators: {
+      headerLabel: string
+      indicatorLabel: string
+    }[]
+    trendLabel: string
   }
   data: DashboardData[]
 }
@@ -43,7 +47,7 @@ const getPhaseStatusModifier = (current: number, max: number) => {
 }
 
 export const Dashboard = ({
-  header,
+  schema,
   data,
 }: DashboardProps): React.ReactElement => {
   const [isRendering, setIsRendering] = useState(true)
@@ -78,27 +82,26 @@ export const Dashboard = ({
         />
       ),
     },
-
-    {
-      Header: header.indicator,
+    ...schema.indicators.map((indicator, index) => ({
+      Header: indicator.headerLabel,
       columns: [
         {
-          id: "indicator_bar",
-          accessor: "indicator",
+          id: `indicator_bar_${index}`,
+          accessor: `indicators[${index}].indicator`,
           Header: "現在",
           Cell: ({ value }) => (
             <CellProgressBar value={value.value} range={1} />
           ),
         },
         {
-          id: "indicator_label",
-          accessor: "indicator",
+          id: `indicator_label_${index}`,
+          accessor: `indicators[${index}].indicator`,
           Cell: ({ value }) => value.label,
         },
         {
-          id: "trend_sparkline",
-          Header: header.trend,
-          accessor: "trend",
+          id: `trend_sparkline_${index}`,
+          Header: schema.trendLabel,
+          accessor: `indicators[${index}].trend`,
           Cell: ({ value }) => (
             <CellSparkline
               data={value.map(element => ({
@@ -111,7 +114,7 @@ export const Dashboard = ({
           ),
         },
       ],
-    },
+    })),
   ]
 
   const memoColumns = React.useMemo(() => columns, [

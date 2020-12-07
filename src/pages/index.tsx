@@ -5,7 +5,11 @@ import { HomePageQuery } from "../../types/graphql-types"
 import Layout from "../components/Layout"
 import { ColumnBox } from "../components/ColumnBox"
 import { Dashboard, DashboardData } from "../components/Dashboard"
-import { COLUMN_SELECTION, COLUMN_PROPERTIES } from "../constants"
+import {
+  COLUMN_SELECTION,
+  COLUMN_PROPERTIES,
+  ColumnProperty,
+} from "../constants"
 import "../styles/bulma.scss"
 
 import * as d3Array from "d3-array"
@@ -19,9 +23,9 @@ type Props = {
 }
 
 const Home: React.FC<Props> = ({ data }) => {
-  const [selectedColumn, setSelectedColumn] = useState(
-    COLUMN_SELECTION.bedUtilizationRate
-  )
+  const [selectedColumn, setSelectedColumn] = useState<
+    ColumnProperty["column"]
+  >(COLUMN_SELECTION.hospitalized)
 
   const latestDate = useMemo(
     () => new Date(data.current.nodes[0].updateDate),
@@ -45,21 +49,23 @@ const Home: React.FC<Props> = ({ data }) => {
             currentRecord[selectedColumnProperty.currentPhase]
           }\n最大レベル:${currentRecord[selectedColumnProperty.finalPhase]}`,
         },
-        indicator: {
-          value: currentRecord[selectedColumn],
-          label: `${Math.floor(100 * currentRecord[selectedColumn])}%`,
-        },
-        trend: data.trend.nodes
-          .filter(
-            node => node.prefectureNameJP === currentRecord.prefectureNameJP
-          )
-          .map(trendRecord => ({
-            date: new Date(trendRecord.updateDate),
-            value: trendRecord[selectedColumn],
-            label: `${formatMD(
-              new Date(trendRecord.updateDate)
-            )}時点\n${Math.floor(100 * trendRecord[selectedColumn])}%`,
-          })),
+        indicators: selectedColumnProperty.indicators.map(prop => ({
+          indicator: {
+            value: currentRecord[prop.indicator],
+            label: `${Math.floor(100 * currentRecord[prop.indicator])}%`,
+          },
+          trend: data.trend.nodes
+            .filter(
+              node => node.prefectureNameJP === currentRecord.prefectureNameJP
+            )
+            .map(trendRecord => ({
+              date: new Date(trendRecord.updateDate),
+              value: trendRecord[prop.indicator],
+              label: `${formatMD(
+                new Date(trendRecord.updateDate)
+              )}時点\n${Math.floor(100 * trendRecord[prop.indicator])}%`,
+            })),
+        })),
       }
     })
 
@@ -99,7 +105,7 @@ const Home: React.FC<Props> = ({ data }) => {
                 >
                   {COLUMN_PROPERTIES.map((element, index) => (
                     <option key={index} value={element.column}>
-                      {element.column_jp}
+                      {element.columnJP}
                     </option>
                   ))}
                 </select>
@@ -108,7 +114,7 @@ const Home: React.FC<Props> = ({ data }) => {
           </div>
         </ColumnBox>
         <ColumnBox heading="指標について">
-          {selectedColumnProperty?.column_description
+          {selectedColumnProperty?.columnDescription
             .split("\n")
             .map((line, key) => (
               <span key={key}>
@@ -124,10 +130,22 @@ const Home: React.FC<Props> = ({ data }) => {
         )} 時点`}</span>
       </div>
       <Dashboard
-        header={{
-          entity: "都道府県",
-          indicator: selectedColumnProperty.column_jp,
-          trend: "過去8週間",
+        schema={{
+          indicators: [
+            {
+              headerLabel: "a",
+              indicatorLabel: "b",
+            },
+            {
+              headerLabel: "c",
+              indicatorLabel: "d",
+            },
+            {
+              headerLabel: "e",
+              indicatorLabel: "f",
+            },
+          ],
+          trendLabel: "過去8週間",
         }}
         data={dashboardData}
       />
@@ -144,12 +162,18 @@ export const pageQuery = graphql`
     bedCurrentPhase
     bedFinalPhase
     bedUtilizationRate
+    hosipitalized
+    bedCapacity
     severeCaseBedCurrentPhase
     severeCaseBedFinalPhase
     severeCaseBedUtilizationRate
+    severeCase
+    severeCaseBedCapacity
     accomondationCurrentPhase
     accomondationFinalPhase
     accomondationRoomUtilizationRate
+    accomondationRoomCapacity
+    accomondated
   }
 
   query HomePage {
