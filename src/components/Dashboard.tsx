@@ -33,7 +33,6 @@ export interface DashboardProps {
   schema: {
     indicators: {
       headerLabel: string
-      indicatorLabel: string
       formatter: (value: any) => string
       range: number
       barStyle?: string[]

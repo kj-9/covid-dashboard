@@ -117,29 +117,7 @@ const Home: React.FC<Props> = ({ data }) => {
       </div>
       <Dashboard
         schema={{
-          indicators: [
-            {
-              headerLabel: "a",
-              indicatorLabel: "b",
-              formatter: value => `${Math.floor(100 * value)}%`,
-              range: 1,
-              barStyle: [],
-            },
-            {
-              headerLabel: "c",
-              indicatorLabel: "d",
-              formatter: value => `${value.toLocaleString()}人`,
-              range: 2000,
-              barStyle: ["isBar"],
-            },
-            {
-              headerLabel: "e",
-              indicatorLabel: "f",
-              formatter: value => `${value.toLocaleString()}床`,
-              range: 2000,
-              barStyle: ["isBar"],
-            },
-          ],
+          indicators: selectedColumnProps?.indicators,
           trendLabel: "過去8週間",
         }}
         data={dashboardData}
