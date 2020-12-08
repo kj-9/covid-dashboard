@@ -5,8 +5,8 @@ export default {
     description:
       "日本国内の新型コロナ感染症の病床使用状況を都道府県別にまとめたダッシュボードです",
     siteUrl: "https://covid-19-japan.netlify.app",
-    image: "", // Path to your image you placed in the 'static' folder
-    twitterUsername: "kj002",
+    image: "/site.png", // Path to your image you placed in the 'static' folder
+    twitterUsername: "@kj002",
   },
   plugins: [
     `gatsby-plugin-emotion`,

@@ -64,8 +64,6 @@ const Home: React.FC<Props> = ({ data }) => {
     trendLabel: "過去8週間",
   }
 
-  console.log(schema)
-
   return (
     <Layout
       headerProps={{

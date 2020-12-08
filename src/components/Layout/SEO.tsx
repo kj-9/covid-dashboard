@@ -12,6 +12,7 @@ const query = graphql`
         defaultDescription: description
         siteUrl
         defaultImage: image
+        twitterUsername
       }
     }
   }
@@ -63,6 +64,9 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:card" content="summary_large_image" />
       {twitterUsername && (
         <meta name="twitter:creator" content={twitterUsername} />
+      )}
+      {twitterUsername && (
+        <meta name="twitter:site" content={twitterUsername} />
       )}
       {seo.title && <meta name="twitter:title" content={seo.title} />}
       {seo.description && (
