@@ -2614,7 +2614,7 @@ export type SeoQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
       & { defaultTitle: SiteSiteMetadata['title'], defaultDescription: SiteSiteMetadata['description'], defaultImage: SiteSiteMetadata['image'] }
     )> }> };
 
-export type FragmentNameFragment = Pick<JapanPrefectureMedicalTreatmentJson, 'prefectureNameJP' | 'updateDate' | 'bedCurrentPhase' | 'bedFinalPhase' | 'bedUtilizationRate' | 'severeCaseBedCurrentPhase' | 'severeCaseBedFinalPhase' | 'severeCaseBedUtilizationRate' | 'accomondationCurrentPhase' | 'accomondationFinalPhase' | 'accomondationRoomUtilizationRate'>;
+export type FragmentNameFragment = Pick<JapanPrefectureMedicalTreatmentJson, 'prefectureNameJP' | 'updateDate' | 'bedCurrentPhase' | 'bedFinalPhase' | 'bedUtilizationRate' | 'hosipitalized' | 'bedCapacity' | 'severeCaseBedCurrentPhase' | 'severeCaseBedFinalPhase' | 'severeCaseBedUtilizationRate' | 'severeCase' | 'severeCaseBedCapacity' | 'accomondationCurrentPhase' | 'accomondationFinalPhase' | 'accomondationRoomUtilizationRate' | 'accomondationRoomCapacity' | 'accomondated'>;
 
 export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
 
