@@ -22,10 +22,7 @@ const Home: React.FC<Props> = ({ data }) => {
     ColumnProperty["column"]
   >(COLUMN_SELECTION.hospitalized)
 
-  const latestDate = useMemo(
-    () => new Date(data.current.nodes[0].updateDate),
-    []
-  )
+  const latestDate = new Date(data.current.nodes[0].updateDate)
 
   let selectedColumnProps = COLUMN_PROPS.find(
     element => element.column === selectedColumn
@@ -54,6 +51,20 @@ const Home: React.FC<Props> = ({ data }) => {
         })),
       }
     })
+
+  const maxRange = selectedColumnProps?.indicators.map(indicator =>
+    d3Array.max(data.current.nodes.map(e => e[indicator.indicator]))
+  )
+
+  const schema = {
+    indicators: selectedColumnProps?.indicators.map((indicator, index) => ({
+      ...indicator,
+      range: index === 0 ? 1 : maxRange[index],
+    })),
+    trendLabel: "過去8週間",
+  }
+
+  console.log(schema)
 
   return (
     <Layout
@@ -126,13 +137,7 @@ const Home: React.FC<Props> = ({ data }) => {
           </div>
         </div>
       </nav>
-      <Dashboard
-        schema={{
-          indicators: selectedColumnProps?.indicators,
-          trendLabel: "過去8週間",
-        }}
-        data={dashboardData}
-      />
+      <Dashboard schema={schema} data={dashboardData} />
     </Layout>
   )
 }
