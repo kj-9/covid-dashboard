@@ -81,24 +81,6 @@ const Home: React.FC<Props> = ({ data }) => {
         </ColumnBox>
       </div>
       <div className="columns">
-        <ColumnBox heading="表示中の指標" columnModifier={["is-narrow"]}>
-          <div className="field">
-            <div className="control">
-              <div className="select">
-                <select
-                  value={selectedColumn}
-                  onChange={event => setSelectedColumn(event.target.value)}
-                >
-                  {COLUMN_PROPS.map((element, index) => (
-                    <option key={index} value={element.column}>
-                      {element.columnJP}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </div>
-        </ColumnBox>
         <ColumnBox heading="指標について">
           {selectedColumnProps?.columnDescription
             .split("\n")
@@ -110,11 +92,40 @@ const Home: React.FC<Props> = ({ data }) => {
             ))}
         </ColumnBox>
       </div>
-      <div className="heading">
-        <span className="tag is-info is-light is-medium">{`${formatYMD(
-          latestDate
-        )} 時点`}</span>
-      </div>
+      <nav className="level mb-0 pb-0">
+        <div className="level-left">
+          <div className="level-item">
+            <div className="heading">
+              <span className="tag is-info is-light is-medium">{`${formatYMD(
+                latestDate
+              )} 時点`}</span>
+            </div>
+          </div>
+          <div className="level-item">
+            <div className="heading">
+              <div className="tag is-info is-light is-medium ml-1 mr-1">
+                表示中:
+              </div>
+            </div>
+            <div className="field">
+              <div className="control">
+                <div className="select">
+                  <select
+                    value={selectedColumn}
+                    onChange={event => setSelectedColumn(event.target.value)}
+                  >
+                    {COLUMN_PROPS.map((element, index) => (
+                      <option key={index} value={element.column}>
+                        {element.columnJP}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
       <Dashboard
         schema={{
           indicators: selectedColumnProps?.indicators,
