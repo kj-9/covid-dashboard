@@ -3,3 +3,10 @@ $progress-value-background-color: hsl(0, 0%, 71%);
 @import "bulma/sass/utilities/_all.sass";
 @import "bulma/sass/elements/progress.sass";
 @import "@creativebulma/bulma-tooltip";
+
+.is-bar {
+  border-radius: 0;
+  &::-webkit-progress-bar {
+    background-color: transparent;
+  }
+}

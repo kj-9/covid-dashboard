@@ -35,6 +35,8 @@ export interface DashboardProps {
       headerLabel: string
       indicatorLabel: string
       formatter: (value: any) => string
+      range: number
+      barStyle?: string[]
     }[]
     trendLabel: string
   }
@@ -95,7 +97,13 @@ export const Dashboard = ({
           id: `indicator_bar_${index}`,
           accessor: `indicators[${index}].indicator`,
           Header: "現在",
-          Cell: ({ value }) => <CellProgressBar value={value} range={1} />,
+          Cell: ({ value }) => (
+            <CellProgressBar
+              value={value}
+              range={indicator.range}
+              modifier={indicator.barStyle}
+            />
+          ),
         },
         {
           id: `indicator_label_${index}`,
