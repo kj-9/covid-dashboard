@@ -1,5 +1,5 @@
 import React from "react"
-import { useTable, TableOptions } from "react-table"
+import { useTable, useSortBy, TableOptions } from "react-table"
 
 export const Table = <T extends object>({
   columns,
@@ -11,7 +11,21 @@ export const Table = <T extends object>({
     headerGroups,
     rows,
     prepareRow,
-  } = useTable<T>({ columns, data })
+  } = useTable<T>(
+    {
+      columns,
+      data,
+      initialState: {
+        sortBy: [
+          {
+            id: "indicator_bar_0",
+            desc: true,
+          },
+        ],
+      },
+    },
+    useSortBy
+  )
 
   return (
     <table {...getTableProps()}>

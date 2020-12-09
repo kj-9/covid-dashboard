@@ -29,9 +29,8 @@ const Home: React.FC<Props> = ({ data }) => {
   )
 
   // set react-table data
-  const dashboardData: DashboardData[] = data.current.nodes
-    .sort((a, b) => d3Array.descending(a[selectedColumn], b[selectedColumn]))
-    .map(currentRecord => {
+  const dashboardData: DashboardData[] = data.current.nodes.map(
+    currentRecord => {
       return {
         entity: currentRecord.prefectureNameJP,
         phase: {
@@ -50,7 +49,8 @@ const Home: React.FC<Props> = ({ data }) => {
             })),
         })),
       }
-    })
+    }
+  )
 
   const maxRange = selectedColumnProps?.indicators.map(indicator =>
     d3Array.max(data.current.nodes.map(e => e[indicator.indicator]))
