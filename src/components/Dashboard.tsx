@@ -90,7 +90,6 @@ export const Dashboard = ({
       ),
       sortType: useMemo(
         () => (rowA, rowB) => {
-          console.log(rowA)
           if (rowA.values.indicator_bar_0 === rowB.values.indicator_bar_0) {
             return rowA.values.phaseStatusBar.current /
               rowA.values.phaseStatusBar.max ===
