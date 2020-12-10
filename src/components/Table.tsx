@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { useTable, useSortBy, TableOptions } from "react-table"
 
 export const Table = <T extends object>({
@@ -15,14 +15,14 @@ export const Table = <T extends object>({
     {
       columns,
       data,
-      initialState: {
+      initialState: useMemo(() => ({
         sortBy: [
           {
-            id: "indicator_bar_0",
+            id: "phaseStatusBar",
             desc: true,
           },
         ],
-      },
+      })),
     },
     useSortBy
   )
