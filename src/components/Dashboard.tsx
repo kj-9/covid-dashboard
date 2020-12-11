@@ -85,7 +85,7 @@ export const Dashboard = ({
           value={value.current}
           range={value.max}
           label={`現在のレベル:${value.current}\n最大レベル:${value.max}`}
-          modifier={getPhaseStatusModifier(value.current, value.max)}
+          modifiers={[getPhaseStatusModifier(value.current, value.max)]}
         />
       ),
       sortType: useMemo(
@@ -121,7 +121,7 @@ export const Dashboard = ({
             <CellProgressBar
               value={value}
               range={indicator.range}
-              modifier={indicator.barStyle}
+              modifiers={indicator.barStyle}
             />
           ),
         },
