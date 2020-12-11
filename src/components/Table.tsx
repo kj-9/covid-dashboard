@@ -18,6 +18,10 @@ export const Table = <T extends object>({
       initialState: useMemo(() => ({
         sortBy: [
           {
+            id: "indicator_bar_0",
+            desc: true,
+          },
+          {
             id: "phaseStatusBar",
             desc: true,
           },

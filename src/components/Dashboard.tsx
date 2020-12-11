@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react"
 import { CellSparkline } from "../components/Cell/CellSparkline"
 import { Table } from "./Table"
-import { Column } from "react-table"
 import { CellProgressBar } from "./Cell/CellProgressBar"
 import style from "./Dashboard.module.scss"
 
@@ -71,7 +70,7 @@ export const Dashboard = ({
     return () => clearTimeout(id)
   })
 
-  const columns: Column<DashboardData>[] = [
+  const columns = [
     {
       Header: "都道府県",
       accessor: "entity",
@@ -90,24 +89,17 @@ export const Dashboard = ({
       ),
       sortType: useMemo(
         () => (rowA, rowB) => {
-          if (rowA.values.indicator_bar_0 === rowB.values.indicator_bar_0) {
-            return rowA.values.phaseStatusBar.current /
-              rowA.values.phaseStatusBar.max ===
-              rowB.values.phaseStatusBar.current /
-                rowB.values.phaseStatusBar.max
-              ? 0
-              : rowA.values.phaseStatusBar.current /
-                  rowA.values.phaseStatusBar.max >
-                rowB.values.phaseStatusBar.current /
-                  rowB.values.phaseStatusBar.max
-              ? 1
-              : -1
-          }
-          return rowA.values.indicator_bar_0 > rowB.values.indicator_bar_0
-            ? 1
-            : -1
+          const valueA = rowA.values.phaseStatusBar
+          const ratioA = valueA.current / valueA.max
+
+          const valueB = rowB.values.phaseStatusBar
+          const ratioB = valueB.current / valueB.max
+
+          if (ratioA === ratioB) return 0
+
+          return ratioA > ratioB ? 1 : -1
         },
-        [schema, data]
+        []
       ),
     },
     ...schema.indicators.map((indicator, index) => ({
@@ -124,6 +116,7 @@ export const Dashboard = ({
               modifiers={indicator.barStyle}
             />
           ),
+          sortType: "basic",
         },
         {
           id: `indicator_label_${index}`,
