@@ -4,7 +4,7 @@ import style from "./CellProgressBar.module.scss"
 export interface CellProgressBarProps {
   value: number
   range: number
-  modifier?: string
+  modifiers?: (string | undefined)[]
   label?: string
 }
 
@@ -12,8 +12,15 @@ export const CellProgressBar: React.FC<CellProgressBarProps> = ({
   value,
   range,
   label,
-  modifier,
+  modifiers,
 }) => {
+  const className = [style.progress, style.isSmall]
+    .concat(modifiers?.map(e => style[e]))
+    .join(" ")
+
+  console.log(modifiers?.map(e => style[e]))
+  console.log(style[modifiers])
+
   return (
     <div
       css={{
@@ -24,11 +31,7 @@ export const CellProgressBar: React.FC<CellProgressBarProps> = ({
       }}
       data-tooltip={label}
     >
-      <progress
-        className={[style.progress, style.isSmall, style[modifier]].join(" ")}
-        value={value}
-        max={range}
-      ></progress>
+      <progress className={className} value={value} max={range}></progress>
     </div>
   )
 }
