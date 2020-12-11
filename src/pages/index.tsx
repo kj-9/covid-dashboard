@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { HomePageQuery } from "../../types/graphql-types"
 
@@ -26,7 +26,7 @@ const Home: React.FC<Props> = ({ data }) => {
 
   let selectedColumnProps = COLUMN_PROPS.find(
     element => element.column === selectedColumn
-  )
+  ) as ColumnProperty
 
   // set react-table data
   const dashboardData: DashboardData[] = data.current.nodes.map(

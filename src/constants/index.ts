@@ -1,3 +1,22 @@
+type indicator =
+  | "prefectureNameJP"
+  | "updateDate"
+  | "bedCurrentPhase"
+  | "bedFinalPhase"
+  | "bedUtilizationRate"
+  | "hosipitalized"
+  | "bedCapacity"
+  | "severeCaseBedCurrentPhase"
+  | "severeCaseBedFinalPhase"
+  | "severeCaseBedUtilizationRate"
+  | "severeCase"
+  | "severeCaseBedCapacity"
+  | "accomondationCurrentPhase"
+  | "accomondationFinalPhase"
+  | "accomondationRoomUtilizationRate"
+  | "accomondationRoomCapacity"
+  | "accomondated"
+
 export const COLUMN_SELECTION = {
   hospitalized: "hospitalized",
   severeCase: "severeCase",
@@ -8,10 +27,10 @@ export type ColumnProperty = {
   column: typeof COLUMN_SELECTION[keyof typeof COLUMN_SELECTION]
   columnJP: string
   columnDescription: string
-  currentPhase: string
-  finalPhase: string
+  currentPhase: indicator
+  finalPhase: indicator
   indicators: {
-    indicator: string
+    indicator: indicator
     headerLabel: string
     formatter: (value: any) => string
     range?: number
