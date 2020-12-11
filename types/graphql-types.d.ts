@@ -2605,18 +2605,3 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
-
-export type SeoQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type SeoQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
-      Pick<SiteSiteMetadata, 'titleTemplate' | 'siteUrl'>
-      & { defaultTitle: SiteSiteMetadata['title'], defaultDescription: SiteSiteMetadata['description'], defaultImage: SiteSiteMetadata['image'] }
-    )> }> };
-
-export type FragmentNameFragment = Pick<JapanPrefectureMedicalTreatmentJson, 'prefectureNameJP' | 'updateDate' | 'bedCurrentPhase' | 'bedFinalPhase' | 'bedUtilizationRate' | 'hosipitalized' | 'bedCapacity' | 'severeCaseBedCurrentPhase' | 'severeCaseBedFinalPhase' | 'severeCaseBedUtilizationRate' | 'severeCase' | 'severeCaseBedCapacity' | 'accomondationCurrentPhase' | 'accomondationFinalPhase' | 'accomondationRoomUtilizationRate' | 'accomondationRoomCapacity' | 'accomondated'>;
-
-export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type HomePageQuery = { pref: Pick<JapanPrefectureMedicalTreatmentJsonConnection, 'distinct'>, current: { nodes: Array<FragmentNameFragment> }, trend: { nodes: Array<FragmentNameFragment> } };

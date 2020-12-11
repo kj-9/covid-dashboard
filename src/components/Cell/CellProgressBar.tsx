@@ -18,9 +18,6 @@ export const CellProgressBar: React.FC<CellProgressBarProps> = ({
     .concat(modifiers?.map(e => style[e]))
     .join(" ")
 
-  console.log(modifiers?.map(e => style[e]))
-  console.log(style[modifiers])
-
   return (
     <div
       css={{
