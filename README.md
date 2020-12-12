@@ -1,7 +1,7 @@
-# コロナ感染対策ダッシュボード
+# 新型コロナ感染症 病床使用状況 ダッシュボード
 
-Japanese covid-19 situation dashboard
+Japanese covid-19 bed utilization situation dashboard
 
-新型コロナ感染症の日本国内での状況を可視化したダッシュボードです。
+日本国内の新型コロナ感染症の病床使用状況をまとめたダッシュボードです。都道府県ごとに可視化しています。
 
 https://covid-19-japan.netlify.app/
