@@ -73,7 +73,7 @@ export const Dashboard = ({
   })
 
   // Can not use useMemo inside useMemo. so declare here.
-  const sortType = useMemo(
+  const phaseSortType = useMemo(
     () => (rowA, rowB) => {
       const valueA = rowA.values.phaseStatusBar
       const ratioA = valueA.current / valueA.max
@@ -93,6 +93,7 @@ export const Dashboard = ({
       {
         Header: "都道府県",
         accessor: "entity",
+        disableSortBy: true,
       },
       {
         Header: "警戒レベル",
@@ -106,7 +107,8 @@ export const Dashboard = ({
             modifiers={[getPhaseStatusModifier(value.current, value.max)]}
           />
         ),
-        sortType,
+        sortType: phaseSortType,
+        sortDescFirst: true,
       },
       ...schema.indicators.map((indicator, index) => ({
         Header: indicator.headerLabel,
@@ -123,11 +125,13 @@ export const Dashboard = ({
               />
             ),
             sortType: "basic",
+            sortDescFirst: true,
           },
           {
             id: `indicator_label_${index}`,
             accessor: `indicators[${index}].indicator`,
             Cell: ({ value }) => indicator.formatter(value),
+            disableSortBy: true,
           },
           {
             id: `trend_sparkline_${index}`,
@@ -145,6 +149,7 @@ export const Dashboard = ({
                 scale={{ x: "time" }}
               />
             ),
+            disableSortBy: true,
           },
         ],
       })),
@@ -162,6 +167,7 @@ export const Dashboard = ({
     {
       columns,
       data: useMemo(() => data, [data]),
+      autoResetSortBy: false,
       initialState: useMemo(
         () => ({
           sortBy: [
@@ -196,7 +202,18 @@ export const Dashboard = ({
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render("Header")}
+                  {column.canSort && (
+                    <span>
+                      {column.isSorted
+                        ? column.isSortedDesc
+                          ? "↓"
+                          : "↑"
+                        : " -"}
+                    </span>
+                  )}
+                </th>
               ))}
             </tr>
           ))}
