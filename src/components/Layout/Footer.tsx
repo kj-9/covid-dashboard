@@ -5,7 +5,7 @@ export const Footer: React.FC<{}> = () => {
     <footer className="footer mt-2">
       <div className="content">
         本Webサイトはオープンソースです。ソースコードを
-        <a href="https://github.com/kj002/covid-dashboard" className="href">
+        <a href="https://github.com/kj-9/covid-dashboard" className="href">
           Github
         </a>
         で公開しています。

@@ -82,7 +82,7 @@ const Home: React.FC<Props> = ({ data }) => {
               療養状況等及び入院患者受入病床数等に関する調査
             </a>
             。
-            <a href="https://github.com/kj002/covid19-open-data/tree/master/data/covid19">
+            <a href="https://github.com/kj-9/covid19-open-data/tree/master/data/covid19">
               こちら
             </a>
             からcsv/json形式で利用可能です。
