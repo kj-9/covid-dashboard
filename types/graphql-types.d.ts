@@ -974,32 +974,32 @@ export type FileFieldsEnum =
   | 'childrenJapanPrefectureMedicalTreatmentJson___internal___mediaType'
   | 'childrenJapanPrefectureMedicalTreatmentJson___internal___owner'
   | 'childrenJapanPrefectureMedicalTreatmentJson___internal___type'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___url'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___fileName'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___updateDate'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___prefectureNameJP'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___testedPositive'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___hosipitalized'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___bedCurrentPhase'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___bedFinalPhase'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___bedCapacity'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___bedUtilizationRate'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___plannedBedCapacity'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCase'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCaseBedCurrentPhase'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCaseBedFinalPhase'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCaseBedCapacity'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCaseBedUtilizationRate'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___plannedSevereCaseBedCapacity'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___accomondated'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___accomondationCurrentPhase'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___accomondationFinalPhase'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___accomondationRoomCapacity'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___accomondationRoomUtilizationRate'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___plannedaccomondationRoomCapacity'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___atHome'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___atWelfareFacility'
-  | 'childrenJapanPrefectureMedicalTreatmentJson___unconfirmed';
+  | 'childrenJapanPrefectureMedicalTreatmentJson___prefCode'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___prefJP'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___prefEN'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___date'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___activeCases'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___hospitalizedCases'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___hospitalizedCasesPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___hospitalizedCasesMaxPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___hospitalizedCasesCap'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___hospitalizedCasesCapPlanned'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___hospitalizedCasesUTE'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCases'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCasesPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCasesMaxPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCasesCap'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCaseaCapPlanned'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___severeCasesUTE'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___atHotelCases'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___atHotelCasesPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___atHotelCasesMaxPhase'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___atHotelCasesCap'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___atHotelCasesCapPlanned'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___atHotelCasesUTE'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___atHomeCases'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___atWelfareFacilityCases'
+  | 'childrenJapanPrefectureMedicalTreatmentJson___unconfirmedCases';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -1107,36 +1107,36 @@ export type JapanPrefectureMedicalTreatmentJson = Node & {
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  url?: Maybe<Scalars['String']>;
-  fileName?: Maybe<Scalars['String']>;
-  updateDate?: Maybe<Scalars['Date']>;
-  prefectureNameJP?: Maybe<Scalars['String']>;
-  testedPositive?: Maybe<Scalars['Int']>;
-  hosipitalized?: Maybe<Scalars['Int']>;
-  bedCurrentPhase?: Maybe<Scalars['Int']>;
-  bedFinalPhase?: Maybe<Scalars['Int']>;
-  bedCapacity?: Maybe<Scalars['Int']>;
-  bedUtilizationRate?: Maybe<Scalars['Float']>;
-  plannedBedCapacity?: Maybe<Scalars['Int']>;
-  severeCase?: Maybe<Scalars['Int']>;
-  severeCaseBedCurrentPhase?: Maybe<Scalars['Int']>;
-  severeCaseBedFinalPhase?: Maybe<Scalars['Int']>;
-  severeCaseBedCapacity?: Maybe<Scalars['Int']>;
-  severeCaseBedUtilizationRate?: Maybe<Scalars['Float']>;
-  plannedSevereCaseBedCapacity?: Maybe<Scalars['Int']>;
-  accomondated?: Maybe<Scalars['Int']>;
-  accomondationCurrentPhase?: Maybe<Scalars['Int']>;
-  accomondationFinalPhase?: Maybe<Scalars['Int']>;
-  accomondationRoomCapacity?: Maybe<Scalars['Int']>;
-  accomondationRoomUtilizationRate?: Maybe<Scalars['Float']>;
-  plannedaccomondationRoomCapacity?: Maybe<Scalars['Int']>;
-  atHome?: Maybe<Scalars['Int']>;
-  atWelfareFacility?: Maybe<Scalars['Int']>;
-  unconfirmed?: Maybe<Scalars['Int']>;
+  prefCode?: Maybe<Scalars['String']>;
+  prefJP?: Maybe<Scalars['String']>;
+  prefEN?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  activeCases?: Maybe<Scalars['Int']>;
+  hospitalizedCases?: Maybe<Scalars['Int']>;
+  hospitalizedCasesPhase?: Maybe<Scalars['Int']>;
+  hospitalizedCasesMaxPhase?: Maybe<Scalars['Int']>;
+  hospitalizedCasesCap?: Maybe<Scalars['Int']>;
+  hospitalizedCasesCapPlanned?: Maybe<Scalars['Int']>;
+  hospitalizedCasesUTE?: Maybe<Scalars['Float']>;
+  severeCases?: Maybe<Scalars['Int']>;
+  severeCasesPhase?: Maybe<Scalars['Int']>;
+  severeCasesMaxPhase?: Maybe<Scalars['Int']>;
+  severeCasesCap?: Maybe<Scalars['Int']>;
+  severeCaseaCapPlanned?: Maybe<Scalars['Int']>;
+  severeCasesUTE?: Maybe<Scalars['Float']>;
+  atHotelCases?: Maybe<Scalars['Int']>;
+  atHotelCasesPhase?: Maybe<Scalars['Int']>;
+  atHotelCasesMaxPhase?: Maybe<Scalars['Int']>;
+  atHotelCasesCap?: Maybe<Scalars['Int']>;
+  atHotelCasesCapPlanned?: Maybe<Scalars['Int']>;
+  atHotelCasesUTE?: Maybe<Scalars['Float']>;
+  atHomeCases?: Maybe<Scalars['Int']>;
+  atWelfareFacilityCases?: Maybe<Scalars['Int']>;
+  unconfirmedCases?: Maybe<Scalars['Int']>;
 };
 
 
-export type JapanPrefectureMedicalTreatmentJsonUpdateDateArgs = {
+export type JapanPrefectureMedicalTreatmentJsonDateArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -1257,64 +1257,64 @@ export type JapanPrefectureMedicalTreatmentJsonFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
-  | 'url'
-  | 'fileName'
-  | 'updateDate'
-  | 'prefectureNameJP'
-  | 'testedPositive'
-  | 'hosipitalized'
-  | 'bedCurrentPhase'
-  | 'bedFinalPhase'
-  | 'bedCapacity'
-  | 'bedUtilizationRate'
-  | 'plannedBedCapacity'
-  | 'severeCase'
-  | 'severeCaseBedCurrentPhase'
-  | 'severeCaseBedFinalPhase'
-  | 'severeCaseBedCapacity'
-  | 'severeCaseBedUtilizationRate'
-  | 'plannedSevereCaseBedCapacity'
-  | 'accomondated'
-  | 'accomondationCurrentPhase'
-  | 'accomondationFinalPhase'
-  | 'accomondationRoomCapacity'
-  | 'accomondationRoomUtilizationRate'
-  | 'plannedaccomondationRoomCapacity'
-  | 'atHome'
-  | 'atWelfareFacility'
-  | 'unconfirmed';
+  | 'prefCode'
+  | 'prefJP'
+  | 'prefEN'
+  | 'date'
+  | 'activeCases'
+  | 'hospitalizedCases'
+  | 'hospitalizedCasesPhase'
+  | 'hospitalizedCasesMaxPhase'
+  | 'hospitalizedCasesCap'
+  | 'hospitalizedCasesCapPlanned'
+  | 'hospitalizedCasesUTE'
+  | 'severeCases'
+  | 'severeCasesPhase'
+  | 'severeCasesMaxPhase'
+  | 'severeCasesCap'
+  | 'severeCaseaCapPlanned'
+  | 'severeCasesUTE'
+  | 'atHotelCases'
+  | 'atHotelCasesPhase'
+  | 'atHotelCasesMaxPhase'
+  | 'atHotelCasesCap'
+  | 'atHotelCasesCapPlanned'
+  | 'atHotelCasesUTE'
+  | 'atHomeCases'
+  | 'atWelfareFacilityCases'
+  | 'unconfirmedCases';
 
 export type JapanPrefectureMedicalTreatmentJsonFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  url?: Maybe<StringQueryOperatorInput>;
-  fileName?: Maybe<StringQueryOperatorInput>;
-  updateDate?: Maybe<DateQueryOperatorInput>;
-  prefectureNameJP?: Maybe<StringQueryOperatorInput>;
-  testedPositive?: Maybe<IntQueryOperatorInput>;
-  hosipitalized?: Maybe<IntQueryOperatorInput>;
-  bedCurrentPhase?: Maybe<IntQueryOperatorInput>;
-  bedFinalPhase?: Maybe<IntQueryOperatorInput>;
-  bedCapacity?: Maybe<IntQueryOperatorInput>;
-  bedUtilizationRate?: Maybe<FloatQueryOperatorInput>;
-  plannedBedCapacity?: Maybe<IntQueryOperatorInput>;
-  severeCase?: Maybe<IntQueryOperatorInput>;
-  severeCaseBedCurrentPhase?: Maybe<IntQueryOperatorInput>;
-  severeCaseBedFinalPhase?: Maybe<IntQueryOperatorInput>;
-  severeCaseBedCapacity?: Maybe<IntQueryOperatorInput>;
-  severeCaseBedUtilizationRate?: Maybe<FloatQueryOperatorInput>;
-  plannedSevereCaseBedCapacity?: Maybe<IntQueryOperatorInput>;
-  accomondated?: Maybe<IntQueryOperatorInput>;
-  accomondationCurrentPhase?: Maybe<IntQueryOperatorInput>;
-  accomondationFinalPhase?: Maybe<IntQueryOperatorInput>;
-  accomondationRoomCapacity?: Maybe<IntQueryOperatorInput>;
-  accomondationRoomUtilizationRate?: Maybe<FloatQueryOperatorInput>;
-  plannedaccomondationRoomCapacity?: Maybe<IntQueryOperatorInput>;
-  atHome?: Maybe<IntQueryOperatorInput>;
-  atWelfareFacility?: Maybe<IntQueryOperatorInput>;
-  unconfirmed?: Maybe<IntQueryOperatorInput>;
+  prefCode?: Maybe<StringQueryOperatorInput>;
+  prefJP?: Maybe<StringQueryOperatorInput>;
+  prefEN?: Maybe<StringQueryOperatorInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  activeCases?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCases?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCasesPhase?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCasesMaxPhase?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCasesCap?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCasesCapPlanned?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCasesUTE?: Maybe<FloatQueryOperatorInput>;
+  severeCases?: Maybe<IntQueryOperatorInput>;
+  severeCasesPhase?: Maybe<IntQueryOperatorInput>;
+  severeCasesMaxPhase?: Maybe<IntQueryOperatorInput>;
+  severeCasesCap?: Maybe<IntQueryOperatorInput>;
+  severeCaseaCapPlanned?: Maybe<IntQueryOperatorInput>;
+  severeCasesUTE?: Maybe<FloatQueryOperatorInput>;
+  atHotelCases?: Maybe<IntQueryOperatorInput>;
+  atHotelCasesPhase?: Maybe<IntQueryOperatorInput>;
+  atHotelCasesMaxPhase?: Maybe<IntQueryOperatorInput>;
+  atHotelCasesCap?: Maybe<IntQueryOperatorInput>;
+  atHotelCasesCapPlanned?: Maybe<IntQueryOperatorInput>;
+  atHotelCasesUTE?: Maybe<FloatQueryOperatorInput>;
+  atHomeCases?: Maybe<IntQueryOperatorInput>;
+  atWelfareFacilityCases?: Maybe<IntQueryOperatorInput>;
+  unconfirmedCases?: Maybe<IntQueryOperatorInput>;
 };
 
 export type JapanPrefectureMedicalTreatmentJsonFilterListInput = {
@@ -1538,32 +1538,32 @@ export type QueryJapanPrefectureMedicalTreatmentJsonArgs = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  url?: Maybe<StringQueryOperatorInput>;
-  fileName?: Maybe<StringQueryOperatorInput>;
-  updateDate?: Maybe<DateQueryOperatorInput>;
-  prefectureNameJP?: Maybe<StringQueryOperatorInput>;
-  testedPositive?: Maybe<IntQueryOperatorInput>;
-  hosipitalized?: Maybe<IntQueryOperatorInput>;
-  bedCurrentPhase?: Maybe<IntQueryOperatorInput>;
-  bedFinalPhase?: Maybe<IntQueryOperatorInput>;
-  bedCapacity?: Maybe<IntQueryOperatorInput>;
-  bedUtilizationRate?: Maybe<FloatQueryOperatorInput>;
-  plannedBedCapacity?: Maybe<IntQueryOperatorInput>;
-  severeCase?: Maybe<IntQueryOperatorInput>;
-  severeCaseBedCurrentPhase?: Maybe<IntQueryOperatorInput>;
-  severeCaseBedFinalPhase?: Maybe<IntQueryOperatorInput>;
-  severeCaseBedCapacity?: Maybe<IntQueryOperatorInput>;
-  severeCaseBedUtilizationRate?: Maybe<FloatQueryOperatorInput>;
-  plannedSevereCaseBedCapacity?: Maybe<IntQueryOperatorInput>;
-  accomondated?: Maybe<IntQueryOperatorInput>;
-  accomondationCurrentPhase?: Maybe<IntQueryOperatorInput>;
-  accomondationFinalPhase?: Maybe<IntQueryOperatorInput>;
-  accomondationRoomCapacity?: Maybe<IntQueryOperatorInput>;
-  accomondationRoomUtilizationRate?: Maybe<FloatQueryOperatorInput>;
-  plannedaccomondationRoomCapacity?: Maybe<IntQueryOperatorInput>;
-  atHome?: Maybe<IntQueryOperatorInput>;
-  atWelfareFacility?: Maybe<IntQueryOperatorInput>;
-  unconfirmed?: Maybe<IntQueryOperatorInput>;
+  prefCode?: Maybe<StringQueryOperatorInput>;
+  prefJP?: Maybe<StringQueryOperatorInput>;
+  prefEN?: Maybe<StringQueryOperatorInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  activeCases?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCases?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCasesPhase?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCasesMaxPhase?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCasesCap?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCasesCapPlanned?: Maybe<IntQueryOperatorInput>;
+  hospitalizedCasesUTE?: Maybe<FloatQueryOperatorInput>;
+  severeCases?: Maybe<IntQueryOperatorInput>;
+  severeCasesPhase?: Maybe<IntQueryOperatorInput>;
+  severeCasesMaxPhase?: Maybe<IntQueryOperatorInput>;
+  severeCasesCap?: Maybe<IntQueryOperatorInput>;
+  severeCaseaCapPlanned?: Maybe<IntQueryOperatorInput>;
+  severeCasesUTE?: Maybe<FloatQueryOperatorInput>;
+  atHotelCases?: Maybe<IntQueryOperatorInput>;
+  atHotelCasesPhase?: Maybe<IntQueryOperatorInput>;
+  atHotelCasesMaxPhase?: Maybe<IntQueryOperatorInput>;
+  atHotelCasesCap?: Maybe<IntQueryOperatorInput>;
+  atHotelCasesCapPlanned?: Maybe<IntQueryOperatorInput>;
+  atHotelCasesUTE?: Maybe<FloatQueryOperatorInput>;
+  atHomeCases?: Maybe<IntQueryOperatorInput>;
+  atWelfareFacilityCases?: Maybe<IntQueryOperatorInput>;
+  unconfirmedCases?: Maybe<IntQueryOperatorInput>;
 };
 
 
@@ -2605,3 +2605,18 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+
+export type SeoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SeoQuery = { site?: Maybe<{ siteMetadata?: Maybe<(
+      Pick<SiteSiteMetadata, 'titleTemplate' | 'siteUrl' | 'twitterUsername'>
+      & { defaultTitle: SiteSiteMetadata['title'], defaultDescription: SiteSiteMetadata['description'], defaultImage: SiteSiteMetadata['image'] }
+    )> }> };
+
+export type FragmentNameFragment = Pick<JapanPrefectureMedicalTreatmentJson, 'prefJP' | 'date' | 'hospitalizedCases' | 'hospitalizedCasesPhase' | 'hospitalizedCasesMaxPhase' | 'hospitalizedCasesCap' | 'hospitalizedCasesUTE' | 'severeCases' | 'severeCasesPhase' | 'severeCasesMaxPhase' | 'severeCasesCap' | 'severeCasesUTE' | 'atHotelCases' | 'atHotelCasesPhase' | 'atHotelCasesMaxPhase' | 'atHotelCasesCap' | 'atHotelCasesUTE'>;
+
+export type HomePageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HomePageQuery = { pref: Pick<JapanPrefectureMedicalTreatmentJsonConnection, 'distinct'>, current: { nodes: Array<FragmentNameFragment> }, trend: { nodes: Array<FragmentNameFragment> } };

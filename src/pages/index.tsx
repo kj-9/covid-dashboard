@@ -20,9 +20,9 @@ type Props = {
 const Home: React.FC<Props> = ({ data }) => {
   const [selectedColumn, setSelectedColumn] = useState<
     ColumnProperty["column"]
-  >(COLUMN_SELECTION.hospitalized)
+  >(COLUMN_SELECTION.hospitalizedCases)
 
-  const latestDate = new Date(data.current.nodes[0].updateDate)
+  const latestDate = new Date(data.current.nodes[0].date)
 
   let selectedColumnProps = COLUMN_PROPS.find(
     element => element.column === selectedColumn
@@ -32,7 +32,7 @@ const Home: React.FC<Props> = ({ data }) => {
   const dashboardData: DashboardData[] = data.current.nodes.map(
     currentRecord => {
       return {
-        entity: currentRecord.prefectureNameJP,
+        entity: currentRecord.prefJP,
         phase: {
           current: currentRecord[selectedColumnProps.currentPhase],
           max: currentRecord[selectedColumnProps.finalPhase],
@@ -40,11 +40,9 @@ const Home: React.FC<Props> = ({ data }) => {
         indicators: selectedColumnProps.indicators.map(prop => ({
           indicator: currentRecord[prop.indicator],
           trend: data.trend.nodes
-            .filter(
-              node => node.prefectureNameJP === currentRecord.prefectureNameJP
-            )
+            .filter(node => node.prefJP === currentRecord.prefJP)
             .map(trendRecord => ({
-              date: new Date(trendRecord.updateDate),
+              date: new Date(trendRecord.date),
               value: trendRecord[prop.indicator],
             })),
         })),
@@ -144,32 +142,32 @@ export default Home
 
 export const pageQuery = graphql`
   fragment fragmentName on JapanPrefectureMedicalTreatmentJson {
-    prefectureNameJP
-    updateDate
-    bedCurrentPhase
-    bedFinalPhase
-    bedUtilizationRate
-    hosipitalized
-    bedCapacity
-    severeCaseBedCurrentPhase
-    severeCaseBedFinalPhase
-    severeCaseBedUtilizationRate
-    severeCase
-    severeCaseBedCapacity
-    accomondationCurrentPhase
-    accomondationFinalPhase
-    accomondationRoomUtilizationRate
-    accomondationRoomCapacity
-    accomondated
+    prefJP
+    date
+    hospitalizedCases
+    hospitalizedCasesPhase
+    hospitalizedCasesMaxPhase
+    hospitalizedCasesCap
+    hospitalizedCasesUTE
+    severeCases
+    severeCasesPhase
+    severeCasesMaxPhase
+    severeCasesCap
+    severeCasesUTE
+    atHotelCases
+    atHotelCasesPhase
+    atHotelCasesMaxPhase
+    atHotelCasesCap
+    atHotelCasesUTE
   }
 
   query HomePage {
     pref: allJapanPrefectureMedicalTreatmentJson {
-      distinct(field: prefectureNameJP)
+      distinct(field: prefJP)
     }
     current: allJapanPrefectureMedicalTreatmentJson(
       limit: 47
-      sort: { fields: [updateDate], order: DESC }
+      sort: { fields: [date], order: DESC }
     ) {
       nodes {
         ...fragmentName
@@ -177,7 +175,7 @@ export const pageQuery = graphql`
     }
     trend: allJapanPrefectureMedicalTreatmentJson(
       limit: 376
-      sort: { fields: updateDate, order: DESC }
+      sort: { fields: date, order: DESC }
     ) {
       nodes {
         ...fragmentName

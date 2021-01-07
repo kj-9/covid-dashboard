@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Fetch data
-        run: curl https://raw.githubusercontent.com/kj-9/covid19-open-data/master/data/covid19/japan_prefecture_medical_treatment.json -o data/japan_prefecture_medical_treatment.json
+        run: curl https://raw.githubusercontent.com/kj-9/covid19jp/master/data-raw/dist/pref_weekly.json -o data/japan_prefecture_medical_treatment.json
 
       - name: Node.js:Setup
         uses: actions/setup-node@v1
